@@ -1,6 +1,7 @@
 <h1>Your Maps</h1>
 
 <% @folders.each do |folder| %>
+  
   <h3><%= folder.name %></h3>
   <% folder.tabs.each do |tab| %>
   <p><%= tab.url %></p>
