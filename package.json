@@ -1,5 +1,8 @@
 {
   "name": "singletab",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
+  }
 }
