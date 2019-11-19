@@ -9,13 +9,9 @@
    "default_icon": "icon.png",
    "default_popup": "popup.html"
   },
+  "permissions": [
+   "tabs"
    "background": { // On rajoute le paramètre "background"
      "scripts": ["javascript/background.js"]
      },
-  "permissions": [
-   "activeTab",
-   "http://*/*",
-    "https://*/*",
-    "tabs" // Tabs est la permission pour créer des nouveaux onglet
-   ]
 }
