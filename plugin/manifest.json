@@ -11,5 +11,7 @@
   },
   "permissions": [
    "tabs"
-   ]
+   "background": { // On rajoute le paramètre "background"
+     "scripts": ["javascript/background.js"]
+     },
 }
