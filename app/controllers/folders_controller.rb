@@ -6,8 +6,25 @@ class FoldersController < ApplicationController
     @folders = Folder.all
   end
 
+
+  def new
+    @folders = Folder.new
+  end
+
+  def create
+    @folders = Folder.new
+  end
+
+  # def show
+
+  # end
+
+  # def edit
+  # end
+
   def show
   end
+
 
   private
 
