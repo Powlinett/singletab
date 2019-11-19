@@ -1,0 +1,13 @@
+<h2><%= @folder.name %></h2>
+<% if @folder.folders != nil %> <!-- si le folder a un ou des enfants -->
+  <% @folder.folders.each do |folder| %>
+    <h3><%= folder.name %></h3> <!-- afficher le nom de chaque folder -->
+    <% folder.tabs.each do |tab| %>
+      <p><%= tab.url %></p> <!-- dans chaque folder, afficher chacune des tabs contenues -->
+    <% end %>
+  <% end %>
+<% end %>
+<br>
+<% @folder.tabs.each do |tab| %> <!-- si le folder parent (=la map) a des tabs sans folders enfants attitrés, ils sont affichés aussi -->
+  <p><%= tab.url %></p>
+<% end %>
