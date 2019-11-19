@@ -1,7 +1,7 @@
 <h1>Your Maps</h1>
 
 <% @folders.each do |folder| %>
-  <% if folder.parent == nil %> <!-- #selectionne uniquement les folders parents(=une map) -->
+  <% if folder.parent == nil %> <!-- #selectionne uniquement les folders qui n'ont pas de parent (=une map) -->
   <h3><%= folder.name %></h3>
   <% end %>
 <% end %>
