@@ -1,5 +1,19 @@
+let tabUrl = new Object();
+let tabUrlFin = []
+
+const bob = () => {
+  chrome.tabs.query({currentWindow: true}, function(tabs) {
+    tabUrl = tabs;
+    let fileContent = JSON.stringify(tabUrl);
+    console.log(fileContent);
+    return fileContent;
+});
+}
+
 document.addEventListener('DOMContentLoaded', () => { //pour attendre creation de pages
- var button = document.getElementById('checkPage');
+ let button = document.getElementById('checkPage');
+ let test = bob();
+ console.log(test);
  button.addEventListener('click', (event) => {
     //window.open('onglets.html','_blank')
      let mapForm = document.createElement("form");
@@ -11,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => { //pour attendre creation d
       let mapInput = document.createElement("input");
       mapInput.type = "text";
       mapInput.name = "variable";
-      mapInput.value = "fileContent";
+      mapInput.value = test;
 
       // Add the input to the form
       mapForm.appendChild(mapInput);
