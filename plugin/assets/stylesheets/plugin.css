@@ -1,0 +1,13 @@
+.plugin-container {
+	border: 1px solid red;
+}
+
+h1 {
+	color: red;
+}
+
+button {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%
+}
