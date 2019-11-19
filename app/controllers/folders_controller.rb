@@ -6,7 +6,6 @@ class FoldersController < ApplicationController
     @folders = Folder.all
   end
 
-
   def new
     @folders = Folder.new
   end
