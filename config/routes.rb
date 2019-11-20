@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/data', to: 'pages#data'
 
   get 'folders/search', to: 'folders#search', as: 'search'
-
   resources :folders, only: [:index, :show]
   resources :tabs, only: [:edit, :create]
 
