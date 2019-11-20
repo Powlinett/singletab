@@ -17,14 +17,23 @@
 
 <h3> Mes recherches </h3>
 <% @folders.each do |folder| %>
-  <h3><%= folder.name %></h3>
+  <h3>name : <%= folder.name %> id <%= folder.id %></h3>
   <% folder.tabs.each do |tab| %>
-    <h6><strong>Name </strong><%= tab.name %></h6>
-    <p><strong>Titre </strong>: <%= tab.title %> </p>
-    <a href='<%= tab.url %>'>Open</a>
-    <% if folder.parent == nil %> <!-- #selectionne uniquement les folders qui n'ont pas de parent (=une map) -->
-      <h3><%= folder.name %></h3>
-    <% end %>
+    <div class="notification">
+      <img src='<%= tab.icon %>' class="avatar-large" />
+      <div class="notification-content">
+        <p><small><%= tab.name %></small></p>
+        <p><%= tab.title[0..50] %></p>
+        <p><%= folder.name %></p>
+      </div>
+      <div class="notification-actions">
+        <!-- <a href="#">Edit <i class="fas fa-pencil-alt"></i></a> -->
+        <%#= link_to '', edit_tab_path(tab), class: "fas fa-pencil-alt" %>
+        <!-- <a href="#">Delete <i class="far fa-trash-alt"></i></a> -->
+        <%= link_to '', tab, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
+      </div>
+    </div>
+
   <% end %>
 <% end %>
 

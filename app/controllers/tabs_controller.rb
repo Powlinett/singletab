@@ -37,8 +37,11 @@ class TabsController < ApplicationController
       @tab.save!
     end
       redirect_to folders_path
-
     end
+  end
+
+  def destroy
+    redirect_to folders_path
   end
 
 private
