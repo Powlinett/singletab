@@ -1,6 +1,8 @@
 class TabsController < ApplicationController
-
+  include PgSearch::Model
   skip_before_action :verify_authenticity_token
+  require 'time'
+  require 'domainatrix'
 
   def index
     @tabs = Tab.all
@@ -13,15 +15,18 @@ class TabsController < ApplicationController
   def create
     @folder = Folder.new(
       user_id: current_user.id,
-      name: "MA recherche timesteps",
+      name: "MA recherche #{Time.now}",
       weight: 1
       )
 
     if @folder.save!
       arrayparams = JSON.parse(params[:variable])
       arrayparams.each do |tab|
+
+      url = Domainatrix.parse(tab["url"])
+
       @tab = Tab.new(
-      name: "first",  #nom de momaine a mettre
+      name: url.domain,
       url: tab["url"],
       title: no_accent(tab["title"]),
       icon: tab["icon"],

@@ -14,6 +14,11 @@ class FoldersController < ApplicationController
     @folders = Folder.new
   end
 
+
+  def search
+    @folders = Folder.search_all(params[:query])
+  end
+
   # def show
 
   # end
