@@ -1,4 +1,4 @@
-<h1>Your Maps</h1>
+<h1>Ma recherche</h1>
 
 <%= simple_form_for :search, action: search_path, method: :get do |f| %>
   <div class="search-form-control form-group">
@@ -23,9 +23,7 @@
   <% folder.tabs.each do |tab| %>
   <p><%= tab.title %> <strong>url</strong> :<%= tab.url %></p>
 
-  <% if folder.parent == nil %> <!-- #selectionne uniquement les folders qui n'ont pas de parent (=une map) -->
-  <h3><%= folder.name %></h3>
-  <% end %>
+
 <% end %>
 <% end %>
 
