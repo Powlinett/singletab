@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/visualisation', to: 'pages#visualisation'
   get '/data', to: 'pages#data'
 
-  resources :folders, only: [:index, :show]
+  resources :folders, only: [:index, :show, :search]
   resources :tabs, only: [:edit, :create]
 
   root to: "folders#index"
