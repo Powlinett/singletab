@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => { //pour attendre creation d
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
-      mapForm.action = "http://localhost:3000/tabs";
+      mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";
 
       // Create an input
       let mapInput = document.createElement("input");

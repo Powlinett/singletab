@@ -1,6 +1,5 @@
 body {
 	background-color: #042f4b;
-	width: 160px;
 	border-radius: 4px !important;
 	margin: 0px !important;
 	color: white;
@@ -9,6 +8,7 @@ body {
 .plugin-container {
 	text-align: center;
 	padding-bottom: 16px;
+	width: 240px;
 }
 
 h1 {
@@ -25,4 +25,17 @@ button {
 	font-weight : bold;
 	border: 2px solid #f2527d;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.form {
+	margin: 8px;
+}
+
+#email, #password {
+	margin: 8px 0;
+}
+
+.submit {
+    padding: 4px 0;
+    width: 182px;
 }
