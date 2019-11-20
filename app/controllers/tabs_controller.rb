@@ -13,26 +13,29 @@ class TabsController < ApplicationController
   def create
     @folder = Folder.new(
       user_id: current_user.id,
-      name: `Search now`,
+      name: "JEAN MICHEL",
       weight: 1
       )
     if @folder.save!
-
+      bob = JSON.parse(params[:variable])
+      bob.each do |tab|
       @tab = Tab.new(
       name: "first",
-      url: "www.roro.com",
-      title: "tab.title",
-      icon: "tab.favIconUrl",
+      url: tab["url"],
+      title: tab["title"],
+      icon: tab["icon"],
       description: "",
       comment: "",
       folder_id: @folder.id
       )
-
-      if @tab.save!
-        redirect_to folders_path
-      else
-        redirect_to tabs_path
-      end
+      @tab.save!
+    end
+      redirect_to folders_path
+      # if @tab.save!
+      #   redirect_to folders_path
+      # else
+      #   redirect_to tabs_path
+      # end
     end
   end
 end
