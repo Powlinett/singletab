@@ -9,10 +9,8 @@
   </div>
 <% end %>
 
-<h3> Scraping des onglet </h3>
   <div class="container">
-    <h1>Mes onglets</h1>
-    <h3 id="listeonglets" >Ma liste d'onglet visité</h3>
+    <h1>Les onglets de <%= current_user.username %></h1>
   </div>
 
 <h3> Mes recherches </h3>
@@ -27,9 +25,7 @@
         <p><%= folder.name %></p>
       </div>
       <div class="notification-actions">
-        <!-- <a href="#">Edit <i class="fas fa-pencil-alt"></i></a> -->
-        <%#= link_to '', edit_tab_path(tab), class: "fas fa-pencil-alt" %>
-        <!-- <a href="#">Delete <i class="far fa-trash-alt"></i></a> -->
+        <%= link_to '', tab_path(tab), class: "fas fa-search" %>
         <%= link_to '', tab, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
       </div>
     </div>

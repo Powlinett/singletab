@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :folders, only: [:index, :show, :destroy]
-  resources :tabs, only: [:edit, :create, :destroy]
+  resources :tabs, only: [:edit, :create, :show, :destroy]
 
 
 

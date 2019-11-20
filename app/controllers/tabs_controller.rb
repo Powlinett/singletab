@@ -40,6 +40,10 @@ class TabsController < ApplicationController
     end
   end
 
+  def show
+    @tab = Tab.find(params[:id])
+  end
+
   def destroy
     redirect_to folders_path
   end
