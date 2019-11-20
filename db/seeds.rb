@@ -7,6 +7,11 @@ user = User.create!(
 	email: 'mehdi@gmail.com',
 	password: 'azerty'
 	)
+user = User.create!(
+  username: 'jojo',
+  email: 'jojo@gmail.com',
+  password: '123456'
+  )
 
 main_folder = Folder.create!(
 	name: 'importer des produits de chine',

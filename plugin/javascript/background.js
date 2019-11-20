@@ -1,4 +1,4 @@
-function bob() {
+function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
@@ -14,7 +14,7 @@ function bob() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  let b = bob();
+  let tabs = arraytabs();
 //pour attendre creation de pages
  var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
@@ -23,12 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
-      mapForm.action = "http://localhost:3000/tabs";
+      mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";
+   
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
       mapInput.name = "variable";
-      mapInput.value = JSON.stringify(b);
+      mapInput.value = JSON.stringify(tabs);
 
       // Add the input to the form
       mapForm.appendChild(mapInput);
