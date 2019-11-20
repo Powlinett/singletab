@@ -3,6 +3,8 @@ body {
 	border-radius: 4px !important;
 	margin: 0px !important;
 	color: white;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .plugin-container {
@@ -13,6 +15,15 @@ body {
 
 h1 {
 	font-family: 'Calistoga', cursive;
+}
+
+.redirect {
+	text-decoration: none;
+	color: white;
+}
+
+.redirect:clicked {
+	color: white;
 }
 
 button {
@@ -31,11 +42,21 @@ button {
 	margin: 8px;
 }
 
-#email, #password {
+#authentication {
 	margin: 8px 0;
 }
 
 .submit {
     padding: 4px 0;
-    width: 182px;
+    width: 181px;
+}
+
+.ask-key a {
+	text-decoration: none;
+	color: white;
+    font-weight: normal;
+}
+
+.ask-key a:hover {
+	text-decoration: underline;
 }
