@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
-      mapForm.action = "http://localhost:3000//tabs";
+      mapForm.action = "http://localhost:3000/tabs";
 
       // Create an input
       let mapInput = document.createElement("input");

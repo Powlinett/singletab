@@ -1,8 +1,5 @@
 class TabsController < ApplicationController
-  include PgSearch::Model
   skip_before_action :verify_authenticity_token
-  require 'time'
-  require 'domainatrix'
 
   def index
     @tabs = Tab.all
