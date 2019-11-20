@@ -1,4 +1,4 @@
-function bob() {
+function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
@@ -10,7 +10,7 @@ function bob() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  let b = bob();
+  let tabs = arraytabs();
 //pour attendre creation de pages
  var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let mapInput = document.createElement("input");
       mapInput.type = "text";
       mapInput.name = "variable";
-      mapInput.value = JSON.stringify(b);
+      mapInput.value = JSON.stringify(tabs);
 
       // Add the input to the form
       mapForm.appendChild(mapInput);
