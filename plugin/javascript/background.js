@@ -1,31 +1,31 @@
-let tabUrl = new Object();
-let tabUrlFin = []
-
-const bob = () => {
+function arraytabs() {
+  let tabUrl = new Object();
+  let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
-    tabUrl = tabs;
-    let fileContent = JSON.stringify(tabUrl);
-    console.log(fileContent);
-    return fileContent;
-});
+        tabs.forEach(function(tab) {
+        tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url });
+    });
+    });
+  return tabUrlFin;
 }
 
-document.addEventListener('DOMContentLoaded', () => { //pour attendre creation de pages
- let button = document.getElementById('checkPage');
- let test = bob();
- console.log(test);
+document.addEventListener('DOMContentLoaded', () => {
+  let tabs = arraytabs();
+//pour attendre creation de pages
+ var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
+
     //window.open('onglets.html','_blank')
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
       mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";
-
+   
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
       mapInput.name = "variable";
-      mapInput.value = test;
+      mapInput.value = JSON.stringify(tabs);
 
       // Add the input to the form
       mapForm.appendChild(mapInput);

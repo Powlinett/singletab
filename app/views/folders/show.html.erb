@@ -4,10 +4,13 @@
     <h3><%= folder.name %></h3> <!-- afficher le nom de chaque folder -->
     <% folder.tabs.each do |tab| %>
       <p><%= tab.url %></p> <!-- dans chaque folder, afficher chacune des tabs contenues -->
+
     <% end %>
   <% end %>
 <% end %>
 <br>
 <% @folder.tabs.each do |tab| %> <!-- si le folder parent (=la map) a des tabs sans folders enfants attitrés, ils sont affichés aussi -->
   <p><%= tab.url %></p>
+  <p><%= tab.title %></p>
+  <img src="<%= tab.icon %>" alt="">
 <% end %>
