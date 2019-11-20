@@ -17,15 +17,14 @@
 
 <h3> Mes recherches </h3>
 <% @folders.each do |folder| %>
-
-
   <h3><%= folder.name %></h3>
   <% folder.tabs.each do |tab| %>
-  <p><%= tab.title %> <strong>url</strong> :<%= tab.url %></p>
-
-  <% if folder.parent == nil %> <!-- #selectionne uniquement les folders qui n'ont pas de parent (=une map) -->
-  <h3><%= folder.name %></h3>
+    <h6><strong>Name </strong><%= tab.name %></h6>
+    <p><strong>Titre </strong>: <%= tab.title %> </p>
+    <a href='<%= tab.url %>'>Open</a>
+    <% if folder.parent == nil %> <!-- #selectionne uniquement les folders qui n'ont pas de parent (=une map) -->
+      <h3><%= folder.name %></h3>
+    <% end %>
   <% end %>
-<% end %>
 <% end %>
 

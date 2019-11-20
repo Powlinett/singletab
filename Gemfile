@@ -20,6 +20,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'pg_search', '~> 2.3.0'
+gem 'domainatrix'   #pour extraire nom de domaine
 
 group :development, :test do
   gem 'pry-rails'

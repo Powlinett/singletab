@@ -2,7 +2,6 @@ class FoldersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_folder, only: :show
 
-
   def index
     @folders = Folder.all
   end
