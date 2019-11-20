@@ -15,5 +15,11 @@ module Singletab
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.generators do |generate|
+      generate.assets false
+      generate.helper false
+      generate.test_framework  :test_unit, fixture: false
+    end
+    
   end
 end
