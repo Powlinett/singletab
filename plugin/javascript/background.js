@@ -3,9 +3,13 @@ function arraytabs() {
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
         tabs.forEach(function(tab) {
-        tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url });
+    chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
+      let body = response;
+              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body });
     });
     });
+    });
+  console.log(tabUrlFin);
   return tabUrlFin;
 }
 

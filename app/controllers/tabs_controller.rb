@@ -30,7 +30,7 @@ class TabsController < ApplicationController
       url: tab["url"],
       title: no_accent(tab["title"]),
       icon: tab["icon"],
-      description: "",
+      description: tab["body"],
       comment: "",
       folder_id: @folder.id #voir ajout couleur
       )

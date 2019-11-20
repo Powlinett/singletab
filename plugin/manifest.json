@@ -12,7 +12,15 @@
    "background": { // On rajoute le paramètre "background"
      "scripts": ["javascript/background.js"]
      },
+
+       "content_scripts": [
+   {
+     "matches": ["<all_urls>"],
+     "js": ["javascript/contentscript.js"]
+   }
+  ],
        "permissions": [
-   "tabs"
+   "tabs",
+   "*://*/*"
  ]
 }

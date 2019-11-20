@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   get 'folders/search', to: 'folders#search', as: 'search'
 
+
   resources :folders, only: [:index, :show, :destroy]
   resources :tabs, only: [:edit, :create, :destroy]
+
 
 
   root to: "folders#index"
