@@ -10,10 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <% if current_user != nil %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <%= yield %>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    </div>
 
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <%= javascript_pack_tag 'application' %>
