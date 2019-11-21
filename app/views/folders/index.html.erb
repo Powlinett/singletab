@@ -17,7 +17,11 @@
 
 <h3> Mes recherches </h3>
 <% @folders.each do |folder| %>
-  <h3>name : <%= folder.name %> id <%= folder.id %></h3>
+  <h3>name : <%= folder.name %> id <%= folder.id %>
+    <div class="notification-actions">
+        <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
+      </div>
+  </h3>
   <% folder.tabs.each do |tab| %>
     <div class="notification">
       <img src='<%= tab.icon %>' class="avatar-large" />
