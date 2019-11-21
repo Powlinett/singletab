@@ -13,11 +13,11 @@ function arraytabs() {
   return tabUrlFin;
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   let tabs = arraytabs();
-// //pour attendre creation de pages
-//  var button = document.getElementById('checkPage');
-//  button.addEventListener('click', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
+  let tabs = arraytabs();
+//pour attendre creation de pages
+ var button = document.getElementById('checkPage');
+ button.addEventListener('click', (event) => {
 
     //window.open('onglets.html','_blank')
      let mapForm = document.createElement("form");
@@ -31,13 +31,13 @@ function arraytabs() {
       mapInput.name = "variable";
       mapInput.value = JSON.stringify(tabs);
 
-//       // Add the input to the form
-//       mapForm.appendChild(mapInput);
+      // Add the input to the form
+      mapForm.appendChild(mapInput);
 
-//       // Add the form to dom
-//       document.body.appendChild(mapForm);
+      // Add the form to dom
+      document.body.appendChild(mapForm);
 
-//       // Just submit
-//       mapForm.submit();
-//      });
-//    });
+      // Just submit
+      mapForm.submit();
+     });
+   });
