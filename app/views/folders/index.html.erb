@@ -1,5 +1,6 @@
 <h1>Your Maps</h1>
-
+<%= link_to 'data', data_path  %>
+<%= link_to 'visualisation', visualisation_path  %>
 
 <%= simple_form_for :search, url: search_path, method: :get do |f| %>
   <div class="search-form-control form-group">
