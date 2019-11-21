@@ -10,8 +10,8 @@ form.addEventListener('submit', (event) => {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',
-               'Accept': 'application/json' }
+             'Accept': 'application/json' }
 })
-    .then((response) => { return (response.json()) })
+  .then((response) => { return (response.json()) })
 	.then(data => { console.log(data) })
 });
