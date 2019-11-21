@@ -20,7 +20,7 @@
   ],
        "permissions": [
    "tabs",
-   "*://*/*"
+   "*://*/*",
    "http://localhost:3000/"
  ]
 }
