@@ -3,7 +3,9 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: :show
 
   def index
-    @folders = Folder.all
+    #@folders = Folder.where("folders.user_id = #{current_user.id}")
+
+    @folders = Folder.search_folder_by_id(current_user.id)
   end
 
   def new
@@ -14,16 +16,9 @@ class FoldersController < ApplicationController
     @folders = Folder.new
   end
 
-  # def show
-
-  # end
-
-  # def edit
-  # end
-
-  def show
+  def search
+    @folders = Folder.search_all(params[:query])
   end
-
 
   private
 

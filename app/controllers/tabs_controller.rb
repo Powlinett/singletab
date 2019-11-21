@@ -1,5 +1,4 @@
 class TabsController < ApplicationController
-
   skip_before_action :verify_authenticity_token
 
   def index
@@ -13,27 +12,39 @@ class TabsController < ApplicationController
   def create
     @folder = Folder.new(
       user_id: current_user.id,
-      name: "MA recherche timesteps",
+      name: "MA recherche #{Time.now}",
       weight: 1
       )
 
     if @folder.save!
       arrayparams = JSON.parse(params[:variable])
       arrayparams.each do |tab|
+
+      url = Domainatrix.parse(tab["url"])
+
       @tab = Tab.new(
-      name: "first",  #nom de momaine a mettre
+      name: url.domain,
       url: tab["url"],
       title: no_accent(tab["title"]),
       icon: tab["icon"],
-      description: "",
+      description: tab["body"],
       comment: "",
       folder_id: @folder.id #voir ajout couleur
       )
       @tab.save!
     end
       redirect_to folders_path
-
     end
+  end
+
+  def show
+    @tab = Tab.find(params[:id])
+  end
+
+  def destroy
+     @tab = Tab.find(params[:id])
+     @tab.delete
+    redirect_to folders_path
   end
 
 private

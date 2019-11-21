@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get '/data', to: 'pages#data'
   post '/auth', to: 'pages#auth'
 
-  resources :folders, only: [:index, :show]
-  resources :tabs, only: [:edit, :create]
+  get 'folders/search', to: 'folders#search', as: 'search'
+
+  resources :folders, only: [:index, :show, :destroy]
+  resources :tabs, only: [:edit, :create, :show, :destroy]
 
   root to: "folders#index"
 end

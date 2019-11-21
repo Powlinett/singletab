@@ -15,5 +15,3 @@ const showMaps = document.querySelector('#show-maps');
 showMaps.addEventListener('click', (event) => {
 	window.open('https://still-lowlands-24985.herokuapp.com/folders', '_blank');
 });
-
-
