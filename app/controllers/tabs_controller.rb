@@ -42,6 +42,8 @@ class TabsController < ApplicationController
   end
 
   def destroy
+     @tab = Tab.find(params[:id])
+     @tab.delete
     redirect_to folders_path
   end
 
