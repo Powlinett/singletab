@@ -3,15 +3,32 @@
   <head>
     <title>SingleTab</title>
     <link rel="stylesheet" href="assets/stylesheets/plugin.css">
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
   </head>
   <body>
-  	<div class="plugin-container">
-	  <h1>SingleTab</h1>
-	  <button id="checkPage">Bye Tabs</button>
-	  <button id="show-maps">Show Maps</button>
+
+    <div class="plugin-container">
+	    <h1><a href="https://still-lowlands-24985.herokuapp.com" class="redirect">SingleTab</a></h1>
+
+      <div class="form">
+        <form action="" method="get" class="form-example">
+          <label for="authentication">Authentication key </label>
+          <br>
+          <input type="text" name="authentication" id="authentication" required>
+          <br>
+          <input type="submit" value="Authenticate" class ="submit">
+        </form>
+        <p class="ask-key"><a href="https://still-lowlands-24985.herokuapp.com">No authentication key? Get one here!</a></p>
+      </div>
+
+      <div class="button-container">
+	      <button id="checkPage">Bye Tabs</button>
+	      <button id="show-maps">Show Maps</button>
+      </div>
     </div>
 
   </body>
-
   <script type="text/javascript" src="javascript/background.js"></script>
+  <script type="text/javascript" src="javascript/authentication.js"></script>
+  <script type="text/javascript" src="javascript/redirect.js"></script>
 </html>

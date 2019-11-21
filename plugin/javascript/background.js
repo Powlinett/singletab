@@ -1,16 +1,20 @@
-function bob() {
+function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
         tabs.forEach(function(tab) {
-        tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url });
+    chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
+      let body = response;
+              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body });
     });
     });
+    });
+  console.log(tabUrlFin);
   return tabUrlFin;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  let b = bob();
+  let tabs = arraytabs();
 //pour attendre creation de pages
  var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
@@ -20,11 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
       mapForm.target = "_blank";
       mapForm.method = "POST";
       mapForm.action = "http://localhost:3000/tabs";
+
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
       mapInput.name = "variable";
-      mapInput.value = JSON.stringify(b);
+      mapInput.value = JSON.stringify(tabs);
 
       // Add the input to the form
       mapForm.appendChild(mapInput);
