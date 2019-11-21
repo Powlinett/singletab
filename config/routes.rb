@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/visualisation', to: 'pages#visualisation'
   get '/data', to: 'pages#data'
+  post '/auth', to: 'pages#auth'
 
   resources :folders, only: [:index, :show]
   resources :tabs, only: [:edit, :create]
