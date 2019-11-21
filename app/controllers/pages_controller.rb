@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :auth
   skip_before_action :verify_authenticity_token, only: :auth
+  skip_before_action :authenticate_user!
+  acts_as_token_authentication_handler_for User, except: [:auth]
 
   def visualisation
   end
@@ -35,7 +36,9 @@ class PagesController < ApplicationController
 
   def auth
   	user = User.where("email = ?", params["email"]).first
-	if user.valid_password?(params["password"])
+
+    if user.valid_password?(params["password"])
+      sign_in(user)
   		render json: { token: user.authentication_token }
   	else
   		render json: { error: 'failed' }
