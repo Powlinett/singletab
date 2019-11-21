@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'simple_token_authentication', '~> 1.0'
 gem 'awesome_print'
 gem 'faker'
 gem 'devise'

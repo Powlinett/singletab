@@ -4,8 +4,14 @@ title.addEventListener('click', (event) => {
   window.open('https://still-lowlands-24985.herokuapp.com/', '_blank');
 });
 
-const askKey = document.querySelector('.ask-key');
+const signIn = document.querySelector('.sign-up');
 
-askKey.addEventListener('click', (event) => {
+signIn.addEventListener('click', (event) => {
 	window.open('https://still-lowlands-24985.herokuapp.com', '_blank');
+});
+
+const showMaps = document.querySelector('#show-maps');
+
+showMaps.addEventListener('click', (event) => {
+	window.open('https://still-lowlands-24985.herokuapp.com/folders', '_blank');
 });
