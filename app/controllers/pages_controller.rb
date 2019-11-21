@@ -26,7 +26,6 @@ class PagesController < ApplicationController
           allfolder << arrayfolder
       end
 
-
     render json: {
       "name":"variants","children":[
         {"name":"Mes recherches","size":3,"children":allfolder}
