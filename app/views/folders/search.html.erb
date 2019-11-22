@@ -1,4 +1,6 @@
-<h1>Ma recherche</h1>
+<%= link_to 'data', data_path  %>
+<%= link_to 'visualisation', visualisation_path  %>
+<%= link_to 'folders', folders_path  %>
 
 <%= simple_form_for :search, action: search_path, method: :get do |f| %>
   <div class="search-form-control form-group">
@@ -9,21 +11,11 @@
   </div>
 <% end %>
 
-<h3> Scraping des onglet </h3>
-  <div class="container">
-    <h1>Mes onglets</h1>
-    <h3 id="listeonglets" >Ma liste d'onglet visité</h3>
-  </div>
+<h1>Results for " <%= params[:query] %> "</h1>
 
-<h3> Mes recherches </h3>
 <% @folders.each do |folder| %>
-
-
   <h3><%= folder.name %></h3>
   <% folder.tabs.each do |tab| %>
-  <p><%= tab.title %> <strong>url</strong> :<%= tab.url %></p>
-
-
+    <%= render 'folders/tabslist', tab: tab %>
+  <% end %>
 <% end %>
-<% end %>
-

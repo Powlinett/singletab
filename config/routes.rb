@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/visualisation', to: 'pages#visualisation', as: 'visualisation'
   get '/data', to: 'pages#data', as: 'data'
   post '/auth', to: 'pages#auth'
+  get '/checkauth', to: 'pages#check_auth'
 
   get 'folders/search', to: 'folders#search', as: 'search'
 

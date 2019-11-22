@@ -1,5 +1,6 @@
 const form = document.querySelector('.form');
-
+const buttons = document.querySelector('.button-container');
+const logout = document.querySelector('.logout');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -14,5 +15,12 @@ form.addEventListener('submit', (event) => {
              'Accept': 'application/json' }
 })
   .then((response) => { return (response.json()) })
-	.then(data => { console.log(data) })
+	.then(data => {
+    if (typeof data['token'] !== "undefined") {
+      form.classList.add('hidden');
+      buttons.classList.toggle('hidden');
+    } else {
+      console.log('hello')
+    };
+  });
 });

@@ -1,3 +1,15 @@
+fetch('https://still-lowlands-24985.herokuapp.com/checkauth')
+  .then((response) => { return (response.json()) })
+  .then(data => {
+    console.log(data['statut']);
+    if ( data['statut'] == 'Already logged' ) {
+      form.classList.add('hidden');
+      logout.classList.remove('hidden');
+    } else {
+      buttons.classList.add('hidden');
+    };
+  });
+
 function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
@@ -24,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
-      mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";
-      // mapForm.action = "http://localhost:3000/tabs";  pour utiliser le plugin en local
+      // mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs"; //pour utiliser le plugin avec heroku
+      mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";  //pour utiliser le plugin en local
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
