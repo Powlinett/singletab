@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :auth
+  skip_before_action :verify_authenticity_token, only: [:auth, :check_auth]
   skip_before_action :authenticate_user!
-  acts_as_token_authentication_handler_for User, except: [:auth]
+  acts_as_token_authentication_handler_for User, except: [:auth, :check_auth]
 
   def visualisation
   end
@@ -42,5 +42,13 @@ class PagesController < ApplicationController
   	else
   		render json: { error: 'failed' }
   	end
+  end
+
+  def check_auth
+    if current_user.present?
+      render json: { statut: 'Already logged' }
+    else
+      render json: { statut: 'Need to login'}
+    end
   end
 end
