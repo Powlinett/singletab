@@ -23,7 +23,12 @@
 
 <%= link_to 'folders', folders_path  %>
 
+<% if current_user.username.present? %>
+<h1>This is your map, <%= current_user.username %>!</h1>
+<% else %>
+<h1>This is your map!</h1>
+<% end %>
 
-<h1>Test dataviz</h1>
+<%= render "layouts/searchbar" %>
 
 <svg id="dataviz" width="960" height="960"></svg>

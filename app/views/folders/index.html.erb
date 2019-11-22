@@ -1,41 +1,27 @@
-<h1>Your Maps</h1>
 <%= link_to 'data', data_path  %>
 <%= link_to 'visualisation', visualisation_path  %>
 
-<%= simple_form_for :search, url: search_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="query" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
-
   <div class="container">
-    <h1>Les onglets de <%= current_user.username %></h1>
+    <h2>All your maps here, <%= current_user.username %></h2>
   </div>
 
-<h3> Mes recherches </h3>
+<%= render "layouts/searchbar" %>
+
 <% @folders.each do |folder| %>
-  <h3>name : <%= folder.name %> id <%= folder.id %>
+  <div class="folder-header">
+    <h3><%= link_to folder.name, folder_path(folder) %></h3>
     <div class="notification-actions">
-        <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
-      </div>
-  </h3>
-  <% folder.tabs.each do |tab| %>
-    <div class="notification">
-      <img src='<%= tab.icon %>' class="avatar-large" />
-      <div class="notification-content">
-        <p><small><%= tab.name %></small></p>
-        <p><%= tab.title[0..50] %></p>
-        <p><%= folder.name %></p>
-      </div>
-      <div class="notification-actions">
-        <%= link_to '', tab_path(tab), class: "fas fa-search" %>
-        <%= link_to '', tab, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
-      </div>
+      <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
     </div>
+  </div>
 
+
+<div class="tabs-list">
+  <ul>
+  <% folder.tabs.each do |tab| %>
+    <%= render 'folders/tabslist', tab: tab %>
   <% end %>
-<% end %>
+  </ul>
+</div>
 
+<% end %>
