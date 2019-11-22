@@ -1,4 +1,7 @@
 <h2><%= @folder.name %></h2>
+
+<%= render "layouts/searchbar" %>
+
 <% if @folder.folders != nil %> <!-- si le folder a un ou des enfants -->
   <% @folder.folders.each do |folder| %>
     <h3><%= folder.name %></h3> <!-- afficher le nom de chaque folder -->

@@ -1,5 +1,6 @@
 const form = document.querySelector('.form');
-
+const buttons = document.querySelector('.button-container');
+const logout = document.querySelector('.logout');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -7,12 +8,19 @@ form.addEventListener('submit', (event) => {
   const password = document.querySelector('#password').value;
   console.log(email);
   console.log(password);
-  fetch('http://localhost:3000/auth', {
+  fetch('https://still-lowlands-24985.herokuapp.com/auth', {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',
              'Accept': 'application/json' }
 })
   .then((response) => { return (response.json()) })
-	.then(data => { console.log(data) })
+	.then(data => {
+    if (typeof data['token'] !== "undefined") {
+      form.classList.add('hidden');
+      buttons.classList.toggle('hidden');
+    } else {
+      console.log('hello')
+    };
+  });
 });

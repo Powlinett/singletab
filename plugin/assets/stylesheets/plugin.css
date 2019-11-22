@@ -51,12 +51,16 @@ button {
     width: 181px;
 }
 
-.ask-key a {
+a {
 	text-decoration: none;
 	color: white;
     font-weight: normal;
 }
 
-.ask-key a:hover {
+.sign-up:hover, .logout:hover {
 	text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }
