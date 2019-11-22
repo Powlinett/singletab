@@ -13,6 +13,7 @@ function arraytabs() {
   return tabUrlFin;
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
 //pour attendre creation de pages
