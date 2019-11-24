@@ -13,7 +13,7 @@
 
     <div class="container">
       <% if current_user != nil %>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "fa fa-sign-out") %>
       <% end %>
 
       <%= yield %>
