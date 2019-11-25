@@ -35,9 +35,9 @@ class PagesController < ApplicationController
     end
 
     render json: {
-      "name": "variants",
+      "name": "My map",
       "children": [{
-        "name": "Mes recherches",
+        "name": "My search",
         "size": 3,
         "children": allfolder
       }]
