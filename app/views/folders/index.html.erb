@@ -1,6 +1,6 @@
 
 <%= link_to 'data', data_path, class: "fas fa-database ml-3" %>
-<%= link_to 'visualisation', visualisation_path, class: "fas fa-chart-bar ml-3"  %>
+<%= link_to 'visualisation', visualisations_path, class: "fas fa-chart-bar ml-3"  %>
 
   <div class="container">
     <h2>All your maps here, <%= current_user.username %></h2>
@@ -23,6 +23,7 @@
       divtexte = `<h3>name : <%= folder.name %> id : <%= folder.id %> PID: <%= folder.parent_id %>
         <div class="notification-actions">
           <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
+          <%= link_to 'visualisation', visualisation_path(folder.id) %>
         </div>
       </h3>
       <div class="border border-secondary  row" id="idfolder-<%= folder.id %>">

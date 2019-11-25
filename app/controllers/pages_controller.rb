@@ -7,10 +7,8 @@ class PagesController < ApplicationController
   end
 
   def data
-    # Folder.all
-    # http://api.myjson.com/bins/1f30qe
-    # puis render.json(#)
-    folders = Folder.search_folder_by_id(current_user.id)
+    condition = params[:id].nil? ? " " : " AND folders.id = #{params[:id]}"
+    folders = Folder.where("folders.user_id = #{current_user.id} #{condition}")
     allfolder = []
     arrayfolder = {}
     tabsfolder = []
@@ -18,14 +16,17 @@ class PagesController < ApplicationController
     folders.each do |f|
       arrayfolder = {
         "name": "#{f.name}",
+        "id": "#{f.id}",
         "children": ""
       }
       f.tabs.all.each do |t|
         tabsfolder << {
-          "name": "#{t.name}",
+          "name": t.name,
+          "id": t.id,
           "size": 1,
-          "url": "#{t.url}",
-          "favicon": "#{t.icon}"
+          "url": t.url,
+          "title": t.title,
+          "favicon": t.icon
         }
       end
       arrayfolder[:children] = tabsfolder
