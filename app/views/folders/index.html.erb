@@ -1,5 +1,6 @@
-<%= link_to 'data', data_path  %>
-<%= link_to 'visualisation', visualisation_path  %>
+
+<%= link_to 'data', data_path, class: "fas fa-database ml-3" %>
+<%= link_to 'visualisation', visualisation_path, class: "fas fa-chart-bar ml-3"  %>
 
   <div class="container">
     <h2>All your maps here, <%= current_user.username %></h2>
@@ -7,21 +8,73 @@
 
 <%= render "layouts/searchbar" %>
 
-<% @folders.each do |folder| %>
-  <div class="folder-header">
-    <h3><%= link_to folder.name, folder_path(folder) %></h3>
-    <div class="notification-actions">
-      <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
-    </div>
-  </div>
+<h3 id="recherches"> Mes recherches </h3>
 
 
-<div class="tabs-list">
-  <ul>
-  <% folder.tabs.each do |tab| %>
-    <%= render 'folders/tabslist', tab: tab %>
+
+<script type="text/javascript" charset="utf-8">
+  let recherches = document.querySelector("#recherches")
+  let divRecherche = ""
+  let divRechid = 0
+
+  // a refacto si non parent on met folder et tabs
+  <% @folders.each do |folder| %>
+    <% if folder.parent_id.nil? %>
+      divtexte = `<h3>name : <%= folder.name %> id : <%= folder.id %> PID: <%= folder.parent_id %>
+        <div class="notification-actions">
+          <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
+        </div>
+      </h3>
+      <div class="border border-secondary  row" id="idfolder-<%= folder.id %>">
+      <% folder.tabs.each do |tab| %>
+        <div class="notification col-6 col-sm-3">
+          <img src='<%= tab.icon %>' class="avatar-large" />
+          <div class="notification-content">
+            <p><small><%= tab.name %></small></p>
+            <p><%= tab.title[0..20] %></p>
+            <!-- <p><%#= folder.name %></p> -->
+          </div>
+          <div class="notification-actions">
+            <%= link_to '', tab_path(tab), class: "fas fa-search" %>
+            <%= link_to '', tab, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
+          </div>
+        </div>
+        <% end %>
+      </div>`
+      recherches.insertAdjacentHTML("afterend", divtexte);
+    <% end %>
   <% end %>
-  </ul>
-</div>
 
-<% end %>
+  // a refacto si parent on met  sous div des parenrts folder et tabs
+  <% @folders.each do |folder| %>
+     <% if not folder.parent_id.nil? %>
+      divtexte = `<h3>name : <%= folder.name %> id : <%= folder.id %> PID: <%= folder.parent_id %>
+        <div class="notification-actions">
+          <%= link_to '', edit_folder_path(folder), class: "fas fa-edit" %>
+        </div>
+      </h3>
+      <div class="border border-primary  row " id="idfolder-<%= folder.id %>">
+        <% folder.tabs.each do |tab| %>
+          <div class="notification col-6 col-sm-3">
+            <img src='<%= tab.icon %>' class="avatar-large" />
+            <div class="notification-content">
+              <p><small><%= tab.name %></small></p>
+              <p><%= tab.title[0..20] %></p>
+              <!-- <p><%#= folder.name %></p> -->
+            </div>
+            <div class="notification-actions">
+              <%= link_to '', tab_path(tab), class: "fas fa-search" %>
+              <%= link_to '', tab, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
+            </div>
+          </div>
+        <% end %>
+      </div>`
+
+      divRechid = <%= folder.parent_id %>;
+      recherches = document.querySelector(`#idfolder-${divRechid}`);
+      recherches.insertAdjacentHTML("afterbegin", divtexte);
+    <% end %>
+  <% end %>
+</script>
+
+

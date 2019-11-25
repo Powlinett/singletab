@@ -18,7 +18,6 @@ if (packContainer) {
       .padding(2);
 
   d3.json("data", function(error, root) {
-    console.log('fdsfds')
     if (error) throw error;
 
     root = d3.hierarchy(root)
@@ -29,26 +28,36 @@ if (packContainer) {
         nodes = pack(root).descendants(),
         view;
 
+    const img = function(d) { return d.data.favivon };
+
     var circle = g.selectAll("circle")
       .data(nodes)
       .enter().append("circle")
         .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
         .style("fill", function(d) { return d.children ? color(d.depth) : null; })
-        .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+        .on("mouseover", function(d) { if (focus !== d && d.children !== undefined) zoom(d), d3.event.stopPropagation() })
+        .on('click', function(d) { if (d.children === undefined) event.preventDefault(), window.open(d.data.url), console.log(d.data.favicon) });
 
     var text = g.selectAll("text")
       .data(nodes)
       .enter().append("text")
         .attr("class", "label")
         .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
-        .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
-        .text(function(d) { return d.data.name; });
+        .style("display", function(d) { return d.parent === root ? d.children === undefined ? "inline" : "inline" : "none"; })
+        .text(function(d) { return d.data.name });
 
+    // var img = g.selectAll("img")
+    //   .data(nodes)
+    //   .enter().append("img")
+    //     .attr("src", function(d) { return d.data.favicon })
+    //     // .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
+    //     // .style("display", function(d) { return d.parent === root ? d.children === undefined ? "inline" : "inline" : "none"; });
+
+    
     var node = g.selectAll("circle,text");
 
     svg
-        .style("background", color(-1))
-        .on("click", function() { zoom(root); });
+        .on("mouseleave", function() { zoom(root); });
 
     zoomTo([root.x, root.y, root.r * 2 + margin]);
 

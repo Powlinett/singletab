@@ -1,6 +1,8 @@
 <style>
-.node {
+.node,
+.label {
   cursor: pointer;
+  pointer-events: all;
 }
 .node:hover {
   stroke: #000;
@@ -8,15 +10,21 @@
 }
 .node--leaf {
   fill: white;
+  pointer-events: painted;
 }
 .label {
   font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-anchor: middle;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  padding: 50px;
+  border: 1px solid red !important;
 }
-.label,
-.node--root,
-.node--leaf {
+
+.label:hover {
+	font-size: 16px;
+}
+
+.node--root {
   pointer-events: none;
 }
 </style>

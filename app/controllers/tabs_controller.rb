@@ -12,7 +12,7 @@ class TabsController < ApplicationController
   def create
     @folder = Folder.new(
       user_id: current_user.id,
-      name: "MA recherche #{Time.now}",
+      name: "New search #{Time.now}",
       weight: 1
       )
 
@@ -29,7 +29,7 @@ class TabsController < ApplicationController
           icon: tab["icon"],
           description: tab["body"],
           comment: "",
-      folder_id: @folder.id #voir ajout couleur
+          folder_id: @folder.id #voir ajout couleur
       )
         @tab.save!
       end
