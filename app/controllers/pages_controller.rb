@@ -6,6 +6,9 @@ class PagesController < ApplicationController
   def visualisation
   end
 
+  def visualisationrond
+  end
+
   def data
     condition = params[:id].nil? ? " " : " AND folders.id = #{params[:id]}"
     @folders = Folder.where("folders.user_id = #{current_user.id} #{condition}")
