@@ -10,15 +10,16 @@ $width-compressed: 52px;
 
 .sidenav-button {
   position: absolute;
-  top: 40px;
-  border: 3px solid;
-  border-radius: 2px;
-
+  left: 16px;
+  top: -22px;
 }
 
 .fa-bars {
   margin: 8px;
   @include transition(2s);
+  padding: 8px;
+  border: 3px solid;
+  border-radius: 2px;
 }
 
 .fa-hidden {
