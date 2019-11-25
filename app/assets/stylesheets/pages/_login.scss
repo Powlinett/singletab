@@ -5,7 +5,7 @@
 	text-align: center;
 	border: 1px solid rgba(255, 255, 255, 0.32);
 	border-radius: 4px;
-	box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     display: flex;
     background-color: rgba(255, 255, 255, 0.3);
     color: white;
@@ -52,7 +52,7 @@ input[type="submit"] {
 	border-radius: 4px;
 	font-size: 28px;
 	background-color: rgba(255, 255, 255, 0.2);
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .new_user {
@@ -98,5 +98,5 @@ label[for="user_email"], label[for="user_password"] {
 	border-radius: 4px;
 	font-size: 28px;
 	background-color: rgba(255, 255, 255, 0.2);
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }

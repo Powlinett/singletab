@@ -14,17 +14,19 @@ $width-compressed: 52px;
   top: -22px;
 }
 
-.fa-bars {
+.fa-angle-right {
+  position: absolute;
+  top: 70px;
   margin: 8px;
-  @include transition(2s);
-  padding: 8px;
-  border: 3px solid;
+  padding: 6px;
+  border: 2px solid;
   border-radius: 2px;
+  font-size: 14px;
 }
 
 .fa-hidden {
   display: none;
-  @include transition(2s);
+  transition: display 2s ease;
 }
 
 .fa-times {
@@ -37,17 +39,18 @@ $width-compressed: 52px;
 
 .sidenav-hidden {
   display: none;
-  @include transition(2s);
 }
 
 .sidenav{
+  display: visible;
   z-index: 1;
   position: relative;
   width: $width;
   height: 99%;
   background-color: $color-dark;
-  // border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   border-radius-right: 12px;
+  transition: display 2s ease;
 
   .main-buttons{
     list-style-type: none;
