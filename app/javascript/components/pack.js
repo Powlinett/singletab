@@ -28,15 +28,13 @@ if (packContainer) {
         nodes = pack(root).descendants(),
         view;
 
-    const img = function(d) { return d.data.favivon };
-
     var circle = g.selectAll("circle")
       .data(nodes)
       .enter().append("circle")
         .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
         .style("fill", function(d) { return d.children ? color(d.depth) : null; })
         .on("mouseover", function(d) { if (focus !== d && d.children !== undefined) zoom(d), d3.event.stopPropagation() })
-        .on('click', function(d) { if (d.children === undefined) event.preventDefault(), window.open(d.data.url), console.log(d.data.favicon) });
+        .on('click', function(d) { if (d.children === undefined) event.preventDefault(), window.open(d.data.url) });
 
     var text = g.selectAll("text")
       .data(nodes)
@@ -44,7 +42,8 @@ if (packContainer) {
         .attr("class", "label")
         .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
         .style("display", function(d) { return d.parent === root ? d.children === undefined ? "inline" : "inline" : "none"; })
-        .text(function(d) { return d.data.name });
+        .text(function(d) { return d.children ? d.data.name : d.data.title; })
+        .on('click', function(d) { if (d.children === undefined) event.preventDefault(), window.open(d.data.url) });
 
     // var img = g.selectAll("img")
     //   .data(nodes)
@@ -53,8 +52,15 @@ if (packContainer) {
     //     // .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
     //     // .style("display", function(d) { return d.parent === root ? d.children === undefined ? "inline" : "inline" : "none"; });
 
-    
+
     var node = g.selectAll("circle,text");
+
+    text.append("img")
+      .attr("xlink:src", "https://github.com/favicon.ico")
+      .attr("x", -8)
+      .attr("y", -8)
+      .attr("width", 16)
+      .attr("height", 16);
 
     svg
         .on("mouseleave", function() { zoom(root); });

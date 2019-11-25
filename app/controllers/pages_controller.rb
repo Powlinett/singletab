@@ -23,6 +23,7 @@ class PagesController < ApplicationController
       f.tabs.all.each do |t|
         tabsfolder << {
           "name": "#{t.name}",
+          "title": "#{t.title[0..40]}...",
           "size": 1,
           "url": "#{t.url}",
           "favicon": "#{t.icon}"
@@ -34,9 +35,9 @@ class PagesController < ApplicationController
     end
 
     render json: {
-      "name": "variants",
+      "name": "My map",
       "children": [{
-        "name": "Mes recherches",
+        "name": "My search",
         "size": 3,
         "children": allfolder
       }]
