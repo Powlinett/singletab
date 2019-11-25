@@ -1,10 +1,108 @@
 .login-container {
-	width: 360px;
+	width: 400px;
+	height: 600px;
 	margin: 48px auto;
 	text-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.32);
+	border-radius: 4px;
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .registration-links {
 	display: flex;
 	justify-content: space-evenly;
+}
+
+.login-form {
+	width: 300px;
+	margin: 40px auto;
+
+}
+
+body {
+	// background-image: url(background-blue.jpg);
+	// background-size: cover;
+	background-color: #1a3e59;
+}
+
+.registration-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.login-title {
+	font-size: 56px;
+	margin-bottom: 36px;
+	font-family: 'Calistoga';
+    position: relative;
+}
+
+#user_email, #user_password {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.32);
+    margin-bottom: 8px;
+}
+
+input[type="submit"] {
+	color: white;
+	font-size: 20px !important;
+	display: inline;
+	padding: 8px 24px;
+	border: 1px dotted rgba(255, 255, 255, 0.32);
+	border-radius: 4px;
+	font-size: 28px;
+	background-color: rgba(255, 255, 255, 0.2);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.new_user {
+	padding: 24px 0;
+}
+
+.login-form-part {
+    position: absolute;
+    top: 200px;
+    width: 300px;
+}
+
+label[for="user_email"], label[for="user_password"] {
+	display: none;
+}
+
+.field input {
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	font-family: 'Quattrocento Sans';
+	font-weight: bold;
+}
+
+.registration-buttons a, .registration-links a {
+	color: white;
+	text-decoration: none;
+}
+
+.registration-buttons a {
+    margin-left: 8px;
+    padding: 8px 16px;
+	border: 1px dotted rgba(255, 255, 255, 0.32);
+	border-radius: 4px;
+}
+
+.registration-buttons a:hover {
+	color: white;
+	font-size: 20px !important;
+	display: inline;
+	padding: 8px 24px;
+	border: 1px dotted rgba(255, 255, 255, 0.32);
+	border-radius: 4px;
+	font-size: 28px;
+	background-color: rgba(255, 255, 255, 0.2);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }

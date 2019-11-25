@@ -1,32 +1,60 @@
-<div class="login-container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Singletab</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <h2>Log in</h2>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+<body>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>  
+  <div class="login-container">
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+    <div class="login-form">
+
+      <h1 class="login-title">SingleTab</h1>
+
+      <div class="login-form-part">
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'e-mail adress' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
+          </div>  
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+
+          <div class="registration-buttons">
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "Sign up", new_registration_path(resource_name) %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="registration-links">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
     </div>
-  <% end %>
 
-  <div class="registration-links">
-    <%= render "devise/shared/links" %>
   </div>
 
-</div>
+</body>
