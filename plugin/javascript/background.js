@@ -1,4 +1,4 @@
-fetch('https://still-lowlands-24985.herokuapp.com/checkauth')
+fetch('http://localhost:3000/checkauth')
   .then((response) => { return (response.json()) })
   .then(data => {
     console.log(data['statut']);
@@ -17,11 +17,10 @@ function arraytabs() {
         tabs.forEach(function(tab) {
     chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
       let body = response;
-              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body });
+              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
     });
     });
     });
-  console.log(tabUrlFin);
   return tabUrlFin;
 }
 
@@ -32,12 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
  var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
 
-    //window.open('onglets.html','_blank')
+    tabs.forEach(function(tabId) {
+      chrome.tabs.remove(tabId.id);
+      })
+
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
       // mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs"; //pour utiliser le plugin avec heroku
-      mapForm.action = "http://localhost:3000/";  //pour utiliser le plugin en local
+      mapForm.action = "http://localhost:3000/tabs";  //pour utiliser le plugin en local
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
@@ -52,5 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Just submit
       mapForm.submit();
+      window.open("http://localhost:3000/tabs");
      });
    });
