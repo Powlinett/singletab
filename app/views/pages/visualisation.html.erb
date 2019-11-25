@@ -21,10 +21,12 @@
 
 <body>
   <%= render "layouts/searchbar" %>
+
     <div class="links-buttons">
       <%= link_to 'List', folders_path, class: "folders-link" %>
       <%= link_to 'Map', visualisations_path, class: "maps-link active"  %>
     </div>
+
     <!-- container for force layout visualisation  -->
     <section id="vis"></section>
 <script>
