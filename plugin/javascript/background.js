@@ -17,11 +17,10 @@ function arraytabs() {
         tabs.forEach(function(tab) {
     chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
       let body = response;
-              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body });
+              tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
     });
     });
     });
-  console.log(tabUrlFin);
   return tabUrlFin;
 }
 
@@ -32,7 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
  var button = document.getElementById('checkPage');
  button.addEventListener('click', (event) => {
 
-    //window.open('onglets.html','_blank')
+    tabs.forEach(function(tabId) {
+      chrome.tabs.remove(tabId.id);
+      })
+
      let mapForm = document.createElement("form");
       mapForm.target = "_blank";
       mapForm.method = "POST";
@@ -52,5 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Just submit
       mapForm.submit();
+      window.open("http://localhost:3000/tabs");
      });
    });

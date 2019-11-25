@@ -33,7 +33,7 @@ class TabsController < ApplicationController
       )
         @tab.save!
       end
-      redirect_to visualisation_path
+      redirect_to folders_path
     end
   end
 

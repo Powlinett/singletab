@@ -5,7 +5,11 @@ class FoldersController < ApplicationController
   def index
     #@folders = Folder.where("folders.user_id = #{current_user.id}")
 
-    @folders = Folder.search_folder_by_id(current_user.id)
+    @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
+    @tabs = []
+    @folders.each do |folder|
+      @tabs << folder.tabs
+    end
   end
 
   def new
@@ -42,4 +46,5 @@ class FoldersController < ApplicationController
   def folder_params
       params.require(:folder).permit(:name, :weight, :parent_id)
   end
+
 end
