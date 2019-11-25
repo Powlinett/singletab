@@ -42,4 +42,30 @@ class FoldersController < ApplicationController
   def folder_params
       params.require(:folder).permit(:name, :weight, :parent_id)
   end
+
+# /test code enzo by jojo
+   def show_child(array, done)
+      childrens = []
+      array.each do |item|
+        if !done.include?(item.name)
+          hash = { name: item.name, rank: item.rank, card_nb: item.cards.count }
+          hash[:size] = item.cards.count if item.childs.count == 0
+          hash[:children] = show_child(item.childs, done)
+          done << item.name
+          childrens << hash
+        end
+      end
+        childrens
+    end
+
+    def mind_map()
+      done = []
+      array = @theme.decks
+      map4 = {
+        name: @theme.name,
+        rank: 0,
+        children: show_child(array, done)
+      }
+      map4.to_json
+    end
 end
