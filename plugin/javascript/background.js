@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mapForm.target = "_blank";
       mapForm.method = "POST";
       // mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs"; //pour utiliser le plugin avec heroku
-      mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs";  //pour utiliser le plugin en local
+      mapForm.action = "http://localhost:3000/";  //pour utiliser le plugin en local
       // Create an input
       let mapInput = document.createElement("input");
       mapInput.type = "text";
