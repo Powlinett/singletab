@@ -1,0 +1,38 @@
+.links-buttons {
+	display: flex;
+	color: white;
+	width: 120px;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.links-buttons .folders-link, .maps-link {
+	font-size: 14px;
+	width: 50%;
+	padding: 6px 12px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+
+.links-buttons .folders-link:hover, .maps-link:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.links-buttons .folders-link {
+	border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.links-buttons .maps-link {
+	border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.links-buttons .active {
+    background-color: white;
+    color: #1a3e59 !important;
+}

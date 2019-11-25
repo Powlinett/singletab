@@ -1,16 +1,15 @@
-
-<%= link_to 'data', data_path, class: "fas fa-database ml-3" %>
-<%= link_to 'visualisation', visualisations_path, class: "fas fa-chart-bar ml-3"  %>
-
-  <div class="container">
-    <h2>All your maps here, <%= current_user.username %></h2>
-  </div>
+<div class="container">
 
 <%= render "layouts/searchbar" %>
+<%= link_to 'data', data_path, class: "fas fa-database ml-3" %>
+
+<div class="links-buttons">
+  <%= link_to 'List', folders_path, class: "folders-link active" %>
+  <%= link_to 'Map', visualisations_path, class: "maps-link"  %>
+</div>
 
 <h3 id="recherches"> Mes recherches </h3>
 
-
 <div id="toto" data-folders="<%= @folders.to_json %>" data-tabs="<%= @tabs.to_json %>"></div>
 
-
+</div>
