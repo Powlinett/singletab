@@ -8,10 +8,10 @@ class PagesController < ApplicationController
 
   def data
     condition = params[:id].nil? ? " " : " AND folders.id = #{params[:id]}"
-    folders = Folder.where("folders.user_id = #{current_user.id} #{condition}")
-    allfolder = []
-    arrayfolder = {}
-    tabsfolder = []
+    @folders = Folder.where("folders.user_id = #{current_user.id} #{condition}")
+
+
+    render json: mind_map()
 
     folders.each do |f|
       arrayfolder = {
@@ -64,15 +64,44 @@ class PagesController < ApplicationController
   end
 
   # /test code enzo by jojo
-   def show_child(arrayfolder)
+   def superparent()
       childrens = []
-      arrayfolder.each do |item|
-        if !done.include?(item.name)
-          hash = { name: item.name, rank: item.rank, card_nb: item.tabs.count }
-          hash[:size] = item.tabs.count if item.tabs.count == 0
-          hash[:children] = show_child(item.childs)
-          done << item.name
+      @folders.each do |item|
+        if item.parent_id.nil?
+          hash = { name: item.name, id: item.id }
+          hash[:size] = 3
+          hash[:children] = show_child(item.id)
           childrens << hash
+        end
+      end
+        childrens
+    end
+
+   def show_child(folder_id)
+      childrens = []
+      @folders.each do |item|
+        if item.parent_id = folder_id
+          hash = { name: item.name, id: item.id }
+          hash[:size] = 3
+          hash[:children] = alltabs(item.id)
+          childrens << hash
+        end
+      end
+        childrens
+    end
+
+    def alltabs(folder_id)
+      childrens = []
+      @folders.each do |item|
+        if item..tabs.all.each do |t|
+          tabsfolder << {
+            "name": t.name,
+            "id": t.id,
+            "size": 1,
+            "url": t.url,
+            "title": t.title,
+            "favicon": t.icon
+          }
         end
       end
         childrens
@@ -81,11 +110,10 @@ class PagesController < ApplicationController
     def mind_map()
       arrayfolder = []
       arrayfolder = Folder.search_folder_by_id(current_user.id)
-      map4 = {
-        name: @arrayfolder.name,
-        rank: 0,
-        children: show_child(arrayfolder)
+      map = {
+        name: "My map",
+        children: superparent()
       }
-      map4.to_json
+      map.to_json
     end
 end
