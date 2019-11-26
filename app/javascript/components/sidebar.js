@@ -4,12 +4,12 @@ const sidenavCrossButton = document.querySelector('.fa-times');
 
 sidenavBarsButton.addEventListener('click', (event) => {
   sidenavBarsButton.classList.add('fa-hidden');
-  sidenavHidden.classList.replace('sidenav-hidden', 'sidenav');
+  sidenavHidden.classList.remove('sidenav-hidden');
   sidenavCrossButton.classList.remove('fa-hidden');
 });
 
 sidenavCrossButton.addEventListener('click', (event) => {
   sidenavBarsButton.classList.remove('fa-hidden');
-  sidenavHidden.classList.replace('sidenav', 'sidenav-hidden');
+  sidenavHidden.classList.add('sidenav-hidden');
   sidenavCrossButton.classList.add('fa-hidden');
 });

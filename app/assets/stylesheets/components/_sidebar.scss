@@ -6,6 +6,10 @@ $width-compressed: 52px;
   color: white;
 }
 
+.sidenavigation {
+  transition: all ease 0.5s;
+}
+
 .sidenav-button {
   position: absolute;
   left: 16px;
@@ -34,11 +38,12 @@ $width-compressed: 52px;
   display: inline;
 }
 
-.sidenav-hidden {
-  display: none;
+.sidenav.sidenav-hidden {
+  width: 0;
+  overflow: hidden;
 }
 
-.sidenav{
+.sidenav {
   z-index: 1;
   position: relative;
   width: $width;
