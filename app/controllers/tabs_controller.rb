@@ -10,9 +10,11 @@ class TabsController < ApplicationController
   end
 
   def create
+    time = Time.now
+    time = time.strftime("%d/%m/%Y %k:%M")
     @folder = Folder.new(
       user_id: current_user.id,
-      name: "New search #{Time.now}",
+      name: "New search #{time}",
       weight: 1
       )
 
