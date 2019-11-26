@@ -30,6 +30,8 @@ class FoldersController < ApplicationController
   end
 
 
+
+
   def update
     if @folder.update(folder_params())
         redirect_to folders_path
@@ -46,5 +48,6 @@ class FoldersController < ApplicationController
   def folder_params
       params.require(:folder).permit(:name, :weight, :parent_id)
   end
+
 
 end
