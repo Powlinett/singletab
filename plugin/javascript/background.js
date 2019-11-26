@@ -35,7 +35,7 @@ function removeTabs(tabs) {
     if (tab.title.includes("gmail")) {
       tabs.splice(index, 1);
     }
-    if (tab.title.includes("sing0letab")) {
+    if (tab.title.includes("singletab")) {
       tabs.splice(index, 1);
     }
   });

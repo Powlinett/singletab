@@ -68,7 +68,7 @@ class PagesController < ApplicationController
     def alltabs(folder)
       childrens = []
       folder.tabs.all.each do |t|
-        t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQYSWCS20/singletab_black_.png" : t.icon
+        t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQRHZ1KUZ/singletab_circle_white.png" : t.icon
         childrens << {
           name: t.name,
           id: t.id,
@@ -87,7 +87,7 @@ class PagesController < ApplicationController
       arrayfolder = Folder.search_folder_by_id(current_user.id)
       map = {
         name: "My map",
-        favicon: "https://files.slack.com/files-pri/T02NE0241-FQYSWCS20/singletab_black_.png",
+        favicon: "https://files.slack.com/files-pri/T02NE0241-FQRHZ1KUZ/singletab_circle_white.png",
         children: superparent()
       }
       map.to_json

@@ -1,21 +1,19 @@
 <%= link_to 'data', data_path  %>
-<%= link_to 'visualisation', visualisation_path  %>
+<%= link_to 'visualisation', visualisations_path  %>
 <%= link_to 'folders', folders_path  %>
 
 <%= simple_form_for :search, action: search_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
+<div class="search-form-control form-group">
+  <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+  <button name="button" type="submit" class="btn btn-flat">
+    <i class="fas fa-search"></i> Search
+  </button>
+</div>
 <% end %>
 
 <h1>Results for " <%= params[:query] %> "</h1>
 
-<% @folders.each do |folder| %>
-  <h3><%= folder.name %></h3>
-  <% folder.tabs.each do |tab| %>
-    <%= render 'folders/tabslist', tab: tab %>
-  <% end %>
+<% @folders.each do |tab| %>
+<h3><%= tab.name %></h3>
+<%= render 'tabslist', tab: tab %>
 <% end %>
