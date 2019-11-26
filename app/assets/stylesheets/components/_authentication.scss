@@ -1,0 +1,23 @@
+.devise-sessions,
+.devise-registrations {
+  .authentication-wrapper {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+  }
+  .authentication {
+    background: white;
+    padding: 3em;
+    min-width: 500px;
+    box-shadow: $base-box-shadow;
+  }
+}
+
+.devise-links {
+  text-align: center;
+  font-size: 0.9em;
+  a {
+    color: $grey-dark;
+  }
+}
