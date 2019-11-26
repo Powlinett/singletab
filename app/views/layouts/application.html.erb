@@ -12,7 +12,9 @@
   <body>
     
     <% if controller_name != "sessions" %>
-      <%= render 'layouts/sidebar'%>
+      <% if current_user != nil %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <% end %>
     <%end%>
 
     <div class="container">

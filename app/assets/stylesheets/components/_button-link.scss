@@ -1,6 +1,5 @@
 .links-buttons {
 	display: flex;
-	color: white;
 	width: 100%;
 	justify-content: flex-end;
 }
@@ -14,13 +13,11 @@
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
-	color: white;
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .links-buttons .folders-link:hover, .maps-link:hover {
 	text-decoration: none;
-	color: white;
 }
 
 .links-buttons .folders-link {
