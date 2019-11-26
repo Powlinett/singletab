@@ -12,7 +12,7 @@
     <ul class="hidden">
 
       <% if !current_user.nil?  %>
-      <%= link_to 'All', folders_path, class: "folders-link active" %>
+      <li><%= link_to 'All', folders_path, class: "folders-link active" %></li>
 
       <% current_user.folders.each do |folder| %>
         <% if folder.folders.present? %>
