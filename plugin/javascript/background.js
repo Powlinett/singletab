@@ -22,28 +22,35 @@ function arraytabs() {
     });
   });
   return tabUrlFin;
-}
+};
 
+function closeTabs(tabs) {
+  tabs.forEach(function(tabId) {
+    chrome.tabs.remove(tabId.id);
+  });
+};
+
+function removeTabs(tabs) {
+  tabs.forEach(function(tab, index) {
+    if (tab.title.includes("gmail")) {
+      tabs.splice(index, 1);
+    }
+    if (tab.title.includes("sing0letab")) {
+      tabs.splice(index, 1);
+    }
+  });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
+
+
 //pour attendre creation de pages
 var button = document.getElementById('checkPage');
-button.addEventListener('click', (event) => {
+button.addEventListener('click', (e) => {
   tabs.forEach(function(tab, index) {
-    if (tab.url.includes("mail.google")) {
-      tabs.splice(index, 1);
-    }
-    if (tab.url.includes("singletab")) {
-      tabs.splice(index, 1);
-    }
-    alert("bob")
+    removeTabs(tabs);
   });
-
-      tabs.forEach(function(tabId) {
-        chrome.tabs.remove(tabId.id);
-      });
-
   let mapForm = document.createElement("form");
   mapForm.target = "_blank";
   mapForm.method = "POST";
@@ -63,6 +70,7 @@ button.addEventListener('click', (event) => {
 
       // Just submit
       mapForm.submit();
-      window.open("http://localhost:3000/tabs");
+      closeTabs(tabs);
+      window.open("http://localhost:3000/tabs")
     });
 });
