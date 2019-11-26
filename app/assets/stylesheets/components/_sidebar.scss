@@ -71,7 +71,7 @@ $width-compressed: 52px;
       font-weight: 600;
       line-height: 28px;
     }
-    
+
     & > li{
       padding: 16px $width-compressed;
 
@@ -92,6 +92,15 @@ $width-compressed: 52px;
   }
 }
 
+a {
+  text-decoration: none; color: white;
+   &:hover {
+    text-decoration: none; color: white;
+   }
+
+   }
+
+
 .hidden{
   width: 0;
   height: 100%;
@@ -103,7 +112,7 @@ $width-compressed: 52px;
   right: 0;
 
   overflow: scroll;
-  
+
   list-style-type: none;
   background-color: lighten($color-dark, 5);
   @include transition(0.5s);
