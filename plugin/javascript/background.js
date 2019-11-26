@@ -15,7 +15,7 @@ function arraytabs() {
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
     tabs.forEach(function(tab) {
-      chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
+      chrome.tabs.executeScript(tab.id, { code: "document.body.innerHTML.innerText" }, function(response) {
         let body = response;
         tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
       });
