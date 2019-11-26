@@ -19,14 +19,14 @@ if (fold) {
     tabs.forEach(function(tab){
       cardsTexte = textTab(tab)
       selectionParent = document.querySelector(`#idfolder-${tab.folder_id}`);
-      selectionParent.insertAdjacentHTML("afterend", cardsTexte);
+      selectionParent.insertAdjacentHTML("beforeend", cardsTexte);
     })
   })
 }
 
 function boucle(data) {
   data.forEach(function(folder){
-  // test si folder dans la pages
+  // test si folder dans la page
   selectionParent = document.querySelector(`#idfolder-${folder.id}`);
   if (selectionParent === null) {   //folder non present?
     selectionParent = document.querySelector(`#idfolder-${folder.parent_id}`);
@@ -41,7 +41,6 @@ function boucle(data) {
     }
   }
   return 0
-
 });
 }
 
@@ -49,27 +48,29 @@ function boucle(data) {
 
 function textDiv(folder) {
   divText = `<h3>name :  ${folder.name}
-
-     <div class="notification-actions">
-       <a class="fas fa-edit" href="/folders/${folder.id}/edit"></a>
-       <a class="fas fa-chart-bar ml-3" href="/visualisation/${folder.id}"></a>
-     </div>
-  </h3>
-  <div class="border border-secondary  row" id="idfolder-${folder.id}">
-  </div>`
+             <div class="notification-actions">
+               <a class="fas fa-edit" href="/folders/${folder.id}/edit"></a>
+               <a class="fas fa-chart-bar ml-3" href="/visualisation/${folder.id}"></a>
+             </div>
+             </h3>
+             <div class="cards-container" id="idfolder-${folder.id}"></div>`
 return divText;
 };
 
+
 function textTab(tab) {
-tabText = `<div class="notification col-6 col-sm-3">
-      <img src='${tab.icon}' class="avatar-large" />
-    <div class="notification-content">
-      <p><small>${ tab.name }</small></p>
-      <p>${ tab.title }</p>
-    </div>
-    <div class="notification-actions">
-      <a class="fas fa-search" href="/tabs/${tab.id}"></a>
-      <a data-confirm="Are you sure?" class="far fa-trash-alt" rel="nofollow" data-method="delete" href="/tabs/${tab.id}"></a>
-    </div>`
+tabText = `<div class="tab-card">
+             <img src='${tab.icon}' class="icon-tab" />
+             <div class="tab-card-content">
+               <a href="${ tab.url }" class="tab-link">
+                 <p class='tab-name'>${ tab.name }</p>
+                 <p class='tab-title'>${ tab.title }</p>
+               </a>
+             </div>
+             <div class="tab-card-actions">
+             <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/${tab.id}"></a>
+             </div>
+           </div>`
   return tabText;
 };
+
