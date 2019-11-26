@@ -22,10 +22,10 @@ class PagesController < ApplicationController
 
     if user.valid_password?(params["password"])
       sign_in(user)
-  		render json: { token: user.authentication_token }
-  	else
-  		render json: { error: 'failed' }
-  	end
+      render json: { token: user.authentication_token }
+    else
+      render json: { error: 'failed' }
+    end
   end
 
   def check_auth
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   # /test code enzo by jojo
- def superparent()
+  def superparent()
     childrens = []
     @folders.each do |item|
       if item.parent_id.nil?
@@ -51,45 +51,45 @@ class PagesController < ApplicationController
         childrens << hash
       end
     end
-      childrens
+    childrens
   end
 
-   def add_child(item)
-        hash = { name: item.name, id: item.id, type: "Folder"}
-        hash[:children] = alltabs(item)
-        if item.folders
-          item.folders.each do |item|
-            hash[:children] << add_child(item)
-          end
-        end
-        hash
-    end
-
-    def alltabs(folder)
-      childrens = []
-      folder.tabs.all.each do |t|
-        t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQRHZ1KUZ/singletab_circle_white.png" : t.icon
-        childrens << {
-          name: t.name,
-          id: t.id,
-          size: 1,
-          type: "Tab",
-          url: t.url,
-          title: t.title,
-          favicon: t.icon
-        }
+  def add_child(item)
+    hash = { name: item.name, id: item.id, type: "Folder"}
+    hash[:children] = alltabs(item)
+    if item.folders
+      item.folders.each do |item|
+        hash[:children] << add_child(item)
       end
-        childrens
     end
+    hash
+  end
 
-    def mind_map()
-      arrayfolder = []
-      arrayfolder = Folder.search_folder_by_id(current_user.id)
-      map = {
-        name: "My map",
-        favicon: "https://files.slack.com/files-pri/T02NE0241-FQRHZ1KUZ/singletab_circle_white.png",
-        children: superparent()
+  def alltabs(folder)
+    childrens = []
+    folder.tabs.all.each do |t|
+      t.icon = t.icon.nil? ? "https://files.slack.com/files-tmb/T02NE0241-FQZH247FF-a687f79cd5/singletab_circle_white_linear_480.png" : t.icon
+      childrens << {
+        name: t.name,
+        id: t.id,
+        size: 1,
+        type: "Tab",
+        url: t.url,
+        title: t.title,
+        favicon: t.icon
       }
-      map.to_json
     end
+    childrens
+  end
+
+  def mind_map()
+    arrayfolder = []
+    arrayfolder = Folder.search_folder_by_id(current_user.id)
+    map = {
+      name: "My map",
+      favicon: "https://files.slack.com/files-tmb/T02NE0241-FQZH247FF-a687f79cd5/singletab_circle_white_linear_480.png",
+      children: superparent()
+    }
+    map.to_json
+  end
 end
