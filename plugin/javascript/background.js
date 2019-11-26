@@ -32,7 +32,7 @@ function closeTabs(tabs) {
 
 function removeTabs(tabs) {
   tabs.forEach(function(tab, index) {
-    if (tab.title.includes("gmail")) {
+    if (tab.url.includes("google")) {
       tabs.splice(index, 1);
     }
     if (tab.title.includes("singletab")) {
