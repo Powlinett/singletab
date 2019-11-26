@@ -92,12 +92,11 @@ $width-compressed: 52px;
   }
 }
 
-a {
+.hidden a {
   text-decoration: none; color: white;
-   &:hover {
+   &:hover, &:visited, &:link {
     text-decoration: none; color: white;
    }
-
    }
 
 
