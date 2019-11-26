@@ -54,21 +54,21 @@ class PagesController < ApplicationController
     childrens
   end
 
-  def add_child(item)
-    hash = { name: item.name, id: item.id, type: "Folder"}
-    hash[:children] = alltabs(item)
-    if item.folders
-      item.folders.each do |item|
-        hash[:children] << add_child(item)
-      end
+   def add_child(item)
+        hash = { name: item.name, id: item.id, type: "Folder"}
+        hash[:children] = alltabs(item)
+        if item.folders
+          item.folders.each do |item|
+            hash[:children] << add_child(item)
+          end
+        end
+        hash
     end
-    hash
-  end
 
-  def alltabs(folder)
+def alltabs(folder)
     childrens = []
     folder.tabs.all.each do |t|
-      t.icon = t.icon.nil? ? "https://files.slack.com/files-tmb/T02NE0241-FQZH247FF-a687f79cd5/singletab_circle_white_linear_480.png" : t.icon
+      t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png" : t.icon
       childrens << {
         name: t.name,
         id: t.id,
@@ -82,13 +82,13 @@ class PagesController < ApplicationController
     childrens
   end
 
-  def mind_map()
-    arrayfolder = []
-    arrayfolder = Folder.search_folder_by_id(current_user.id)
-    map = {
-      name: "My map",
-      favicon: "https://files.slack.com/files-tmb/T02NE0241-FQZH247FF-a687f79cd5/singletab_circle_white_linear_480.png",
-      children: superparent()
+    def mind_map()
+      arrayfolder = []
+      arrayfolder = Folder.search_folder_by_id(current_user.id)
+      map = {
+        name: "My map",
+        favicon: "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png",
+        children: superparent()
     }
     map.to_json
   end
