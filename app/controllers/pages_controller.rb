@@ -41,7 +41,7 @@ class PagesController < ApplicationController
     childrens = []
     @folders.each do |item|
       if item.parent_id.nil?
-        hash = { name: item.name, id: item.id, parent_id: item.parent_id}
+        hash = { name: item.name, id: item.id, parent_id: item.parent_id, type: "Folder"}
         hash[:children] = alltabs(item)
         if item.folders
           item.folders.each do |item|
@@ -55,7 +55,7 @@ class PagesController < ApplicationController
   end
 
    def add_child(item)
-        hash = { name: item.name, id: item.id }
+        hash = { name: item.name, id: item.id, type: "Folder"}
         hash[:children] = alltabs(item)
         if item.folders
           item.folders.each do |item|
@@ -72,6 +72,7 @@ class PagesController < ApplicationController
           name: t.name,
           id: t.id,
           size: 1,
+          type: "Tab",
           url: t.url,
           title: t.title,
           favicon: t.icon

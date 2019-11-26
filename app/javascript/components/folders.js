@@ -46,8 +46,10 @@ function boucle(data) {
 }
 
 
-function textDiv(folder) {
-  divText = `<h3>name :  ${folder.name} id : ${folder.id} PID: ${folder.parent_id}
+
+function textdiv(folder) {
+  divtexte = `<h3>name :  ${folder.name}
+
      <div class="notification-actions">
        <a class="fas fa-edit" href="/folders/${folder.id}/edit"></a>
        <a class="fas fa-chart-bar ml-3" href="/visualisation/${folder.id}"></a>
