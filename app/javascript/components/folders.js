@@ -1,25 +1,25 @@
-const toto = document.querySelector('#toto');
-let selectionparent = document.querySelector("#recherches")
+const fold = document.querySelector('#fold');
+let selectionParent = document.querySelector("#recherches")
 let selection = document.querySelector("#recherches")
 let divRecherche = ""
 let divRechid = 0
-let folderparent = ""
-let cardstexte = ""
+let folderParent = ""
+let cardsTexte = ""
 
-if (toto) {
-  const data = JSON.parse(toto.dataset.folders);
-  const datatabs = JSON.parse(toto.dataset.tabs);
+if (fold) {
+  const data = JSON.parse(fold.dataset.folders);
+  const dataTabs = JSON.parse(fold.dataset.tabs);
   let i = 0;
   do {
     console.log(boucle(data));
     i += 1
   } while (i <= data.length);
-  console.log(datatabs)
-  datatabs.forEach(function(tabs){
+  console.log(dataTabs)
+  dataTabs.forEach(function(tabs){
     tabs.forEach(function(tab){
-      cardstexte = texttab(tab)
-      selectionparent = document.querySelector(`#idfolder-${tab.folder_id}`);
-      selectionparent.insertAdjacentHTML("afterend", cardstexte);
+      cardsTexte = textTab(tab)
+      selectionParent = document.querySelector(`#idfolder-${tab.folder_id}`);
+      selectionParent.insertAdjacentHTML("afterend", cardsTexte);
     })
   })
 }
@@ -27,16 +27,16 @@ if (toto) {
 function boucle(data) {
   data.forEach(function(folder){
   // test si folder dans la pages
-  selectionparent = document.querySelector(`#idfolder-${folder.id}`);
-  if (selectionparent === null) {   //folder non present?
-    selectionparent = document.querySelector(`#idfolder-${folder.parent_id}`);
+  selectionParent = document.querySelector(`#idfolder-${folder.id}`);
+  if (selectionParent === null) {   //folder non present?
+    selectionParent = document.querySelector(`#idfolder-${folder.parent_id}`);
     if (folder.parent_id === null) { //folder sans parent?
-      divtexte = textdiv(folder);
-      selection.insertAdjacentHTML("afterend", divtexte);
+      divText = textDiv(folder);
+      selection.insertAdjacentHTML("afterend", divText);
       return 1
-    } else if (selectionparent !== null) { //folder parent present?
-      divtexte = textdiv(folder);
-      selectionparent.insertAdjacentHTML("beforeend", divtexte);
+    } else if (selectionParent !== null) { //folder parent present?
+      divText = textDiv(folder);
+      selectionParent.insertAdjacentHTML("beforeend", divText);
       return 1
     }
   }
@@ -46,19 +46,20 @@ function boucle(data) {
 }
 
 
-function textdiv(folder) {
-  divtexte = `<h3>name :  ${folder.name} id : ${folder.id} PID: ${folder.parent_id}
+function textDiv(folder) {
+  divText = `<h3>name :  ${folder.name} id : ${folder.id} PID: ${folder.parent_id}
      <div class="notification-actions">
        <a class="fas fa-edit" href="/folders/${folder.id}/edit"></a>
+       <a class="fas fa-chart-bar ml-3" href="/visualisation/${folder.id}"></a>
      </div>
   </h3>
   <div class="border border-secondary  row" id="idfolder-${folder.id}">
   </div>`
-return divtexte;
+return divText;
 };
 
-function texttab(tab) {
-tabtexte = `<div class="notification col-6 col-sm-3">
+function textTab(tab) {
+tabText = `<div class="notification col-6 col-sm-3">
       <img src='${tab.icon}' class="avatar-large" />
     <div class="notification-content">
       <p><small>${ tab.name }</small></p>
@@ -68,5 +69,5 @@ tabtexte = `<div class="notification col-6 col-sm-3">
       <a class="fas fa-search" href="/tabs/${tab.id}"></a>
       <a data-confirm="Are you sure?" class="far fa-trash-alt" rel="nofollow" data-method="delete" href="/tabs/${tab.id}"></a>
     </div>`
-  return tabtexte;
+  return tabText;
 };
