@@ -1,13 +1,16 @@
+<div  class="containershow">
 <h2><%= @folder.name %></h2>
-aaaaaaaaaaaaaaaaa
+<a class="fas fa-chart-bar ml-3" href="/visualisation/<%= @folder.id %>">Show map</a>
+<a  class="fas fa-external-link-alt openAllLink" href="">Open all</a>
 
 <% if @folder.folders != nil %> <!-- si le folder a un ou des enfants -->
   <% @folder.folders.each do |folder| %>
     <h3><%= folder.name %></h3> <!-- afficher le nom de chaque folder -->
+
     <h6>Tabs : </h6>
-    <% folder.tabs.each do |tab| %>
+    <% @folder.tabs.each do |tab| %>
       <p><%= tab.name %></p> <!-- dans chaque folder, afficher chacune des tabs contenues -->
-      <a href="<%= tab.url %>" class="btn">Open</a>
+      <a href="<%= tab.url %>" class="btn" >Open</a>
     <% end %>
   <% end %>
 <% end %>
@@ -17,3 +20,10 @@ aaaaaaaaaaaaaaaaa
   <p><%= tab.title %></p>
   <img src="<%= tab.icon %>" alt="">
 <% end %>
+
+<div id="showfold" data-folders="<%= @folder.attributes.merge({tabs: @folder.tabs}).to_json
+ %>" data-tabs="<%= @folder.tabs.to_json %>"></div>
+
+</div>
+
+
