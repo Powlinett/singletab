@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <style>
+      .node,
+      .label {
+        cursor: pointer;
+        pointer-events: all;
+      }
+      .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+      }
+      .node--leaf {
+        fill: white;
+        pointer-events: painted;
+      }
+      .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+        padding: 50px;
+        border: 1px solid red !important;
+      }
+      .label:hover {
+      font-size: 16px;
+      }
+      .node--root {
+      pointer-events: none;
+      }
+
+    </style>
+</head>
+
+<body>
+  <%= render "layouts/searchbar" %>
+    <!-- container for force layout visualisation  -->
+    <section id="vis"></section>
+
+    <svg id="dataviz" width="960" height="960"></svg>
+
+</body>
+</html>

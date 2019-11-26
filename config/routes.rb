@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/visualisation', to: 'pages#visualisation', as: 'visualisations'
+  get '/visualisationrond', to: 'pages#visualisationrond', as: 'visualisationsrond'
   get '/visualisation/:id', to: 'pages#visualisation', as: 'visualisation'
   get '/data', to: 'pages#data', as: 'data'
   get '/visualisation/data_id/:id', to: 'pages#data'
@@ -16,3 +17,4 @@ Rails.application.routes.draw do
 
   root to: "folders#index"
 end
+
