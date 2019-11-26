@@ -15,26 +15,27 @@ body {
 
 h1 {
 	font-family: 'Calistoga', cursive;
+  color: #FF33CC;
 }
 
 .redirect {
 	text-decoration: none;
-	color: white;
+  color: #FF33CC;
 }
 
 .redirect:clicked {
-	color: white;
+  color: #0099CC;
 }
 
 button {
 	width: 52px;
 	height: 52px;
 	border-radius: 50%;
-	background-color: #ed1250;
+  background-image:linear-gradient(15deg, #FF33CC, #0099CC);
 	margin: 0 10px;
 	color: white;
 	font-weight : bold;
-	border: 2px solid #f2527d;
+  border: 0.5px solid #fff;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
