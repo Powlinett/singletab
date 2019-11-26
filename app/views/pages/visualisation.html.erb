@@ -139,7 +139,12 @@ d3.json(data, function(json) {
           .on( 'click', function (d) {
             d3.select("h1").html(d.name);
             d3.select("h2").html(d.title);
-            window.open(d.url);
+            console.log(d.url)
+            if (d.url != undefined){
+              window.open(d.url);
+            } else {
+              console.log("no url");
+            }
           })
 
           .on( 'mouseenter', function() {
@@ -242,14 +247,6 @@ d3.json(data, function(json) {
   recurse(root);
   return nodes;
 }
-
-
-//image {
-//	overflow: visible;
-//}
-
-
-<%= render "layouts/searchbar" %>
 
 </script>
 
