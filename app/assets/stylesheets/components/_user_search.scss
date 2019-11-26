@@ -1,0 +1,12 @@
+.user-search {
+  background: white;
+  box-shadow: $base-box-shadow;
+  padding: 20px;
+
+  .user-search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+}

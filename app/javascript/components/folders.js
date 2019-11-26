@@ -114,4 +114,3 @@ tabText = `<div class="tab-card">
            </div>`
   return tabText;
 };
-

@@ -2,6 +2,8 @@
   background: black;
   color: white;
   transition: transform 0.2s;
+  display: inline-block;
+  padding: 4px 10px;
   &:hover {
     transform: scale(1.1);
     color: white;
@@ -9,5 +11,8 @@
   &.block {
     display: block;
     width: 100%;
+  }
+  &:hover {
+    text-decoration: none;
   }
 }
