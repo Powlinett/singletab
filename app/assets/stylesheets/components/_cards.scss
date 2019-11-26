@@ -1,45 +1,59 @@
-
-.notification {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  background: white;
-  padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
-  min-height: 100px;
-  max-height: 100px;
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-auto-flow: row;
+  grid-auto-columns: minmax(240px, 1fr);
 }
 
-.notification .notification-content {
+.tab-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  height: 88px;
+  padding: 10px;
+  display: flex;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tab-card img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.tab-card-content {
+  padding: 0 8px;
   flex-grow: 1;
-  padding: 0 24px;
+  height: 28px;
 }
 
-.notification p {
+.tab-name, .tab-title {
   margin: 0;
-  line-height: 1.4;
 }
 
-.notification small {
-  color: #999999;
-  font-weight: bold;
-}
-.notification .notification-actions {
-  opacity: 0;
-  display: flex;
-  transition: ease .3s;
+.tab-name {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
-.notification:hover .notification-actions {
-  opacity: 1;
+.tab-title {
+  height: 52px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.notification .notification-actions a {
-  color: #999999;
-  margin-left: 16px;
-  font-size: 14px;
+.tab-card-actions {
+  position: relative;
 }
 
-.notification .notification-actions a:hover {
-  color: #555555;
+.delete-icon {
+  width: 11px;
+  color: rgba(0, 0, 0, 0.1) !important;
+  position: absolute;
+  right: -4px;
+  top: -6px;
 }
