@@ -24,7 +24,7 @@ $width-compressed: 52px;
 .fa-bars {
   position: absolute;
   top: 16px;
-  left: 10px;
+  left: 12.5px;
   padding: 4px 6px;
   border: 2px solid;
   border-radius: 2px;
@@ -35,7 +35,7 @@ $width-compressed: 52px;
   display: none;
 }
 
-.fa-times {
+.close-icon {
   z-index: 2;
   position: absolute;
   top: 4px;

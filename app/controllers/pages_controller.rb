@@ -22,10 +22,10 @@ class PagesController < ApplicationController
 
     if user.valid_password?(params["password"])
       sign_in(user)
-  		render json: { token: user.authentication_token }
-  	else
-  		render json: { error: 'failed' }
-  	end
+      render json: { token: user.authentication_token }
+    else
+      render json: { error: 'failed' }
+    end
   end
 
   def check_auth
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   # /test code enzo by jojo
- def superparent()
+  def superparent()
     childrens = []
     @folders.each do |item|
       if item.parent_id.nil?
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
         childrens << hash
       end
     end
-      childrens
+    childrens
   end
 
    def add_child(item)
@@ -65,38 +65,31 @@ class PagesController < ApplicationController
         hash
     end
 
-    def alltabs(folder)
-      childrens = []
-      folder.tabs.all.each do |t|
-        t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png?pub_secret=9619954ba4" : t.icon
-        childrens << {
-          name: t.name,
-          id: t.id,
-          size: 1,
-          type: "Tab",
-          url: t.url,
-          title: t.title,
-          favicon: t.icon
-        }
-      end
-        childrens
+def alltabs(folder)
+    childrens = []
+    folder.tabs.all.each do |t|
+      t.icon = t.icon.nil? ? "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png" : t.icon
+      childrens << {
+        name: t.name,
+        id: t.id,
+        size: 1,
+        type: "Tab",
+        url: t.url,
+        title: t.title,
+        favicon: t.icon
+      }
     end
+    childrens
+  end
 
     def mind_map()
       arrayfolder = []
       arrayfolder = Folder.search_folder_by_id(current_user.id)
       map = {
         name: "My map",
-        favicon: "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png?pub_secret=9619954ba4",
+        favicon: "https://files.slack.com/files-pri/T02NE0241-FQRJUMMU1/singletab_white_black.png",
         children: superparent()
-      }
-      map.to_json
-    end
+    }
+    map.to_json
+  end
 end
-
-
-
-
-
-
-

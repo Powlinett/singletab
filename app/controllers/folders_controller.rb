@@ -22,7 +22,7 @@ class FoldersController < ApplicationController
   end
 
   def search
-    @folders = Folder.search_all(params[:query])
+    @folders = Tab.where("tabs.description LIKE '%#{params[:query]}%'")
   end
 
   def edit
