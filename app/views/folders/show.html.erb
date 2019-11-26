@@ -1,13 +1,13 @@
 <h2><%= @folder.name %></h2>
-
-<%= render "layouts/searchbar" %>
+aaaaaaaaaaaaaaaaa
 
 <% if @folder.folders != nil %> <!-- si le folder a un ou des enfants -->
   <% @folder.folders.each do |folder| %>
     <h3><%= folder.name %></h3> <!-- afficher le nom de chaque folder -->
+    <h6>Tabs : </h6>
     <% folder.tabs.each do |tab| %>
-      <p><%= tab.url %></p> <!-- dans chaque folder, afficher chacune des tabs contenues -->
-
+      <p><%= tab.name %></p> <!-- dans chaque folder, afficher chacune des tabs contenues -->
+      <a href="<%= tab.url %>" class="btn">Open</a>
     <% end %>
   <% end %>
 <% end %>
