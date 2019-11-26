@@ -35,25 +35,25 @@
     position: relative;
 }
 
-#user_email, #user_password {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.32);
-    margin-bottom: 8px;
-}
+// #user_email, #user_password {
+//     border-radius: 4px;
+//     background-color: rgba(0, 0, 0, 0);
+//     border: none;
+//     border-bottom: 1px dotted rgba(255, 255, 255, 0.32);
+//     margin-bottom: 8px;
+// }
 
-input[type="submit"] {
-	color: white;
-	font-size: 20px !important;
-	display: inline;
-	padding: 8px 24px;
-	border: 1px dotted rgba(255, 255, 255, 0.32);
-	border-radius: 4px;
-	font-size: 28px;
-	background-color: rgba(255, 255, 255, 0.2);
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-}
+// input[type="submit"] {
+// 	color: white;
+// 	font-size: 20px !important;
+// 	display: inline;
+// 	padding: 8px 24px;
+// 	border: 1px dotted rgba(255, 255, 255, 0.32);
+// 	border-radius: 4px;
+// 	font-size: 28px;
+// 	background-color: rgba(255, 255, 255, 0.2);
+// 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+// }
 
 .new_user {
 	padding: 24px 0;
@@ -69,18 +69,18 @@ label[for="user_email"], label[for="user_password"] {
 	display: none;
 }
 
-.field input {
-	color: white;
-	text-align: center;
-	font-size: 20px;
-	font-family: 'Quattrocento Sans';
-	font-weight: bold;
-}
+// .field input {
+// 	color: white;
+// 	text-align: center;
+// 	font-size: 20px;
+// 	font-family: 'Quattrocento Sans';
+// 	font-weight: bold;
+// }
 
-.registration-buttons a, .registration-links a {
-	color: white;
-	text-decoration: none;
-}
+// .registration-buttons a, .registration-links a {
+// 	color: white;
+// 	text-decoration: none;
+// }
 
 .registration-buttons a {
     margin-left: 8px;

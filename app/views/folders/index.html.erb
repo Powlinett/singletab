@@ -9,8 +9,27 @@
   </div>
 </div>
 
-<p id="recherches"></p>
-
-
-<div id="fold" data-folders="<%= @folders.to_json %>" data-tabs="<%= @tabs.to_json %>"></div>
-
+<% @folders.each do |folder| %>
+  <div class="user-search">
+    <div class="user-search-header">
+      <h3><%= folder.name %></h3>
+      <%= link_to 'Open All', '', class: 'primary-button'  %>
+    </div>
+    <div class="cards-container" id="idfolder-${folder.id}">
+      <% folder.tabs.each do |tab| %>
+        <div class="tab-card">
+          <img src="<%= tab.icon %>" class="icon-tab">
+          <div class="tab-card-content">
+            <a href="<%= tab.url %>" class="tab-link">
+              <p class="tab-name"><%= tab.name %></p>
+              <p class="tab-title"><%= URI.decode(tab.title) %></p>
+            </a>
+          </div>
+          <div class="tab-card-actions">
+            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
