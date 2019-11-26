@@ -6,11 +6,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application' %>
- 
+
   </head>
 
-  <body>
-    
+  <body class="<%= body_class %>">
     <% if controller_name != "sessions" %>
       <% if current_user != nil %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
