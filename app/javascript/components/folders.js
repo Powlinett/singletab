@@ -7,11 +7,6 @@ let divRechid = 0
 let folderParent = ""
 let cardsTexte = ""
 
-
-
-
-
-
 if (showfold) {
   const datafoldertabs = JSON.parse(showfold.dataset.tabs);
   document.querySelectorAll("a.openAllLink").forEach((btn) => {

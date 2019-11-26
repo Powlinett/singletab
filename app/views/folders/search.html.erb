@@ -13,7 +13,9 @@
 
 <h1>Results for " <%= params[:query] %> "</h1>
 
-<% @folders.each do |tab| %>
-<h3><%= tab.name %></h3>
-<%= render 'tabslist', tab: tab %>
+<% @folders.each do |x| %>
+<%= x.name %> <br>
+<% x.tabs.each do |y| %>
+<%= y.title %> <br>
+<% end %>
 <% end %>
