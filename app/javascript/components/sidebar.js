@@ -1,4 +1,4 @@
-const sidenavBarsButton = document.querySelector('.sidenav-button .fa-angle-right');
+const sidenavBarsButton = document.querySelector('.sidenav-button .fa-bars');
 const sidenavHidden = document.querySelector('.sidenav-hidden');
 const sidenavCrossButton = document.querySelector('.fa-times');
 
