@@ -92,7 +92,7 @@ function textDiv(folder) {
        <a href="" class="fas fa-external-link-alt open-tabs" data-tabs="${folder.id}">Open All</a>
      </div>
   </h3>
-  <div class="border border-secondary  row" id="idfolder-${folder.id}">
+  <div class="cards-container" id="idfolder-${folder.id}">
   </div>`
 
 return divText;
