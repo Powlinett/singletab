@@ -11,19 +11,21 @@
 
 <div class="user-search">
   <% @folders.each do |folder| %>
-    <div class="user-search-folder-container">
-      <details class="user-search-folder-content">
+<!--     <div class="user-search-folder-container"> -->
+      <details class="user-search-folder">
         <summary class="user-search-header">
           <div class='user-search-header-content'>
             <h3 class="user-search-title">
               <%= simple_form_for([ folder ], remote: true) do |form| %>
                 <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
                 <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
-                <% end %>
+                <% end %> 
             </h3>
-            <h4><%= folder.tabs.count %> tabs</h4>
+            <div class="user-search-counter">
+              <h4><%= folder.tabs.count %> tabs</h4>
+              <%= link_to 'Open All', '', class: 'primary-button'  %>
+            </div>
           </div>
-          <%= link_to 'Open All', '', class: 'primary-button'  %>
         </summary>
         <div class=" cards-container-display display-cards" id="idfolder-${folder.id}">
           <% folder.tabs.each do |tab| %>
@@ -42,6 +44,6 @@
           <% end %>
         </div>
       </details>
-    </div>
+<!--     </div> -->
   <% end %>
 </div>
