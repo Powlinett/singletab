@@ -1,9 +1,10 @@
 .primary-button {
-  background: black;
+  background: $color-black;
   color: white;
   transition: transform 0.2s;
   display: inline-block;
   padding: 4px 10px;
+  border-radius: $base-border-radius;
   &:hover {
     transform: scale(1.1);
     color: white;
