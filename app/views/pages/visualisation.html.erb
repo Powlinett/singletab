@@ -99,7 +99,7 @@ d3.json(data, function(json) {
   path.enter().insert("svg:path")
   .attr("class", "link")
       // .attr("marker-end", "url(#end)")
-      .style("stroke", "#eee");
+      .style("stroke", "#000");
 
 
   // Exit any old paths.
@@ -122,7 +122,7 @@ d3.json(data, function(json) {
   // Append a circle
   nodeEnter.append("svg:circle")
   .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
-  .style("fill", "#eee");
+  .style("fill", "#000");
 
 
   // Append images

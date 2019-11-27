@@ -22,3 +22,23 @@
     outline: none !important;
   }
 }
+
+.simple_form {
+  display: inline;
+}
+
+.user-search-header .simple_form .string{
+  margin-bottom: 0px;
+}
+
+.user-search-header .simple_form .btn {
+  color: gray;
+  border-style: solid;
+  border-radius:2px;
+  border:1px solid #ccc;
+  &:hover {
+  color: #373a3d;
+  background-color: #dee2e5;
+  }
+}
+
