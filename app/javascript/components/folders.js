@@ -1,5 +1,7 @@
 // const fold = document.querySelector('#fold');
 const pagesindex = document.querySelector('#pagesindex');
+
+
 // let selectionParent = document.querySelector("#recherches")
 // let selection = document.querySelector("#recherches")
 // let divRecherche = ""
@@ -22,7 +24,7 @@ const pagesindex = document.querySelector('#pagesindex');
 
 if (pagesindex) {
 
-    // console.log(dataTabs)
+    // open all tabs
   document.querySelectorAll('a.open-tabs').forEach((link) => {
     link.addEventListener('click', (event) => {
     const foldertabs = JSON.parse(link.dataset.tabs);
@@ -32,6 +34,19 @@ if (pagesindex) {
         })
       })
     });
+    // edit title
+  // document.querySelectorAll('a.iconpen').forEach((link) => {
+  //   link.addEventListener('click', (event) => {
+
+  //   const folder = JSON.parse(link.dataset.folder);
+  //         console.log(folder);
+  //       foldertabs.forEach(function(tabs){
+  //         console.log(tabs.url);
+  //         window.open(tab.url);
+  //       })
+  //     })
+  //   });
+
   };
 
 //open all tabs fin

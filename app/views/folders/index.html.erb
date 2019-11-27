@@ -12,7 +12,13 @@
 <% @folders.each do |folder| %>
   <div id="pagesindex" class="user-search">
     <div class="user-search-header">
-      <h3><%= folder.name %></h3>
+
+      <h3><%= folder.name %>  <%= link_to '', '', class: 'iconpen fas fa-pen' , :"data-tabs" => folder.to_json %></h3>
+          <!-- test formulaire uptade -->
+          <%= simple_form_for([ folder ], remote: true) do |form| %>
+            <%= form.input :name , label: false %> <%= form.button :submit, value: "Update", class: 'bnt' %>
+          <% end %>
+          <!-- test formulaire uptade -->
       <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
     </div>
     <div class="cards-container" id="idfolder-${folder.id}">
