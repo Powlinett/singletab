@@ -15,7 +15,12 @@
       <details class="user-search-folder-content">
         <summary class="user-search-header">
           <div class='user-search-header-content'>
-            <h3 class="user-search-title"><%= folder.name %></h3>
+            <h3 class="user-search-title">
+              <%= simple_form_for([ folder ], remote: true) do |form| %>
+                <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
+                <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
+                <% end %>
+            </h3>
             <h4><%= folder.tabs.count %> tabs</h4>
           </div>
           <%= link_to 'Open All', '', class: 'primary-button'  %>

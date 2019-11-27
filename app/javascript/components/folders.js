@@ -1,7 +1,6 @@
 // const fold = document.querySelector('#fold');
 const pagesindex = document.querySelector('#pagesindex');
 
-
 // let selectionParent = document.querySelector("#recherches")
 // let selection = document.querySelector("#recherches")
 // let divRecherche = ""
@@ -23,7 +22,6 @@ const pagesindex = document.querySelector('#pagesindex');
 //open all tabs
 
 if (pagesindex) {
-
     // open all tabs
   document.querySelectorAll('a.open-tabs').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -41,13 +39,8 @@ if (pagesindex) {
       bouton.type = "submit";
     })
   })
-
 };
-
 //open all tabs fin
-
-
-
 
 // code pour inserer folder et tabs si multi folder et tabs
 // if (fold) { //code se lance si dans pages des folders
@@ -67,8 +60,6 @@ if (pagesindex) {
 //   })
 //   openalltabs(dataTabs);
 // }
-
-
 
 // function boucle(data) {
 //   data.forEach(function(folder){
@@ -92,8 +83,6 @@ if (pagesindex) {
 
 //  //ouvre tout les tabs
 // // <a href="<%= tab.url %>" class="fas fa-external-link-alt open-tabs" data-tabs="<%= folder.to_json %>">Open</a>
-
-
 // function textDiv(folder) {
 
 //   divText = `<h3>${folder.name}
@@ -108,7 +97,6 @@ if (pagesindex) {
 
 // return divText;
 // };
-
 
 // function textTab(tab) {
 // tabText = `<div class="tab-card">
