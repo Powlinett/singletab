@@ -37,7 +37,7 @@ if (pagesindex) {
     link.addEventListener('click', (event) => {
       const folder = link.dataset.folder;
       console.log(folder)
-      bouton = document.querySelector(`#${folder}`)
+      bouton = document.querySelector(`#idFolder-${folder}`)
       bouton.type = "submit";
     })
   })
