@@ -12,16 +12,15 @@
 <div class="user-search">
   <% @folders.each do |folder| %>
     <div class="user-search-folder-container">
-      <div class="user-search-folder-content">
-        <div class="user-search-header">
+      <details class="user-search-folder-content">
+        <summary class="user-search-header">
           <div class='user-search-header-content'>
-            <input type="checkbox" id="<%= folder.id %>" class="toggle" />
-            <label class="user-search-title" for="<%= folder.id %>"><%= folder.name %></label>
+            <h3 class="user-search-title"><%= folder.name %></h3>
             <h4><%= folder.tabs.count %> tabs</h4>
           </div>
           <%= link_to 'Open All', '', class: 'primary-button'  %>
-        </div>
-        <div class="cards-container cards-container-hidden cards-container-display display-cards" id="idfolder-${folder.id}">
+        </summary>
+        <div class=" cards-container-display display-cards" id="idfolder-${folder.id}">
           <% folder.tabs.each do |tab| %>
             <div class="tab-card">
               <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
@@ -37,7 +36,7 @@
             </div>
           <% end %>
         </div>
-      </div>
+      </details>
     </div>
   <% end %>
 </div>

@@ -16,12 +16,13 @@
     .user-search-header-content {
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
 
-      label.user-search-title {
+      .user-search-title {
         flex-shrink: 2;
         margin: 0;
         margin-right: 2em;
+        font-size: 16px;
       }
 
       h4 {
@@ -43,4 +44,19 @@ body.folders {
 		height: 32px;
 		min-width: 84px;
 	}
+}
+
+
+details[open] summary ~ * {
+  animation: open .5s;
+}
+
+@keyframes open {
+  0% {
+  	max-height: 0;
+  }
+
+  100% {
+  	max-height: auto;
+  }
 }
