@@ -29,25 +29,23 @@ if (pagesindex) {
     link.addEventListener('click', (event) => {
     const foldertabs = JSON.parse(link.dataset.tabs);
         foldertabs.forEach(function(tabs){
-          console.log(tabs.url);
-          window.open(tab.url);
+          window.open(tabs.url);
         })
+    })
+  });
+  document.querySelectorAll('input.string').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const folder = link.dataset.folder;
+      console.log(folder)
+      document.querySelectorAll('input.btn').forEach((linkbtn) => {
+          // if link.ik ===
+          linkbtn.type = "submit";
       })
-    });
-    // edit title
-  // document.querySelectorAll('a.iconpen').forEach((link) => {
-  //   link.addEventListener('click', (event) => {
 
-  //   const folder = JSON.parse(link.dataset.folder);
-  //         console.log(folder);
-  //       foldertabs.forEach(function(tabs){
-  //         console.log(tabs.url);
-  //         window.open(tab.url);
-  //       })
-  //     })
-  //   });
+    })
+  })
 
-  };
+};
 
 //open all tabs fin
 
