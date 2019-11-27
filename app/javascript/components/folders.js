@@ -1,5 +1,5 @@
 // const fold = document.querySelector('#fold');
-const pagesindex = document.querySelector('#pagesindex');
+const pagesindex = document.querySelector('#user-search-folder-container');
 
 // let selectionParent = document.querySelector("#recherches")
 // let selection = document.querySelector("#recherches")
@@ -23,7 +23,7 @@ const pagesindex = document.querySelector('#pagesindex');
 
 if (pagesindex) {
     // open all tabs
-  document.querySelectorAll('a.open-tabs').forEach((link) => {
+  document.querySelectorAll('a.openall').forEach((link) => {
     link.addEventListener('click', (event) => {
     const foldertabs = JSON.parse(link.dataset.tabs);
         foldertabs.forEach(function(tabs){

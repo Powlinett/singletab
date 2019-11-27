@@ -23,9 +23,9 @@
           </h3>
           <h4><%= folder.tabs.count %> tabs</h4>
         </div>
-        <%= link_to 'Open All', '', class: 'primary-button'  %>
+        <%= link_to 'Open All', '', class: 'primary-button openall', :"data-tabs" => folder.tabs.to_json %>
       </summary>
-      <div class=" cards-container-display display-cards" id="idfolder-${folder.id}">
+      <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
         <% folder.tabs.each do |tab| %>
         <div class="tab-card">
           <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
