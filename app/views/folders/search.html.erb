@@ -16,15 +16,18 @@
 
 <div class="" id="idfolder-${folder.id}">
   <% @query_tabs.each do |tab| %>
-    <div class="">
-      <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+    <div class="card">
+      <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="avatar">
       <div class="">
         <!-- <a href="<%= tab.url %>" class="tab-link" target="_blank"> -->
           <p class="tab-name"><%= tab.name %></p>
           <p class="tab-title"><%= URI.decode(tab.title) %></p>
-          <p class="tab-title"><%= URI.decode(tab.description) %></p>
+          <p class="tab-title"><%= tab.url %></p>
+          <!-- <p class=""><%= URI.decode(tab.description) %></p> -->
         <!-- </a> -->
-
+        <li>texte dans body :</li>
+        <%= texte = tab.description.match(/.{0,150}#{params[:query]}.{0,150}/) %>
+       <%=  "tab.description".scan(/.{0,150}#{params[:query]}.{0,150}/) { |match| "<li>#{match}</li>" } %>
       </div>
       <div class="tab-card-actions">
         <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
