@@ -1,11 +1,13 @@
 // const fold = document.querySelector('#fold');
 const pagesindex = document.querySelector('#pagesindex');
+
 // let selectionParent = document.querySelector("#recherches")
 // let selection = document.querySelector("#recherches")
 // let divRecherche = ""
 // let divRechid = 0
 // let folderParent = ""
 // let cardsTexte = ""
+
 // code pour ouvrire tbs dans le show folder/id
 // if (showfold) {
 //   const datafoldertabs = JSON.parse(showfold.dataset.tabs);
@@ -18,6 +20,7 @@ const pagesindex = document.querySelector('#pagesindex');
 //   });
 // }
 //open all tabs
+
 if (pagesindex) {
     // open all tabs
   document.querySelectorAll('a.open-tabs').forEach((link) => {
@@ -38,6 +41,7 @@ if (pagesindex) {
   })
 };
 //open all tabs fin
+
 // code pour inserer folder et tabs si multi folder et tabs
 // if (fold) { //code se lance si dans pages des folders
 //   const data = JSON.parse(fold.dataset.folders);
@@ -56,6 +60,7 @@ if (pagesindex) {
 //   })
 //   openalltabs(dataTabs);
 // }
+
 // function boucle(data) {
 //   data.forEach(function(folder){
 //   // test si folder dans la page
@@ -75,9 +80,11 @@ if (pagesindex) {
 //   return 0
 // });
 // }
+
 //  //ouvre tout les tabs
 // // <a href="<%= tab.url %>" class="fas fa-external-link-alt open-tabs" data-tabs="<%= folder.to_json %>">Open</a>
 // function textDiv(folder) {
+
 //   divText = `<h3>${folder.name}
 //      <div class="notification-actions">
 //        <a class="fas fa-edit" href="/folders/${folder.id}/edit"></a>
@@ -87,8 +94,10 @@ if (pagesindex) {
 //   </h3>
 //   <div class="cards-container" id="idfolder-${folder.id}">
 //   </div>`
+
 // return divText;
 // };
+
 // function textTab(tab) {
 // tabText = `<div class="tab-card">
 //              <img src='${tab.icon}' class="icon-tab" />
