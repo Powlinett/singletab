@@ -30,7 +30,7 @@
             </a>
             <div class="box">
               <% if tab.url.exclude?('localhost') %>
-                <iframe src="<%= tab.url %>" width = "600px" height = "500px"></iframe>
+                <iframe src="<%= tab.url %>" width = "600px" height = "500px" onload="load" onerror="error"></iframe>
               <% end %>
             </div>
           </div>
