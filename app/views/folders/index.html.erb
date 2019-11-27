@@ -24,6 +24,7 @@
               <p class="tab-name"><%= tab.name %></p>
               <p class="tab-title"><%= URI.decode(tab.title) %></p>
             </a>
+            <div class="box"><iframe src="<%= tab.url %>" width = "500px" height = "500px"></iframe></div>
           </div>
           <div class="tab-card-actions">
             <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
