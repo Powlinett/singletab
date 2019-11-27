@@ -23,7 +23,16 @@ class FoldersController < ApplicationController
   end
 
   def search
-    @folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
+    #@folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
+    @tabs = Tab.all
+    word = params[:query]
+    @query_tabs = []
+    @tabs.each do |x|
+      if !x.description.nil? && x.description.match?(/#{word}/i)
+        @query_tabs << x
+      end
+    end
+    return @query_tabs
   end
 
   def edit
@@ -32,10 +41,12 @@ class FoldersController < ApplicationController
 
   def update
     if @folder.update(folder_params())
-        redirect_to folders_path
-     else
-        redirect_to folders_path
-     end
+
+      redirect_to folders_path
+    else
+      render :edit
+    end
+
   end
 
   private
@@ -44,7 +55,7 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
   end
   def folder_params
-      params.require(:folder).permit(:name, :weight, :parent_id)
+    params.require(:folder).permit(:name, :weight, :parent_id)
   end
 
 
