@@ -37,11 +37,8 @@ if (pagesindex) {
     link.addEventListener('click', (event) => {
       const folder = link.dataset.folder;
       console.log(folder)
-      document.querySelectorAll('input.btn').forEach((linkbtn) => {
-          // if link.ik ===
-          linkbtn.type = "submit";
-      })
-
+      bouton = document.querySelector(`#${folder}`)
+      bouton.type = "submit";
     })
   })
 
