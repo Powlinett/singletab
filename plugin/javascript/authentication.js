@@ -8,7 +8,7 @@ form.addEventListener('submit', (event) => {
   const password = document.querySelector('#password').value;
   console.log(email);
   console.log(password);
-  fetch('http://localhost:3000/auth', {
+  fetch('https://still-lowlands-24985.herokuapp.com/auth', {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',

@@ -22,7 +22,7 @@
     <div class="cards-container" id="idfolder-${folder.id}">
       <% folder.tabs.each do |tab| %>
         <div class="tab-card">
-          <img src="<%= tab.icon %>" class="icon-tab">
+          <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
           <div class="tab-card-content">
             <a href="<%= tab.url %>" class="tab-link" target="_blank">
               <p class="tab-name"><%= tab.name %></p>

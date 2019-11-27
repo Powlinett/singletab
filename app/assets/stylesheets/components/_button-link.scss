@@ -13,7 +13,7 @@
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+	box-shadow: $base-box-shadow;
 }
 
 .links-buttons .folders-link:hover, .maps-link:hover {

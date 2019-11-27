@@ -13,13 +13,14 @@
 .search-form-control .form-control {
   background: white;
   height: 3.5rem;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: $base-box-shadow;
+  border-radius: $base-border-radius;
   border: 1px solid #E7E7E7;
-}
-
-.search-form-control .form-control:focus {
-  border: 1px solid #1EDD88;
-  outline: none !important;
+  &:focus {
+    border: 1px solid $grey-light;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    outline: none !important;
+  }
 }
 
 .simple_form {

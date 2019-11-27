@@ -5,21 +5,28 @@
   grid-row-gap: 8px;
   grid-auto-flow: row;
   grid-auto-columns: minmax(240px, 1fr);
+  border-radius: $base-border-radius;
+  padding: 20px;
 }
 
 .tab-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 3px;
+  background-color: white;
+  border-radius: $base-border-radius;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   height: 88px;
   padding: 10px;
   display: flex;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: $base-box-shadow;
+  transition: transform ease 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .tab-card img {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
 }
 
 .tab-card-content {
@@ -35,7 +42,7 @@
 .tab-name {
   text-transform: uppercase;
   font-size: 11px;
-  color: rgba(0, 0, 0, 0.4);
+  color: $grey-medium;
 }
 
 .tab-title {
@@ -43,7 +50,7 @@
   overflow: hidden;
   font-size: 13px;
   line-height: 16px;
-  color: rgba(0, 0, 0, 0.6);
+  color: $grey-dark;
 }
 
 .tab-card-actions {
