@@ -2,48 +2,49 @@
 
 <div class="links-buttons">
   <div>
-  <%= link_to 'List', folders_path, class: "folders-link active" %>
+    <%= link_to 'List', folders_path, class: "folders-link active" %>
   </div>
   <div>
-  <%= link_to 'Map', visualisations_path, class: "maps-link"  %>
+    <%= link_to 'Map', visualisations_path, class: "maps-link"  %>
   </div>
 </div>
 
 <div class="user-search">
   <% @folders.each do |folder| %>
-<!--     <div class="user-search-folder-container"> -->
-      <details class="user-search-folder">
-        <summary class="user-search-header">
-          <div class='user-search-header-content'>
-            <h3 class="user-search-title">
-              <%= simple_form_for([ folder ], remote: true) do |form| %>
-                <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
-                <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
-                <% end %> 
-            </h3>
-            <div class="user-search-counter">
-              <h4><%= folder.tabs.count %> tabs</h4>
-              <%= link_to 'Open All', '', class: 'primary-button'  %>
+    <details class="user-search-folder-content">
+      <summary class="user-search-header">
+        <div class='user-search-header-content'>
+          <h3 class="user-search-title">
+            <%= simple_form_for([ folder ], remote: true) do |form| %>
+            <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
+            <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
+            <% end %>
+          </h3>
+          <h4><%= folder.tabs.count %> tabs</h4>
+        </div>
+        <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
+      </summary>
+      <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
+        <% folder.tabs.each do |tab| %>
+        <div class="tab-card">
+          <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+          <div class="tab-card-content">
+            <a href="<%= tab.url %>" class="tab-link" target="_blank">
+              <p class="tab-name"><%= tab.name %></p>
+              <p class="tab-title"><%= URI.decode(tab.title) %></p>
+            </a>
+            <div class="box">
+              <% if tab.url.exclude?('localhost') %>
+              <iframe src="<%= tab.url %>" width = "600px" height = "500px"></iframe>
+              <% end %>
             </div>
           </div>
-        </summary>
-        <div class=" cards-container-display display-cards" id="idfolder-${folder.id}">
-          <% folder.tabs.each do |tab| %>
-            <div class="tab-card">
-              <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
-              <div class="tab-card-content">
-                <a href="<%= tab.url %>" class="tab-link">
-                  <p class="tab-name"><%= tab.name %></p>
-                  <p class="tab-title"><%= URI.decode(tab.title) %></p>
-                </a>
-              </div>
-              <div class="tab-card-actions">
-                <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
-              </div>
-            </div>
-          <% end %>
+          <div class="tab-card-actions">
+            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
+          </div>
         </div>
-      </details>
-<!--     </div> -->
+        <% end %>
+      </div>
+    </details>
   <% end %>
 </div>
