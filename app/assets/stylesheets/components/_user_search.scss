@@ -1,25 +1,42 @@
 .user-search {
-  background: white;
+  background: rgba(0, 0, 0, 0.03);
   box-shadow: $base-box-shadow;
-  // padding: 20px;
-  padding: 8px;
 
   .user-search-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
     box-shadow: $base-box-shadow;
     padding: 1em 1.5em;
     max-height: 68px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
 
-    h3 {
-      flex-shrink: 1;
+    .user-search-header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      label.user-search-title {
+        flex-shrink: 2;
+        margin: 0;
+        margin-right: 2em;
+      }
+
+      h4 {
+      	font-size: 1em;
+      	padding: 8px 12px;
+      	box-shadow: $base-box-shadow;
+      	border: 1px solid rgba(0, 0, 0, 0.1);
+      	border-radius: $base-border-radius;
+      	margin: 0;
+      	max-height: 2em;
+      	min-width: 71px;
+      }
     }
   }
 }
-
 
 body.folders {
 	.primary-button {

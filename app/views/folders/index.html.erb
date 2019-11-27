@@ -9,27 +9,35 @@
   </div>
 </div>
 
-<% @folders.each do |folder| %>
-  <div class="user-search">
-    <div class="user-search-header">
-      <h3><%= folder.name %></h3>
-      <%= link_to 'Open All', '', class: 'primary-button'  %>
-    </div>
-    <div class="cards-container" id="idfolder-${folder.id}">
-      <% folder.tabs.each do |tab| %>
-        <div class="tab-card">
-          <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
-          <div class="tab-card-content">
-            <a href="<%= tab.url %>" class="tab-link">
-              <p class="tab-name"><%= tab.name %></p>
-              <p class="tab-title"><%= URI.decode(tab.title) %></p>
-            </a>
+<div class="user-search">
+  <% @folders.each do |folder| %>
+    <div class="user-search-folder-container">
+      <div class="user-search-folder-content">
+        <div class="user-search-header">
+          <div class='user-search-header-content'>
+            <input type="checkbox" id="<%= folder.id %>" class="toggle" />
+            <label class="user-search-title" for="<%= folder.id %>"><%= folder.name %></label>
+            <h4><%= folder.tabs.count %> tabs</h4>
           </div>
-          <div class="tab-card-actions">
-            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
-          </div>
+          <%= link_to 'Open All', '', class: 'primary-button'  %>
         </div>
-      <% end %>
+        <div class="cards-container cards-container-hidden cards-container-display display-cards" id="idfolder-${folder.id}">
+          <% folder.tabs.each do |tab| %>
+            <div class="tab-card">
+              <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+              <div class="tab-card-content">
+                <a href="<%= tab.url %>" class="tab-link">
+                  <p class="tab-name"><%= tab.name %></p>
+                  <p class="tab-title"><%= URI.decode(tab.title) %></p>
+                </a>
+              </div>
+              <div class="tab-card-actions">
+                <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

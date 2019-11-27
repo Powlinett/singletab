@@ -1,0 +1,40 @@
+.user-search {
+  .toggle {
+  	display: none;
+  }
+
+  label {
+    border: 0;
+    box-shadow: 0px 0px 0px white;
+    background-color: white;
+
+    &::before {
+      content: "\276F";
+      display: inline-block;
+      transition: all ease 0.3s;
+    }
+  }
+
+  .cards-container.cards-container-hidden {
+  	height: 0;
+  	padding: 0;
+  	overflow: hidden;
+  }
+}
+
+.user-search {
+	.toggle:checked {
+		+ label {
+			background-color: yellow;
+
+		    &::before {
+			  transform: rotate(90deg);
+		    }
+		}
+
+		~ .cards-container.cards-container-hidden.cards-container-display.display-cards {
+			height: 400px;
+		}
+
+	}
+}

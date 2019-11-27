@@ -1,4 +1,4 @@
-.cards-container {
+.cards-container-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-column-gap: 8px;
@@ -7,6 +7,8 @@
   grid-auto-columns: minmax(240px, 1fr);
   border-radius: $base-border-radius;
   padding: 20px;
+  padding-bottom: 3em;
+  overflow: hidden;
 }
 
 .tab-card {
