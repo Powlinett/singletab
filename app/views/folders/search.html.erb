@@ -13,6 +13,23 @@
 
 <h1>Results for " <%= params[:query] %> "</h1>
 
-<% @query_tabs.each do |x| %>
-<%= x.name %> <br>
-<% end %>
+
+<div class="" id="idfolder-${folder.id}">
+  <% @query_tabs.each do |tab| %>
+    <div class="">
+      <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+      <div class="">
+        <!-- <a href="<%= tab.url %>" class="tab-link" target="_blank"> -->
+          <p class="tab-name"><%= tab.name %></p>
+          <p class="tab-title"><%= URI.decode(tab.title) %></p>
+          <p class="tab-title"><%= URI.decode(tab.description) %></p>
+        <!-- </a> -->
+
+      </div>
+      <div class="tab-card-actions">
+        <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
