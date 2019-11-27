@@ -19,6 +19,7 @@ class FoldersController < ApplicationController
   def create
     @folders = Folder.new(params[:query])
     redirect_to folders_url
+
   end
 
   def search
@@ -38,15 +39,14 @@ class FoldersController < ApplicationController
     @parantfolder = Folder.search_folder_by_id(current_user.id)
   end
 
-
-
-
   def update
     if @folder.update(folder_params())
+
       redirect_to folders_path
     else
       render :edit
     end
+
   end
 
   private

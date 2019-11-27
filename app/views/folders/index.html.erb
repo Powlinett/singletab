@@ -10,10 +10,14 @@
 </div>
 
 <% @folders.each do |folder| %>
-  <div class="user-search">
+  <div id="pagesindex" class="user-search">
     <div class="user-search-header">
-      <h3><%= folder.name %></h3>
-      <%= link_to 'Open All', '', class: 'primary-button'  %>
+          <!-- test formulaire uptade -->
+          <%= simple_form_for([ folder ], remote: true) do |form| %>
+            <%= form.input :name , label: false, :"data-folder" => folder.id %> <%= form.button :submit,  id: folder.id , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
+          <% end %>
+          <!-- test formulaire uptade type: "hidden",-->
+      <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
     </div>
     <div class="cards-container" id="idfolder-${folder.id}">
       <% folder.tabs.each do |tab| %>
