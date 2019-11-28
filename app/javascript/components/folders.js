@@ -40,19 +40,19 @@ if (pagesindex) {
       window.open(tab.url);
     })
 
-    link.addEventListener('mouseover', (event) => {
-     let taburl = JSON.parse(link.dataset.taburl);
-     let url = taburl.url.replace("watch?v=", "embed/");
-     console.log(url)
-     // selectiona = document.querySelector(`#a-${tab.id}`);
-      selection = document.querySelector(`#frame`)
-      selection.insertAdjacentHTML("afterbegin",
-       `<div class="box">
-       <iframe  src="${url}" width = "600px" height = "500px">
-        </iframe>
-        </div>`
-       );
-     })
+    // link.addEventListener('mouseover', (event) => {
+    //  let taburl = JSON.parse(link.dataset.taburl);
+    //  let url = taburl.url.replace("watch?v=", "embed/");
+    //  console.log(url)
+    //  // selectiona = document.querySelector(`#a-${tab.id}`);
+    //   selection = document.querySelector(`#frame`)
+    //   selection.insertAdjacentHTML("afterbegin",
+    //    `<div class="box">
+    //    <iframe  src="${url}" width = "600px" height = "500px">
+    //     </iframe>
+    //     </div>`
+    //    );
+    //  })
   })
 
 
