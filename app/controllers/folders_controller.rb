@@ -6,9 +6,10 @@ class FoldersController < ApplicationController
     #@folders = Folder.where("folders.user_id = #{current_user.id}")
 
     @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
+    @folders = @folders.sort_by { |folder| folder.created_at}.reverse
     @tabs = []
     @folders.reverse.each do |folder|
-      @tabs << folder.tabs
+    @tabs << folder.tabs
     end
   end
 
