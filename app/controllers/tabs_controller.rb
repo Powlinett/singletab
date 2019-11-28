@@ -29,7 +29,7 @@ class TabsController < ApplicationController
           url: tab["url"],
           title: no_accent(tab["title"]),
           icon: tab["icon"],
-          description: tab["body"],
+          description: no_n(tab["body"].join(' ')),
           comment: "",
           folder_id: @folder.id #voir ajout couleur
           )
@@ -56,6 +56,9 @@ end
 
  private
  def no_accent(texte)
-  CGI.escape(texte).gsub('+',' ').gsub('%E9','e').gsub('%27',' ').gsub('%FB','u').gsub('%2B','+').gsub('%28','(').gsub('%3B',';').gsub('%0D%0A','').gsub('%2C',',').gsub('%85','...').gsub('%29',')').gsub('%EA','e').gsub('%26','et').gsub('%3A',':').gsub('%E2','a').gsub('%E0','a').gsub('%22','').gsub('%8C','OE').gsub('%B0','um ').gsub('%E8','e')
+  CGI.escape(texte).gsub('+',' ').gsub("\\n",' ').gsub('%E9','e').gsub('%27',' ').gsub('%FB','u').gsub('%2B','+').gsub('%28','(').gsub('%3B',';').gsub('%0D%0A','').gsub('%2C',',').gsub('%85','...').gsub('%29',')').gsub('%EA','e').gsub('%26','et').gsub('%3A',':').gsub('%E2','a').gsub('%E0','a').gsub('%22','').gsub('%8C','OE').gsub('%B0','um ').gsub('%E8','e')
 end
+ def no_n(texte)
+    texte.gsub("\n",' ')
+ end
 end
