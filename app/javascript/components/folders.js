@@ -25,7 +25,8 @@ if (pagesindex) {
     // open all tabs
   document.querySelectorAll('a.open-tabs').forEach((link) => {
     link.addEventListener('click', (event) => {
-    const foldertabs = JSON.parse(link.dataset.tabs);
+      event.preventDefault();
+      const foldertabs = JSON.parse(link.dataset.tabs);
         foldertabs.forEach(function(tabs){
           window.open(tabs.url);
         })
@@ -33,27 +34,27 @@ if (pagesindex) {
   });
 
 
-  // click sur card
-  document.querySelectorAll('.tab-card-content').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const tab = JSON.parse(link.dataset.taburl);
-      window.open(tab.url);
-    })
+  // // click sur card
+  // document.querySelectorAll('.tab-card-content').forEach((link) => {
+  //   link.addEventListener('click', (event) => {
+  //     const tab = JSON.parse(link.dataset.taburl);
+  //     window.open(tab.url);
+  //   })
 
-    link.addEventListener('mouseover', (event) => {
-     let taburl = JSON.parse(link.dataset.taburl);
-     let url = taburl.url.replace("watch?v=", "embed/");
-     console.log(url)
-     // selectiona = document.querySelector(`#a-${tab.id}`);
-      selection = document.querySelector(`#frame`)
-      selection.insertAdjacentHTML("afterbegin",
-       `<div class="box">
-       <iframe  src="${url}" width = "600px" height = "500px">
-        </iframe>
-        </div>`
-       );
-     })
-  })
+  //   link.addEventListener('mouseover', (event) => {
+  //    let taburl = JSON.parse(link.dataset.taburl);
+  //    let url = taburl.url.replace("watch?v=", "embed/");
+  //    console.log(url)
+  //    // selectiona = document.querySelector(`#a-${tab.id}`);
+  //     selection = document.querySelector(`#frame`)
+  //     selection.insertAdjacentHTML("afterbegin",
+  //      `<div class="box">
+  //      <iframe  src="${url}" width = "600px" height = "500px">
+  //       </iframe>
+  //       </div>`
+  //      );
+  //    })
+  // })
 
 
 

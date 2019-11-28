@@ -30,9 +30,10 @@
           <div class="tab-card">
             <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
             <div class="tab-card-content" data-taburl="<%= tab.to_json %>">
-                <p class="tab-name"><%= tab.name %></p>
-                <p class="tab-title"><%= URI.decode(tab.title) %></p>
-
+                <a href="<%= tab.url %>" class="tab-url" target="_blank">
+                  <p class="tab-name"><%= tab.name %></p>
+                  <p class="tab-title"><%= URI.decode(tab.title) %></p>
+                </a>
               <div class="tab-card-actions">
                 <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a>
               </div>
