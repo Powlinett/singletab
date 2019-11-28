@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:auth, :check_auth]
+  skip_before_action :verify_authenticity_token, only: [:auth, :check_auth, :landing]
   skip_before_action :authenticate_user!
-  acts_as_token_authentication_handler_for User, except: [:auth, :check_auth]
+  acts_as_token_authentication_handler_for User, except: [:auth, :check_auth, :landing]
+
+  def landing
+    @disable_nav = true
+  end
 
   def visualisation
   end

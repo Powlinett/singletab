@@ -35,7 +35,7 @@
 
   <body class="<%= body_class %>">
     <% if user_signed_in? %>
-      <%= render 'layouts/navbar' %>
+      <%= render 'layouts/navbar' unless @disable_nav %>
     <% end %>
 
     <div class="container">
