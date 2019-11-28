@@ -1,8 +1,4 @@
-
-
-
-
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
     <style>
       @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
@@ -14,7 +10,6 @@
       .node:not(:hover) .nodetext {
         display: none;
       }
-      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}*/
       h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
 
       a:visited { color: #EE3124; }
@@ -100,7 +95,7 @@ d3.json(data, function(json) {
   path.enter().insert("svg:path")
   .attr("class", "link")
       // .attr("marker-end", "url(#end)")
-      .style("stroke", "#000");
+      .style("stroke", "#A9A9A9");
 
 
   // Exit any old paths.
@@ -123,7 +118,7 @@ d3.json(data, function(json) {
   // Append a circle
   nodeEnter.append("svg:circle")
   .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
-  .style("fill", "#000");
+  .style("fill", "#A9A9A9");
 
 
   // Append images
@@ -138,7 +133,6 @@ d3.json(data, function(json) {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-            d3.select("h1").html(d.name);
             d3.select("h2").html(d.title);
             console.log(d.url)
             if (d.url != undefined){
@@ -173,7 +167,7 @@ d3.json(data, function(json) {
   .attr("x", x_browser)
   .attr("y", y_browser +15)
   .attr("fill", tcBlack)
-  .text(function(d) { return d.name; });
+  .text(function(d) { return decodeURI(d.title); });
 
 
   // Exit any old nodes.

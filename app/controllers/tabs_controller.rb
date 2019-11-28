@@ -22,10 +22,8 @@ class TabsController < ApplicationController
       arrayparams = JSON.parse(params[:variable])
       arrayparams.each do |tab|
 
-        url = Domainatrix.parse(tab["url"])
-
         @tab = Tab.new(
-          name: url.domain,
+          name: tab["name"],
           url: tab["url"],
           title: no_accent(tab["title"]),
           icon: tab["icon"],
