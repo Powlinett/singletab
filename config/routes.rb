@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :folders #, only: [:update, :index, :show, :destroy, :edit, :create]
   resources :tabs, only: [:edit, :create, :destroy]
 
-  root to: "folders#index"
+  root to: "pages#landing"
 end
 
