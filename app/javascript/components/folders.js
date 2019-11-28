@@ -31,13 +31,14 @@ if (pagesindex) {
         })
     })
   });
-  document.querySelectorAll('input.string').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const folder = link.dataset.folder;
-      bouton = document.querySelector(`#idFolder-${folder}`)
-      bouton.type = "submit";
-    })
-  })
+  //methode pour faire apparaitre bouton Update
+  // document.querySelectorAll('input.string').forEach((link) => {
+  //   link.addEventListener('click', (event) => {
+  //     const folder = link.dataset.folder;
+  //     bouton = document.querySelector(`#idFolder-${folder}`)
+  //     bouton.type = "submit";
+  //   })
+  // })
 
   document.querySelectorAll('a.btnremove').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -122,3 +123,10 @@ if (pagesindex) {
 //            </div>`
 //   return tabText;
 // };
+
+
+const toto = () => {
+  console.log("je suis dans toto")
+}
+
+window.toto = toto

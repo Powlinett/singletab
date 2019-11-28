@@ -9,8 +9,12 @@
   border-radius: $base-border-radius;
   padding: 20px;
   padding-bottom: 3em;
-  overflow: hidden;
 }
+
+.tab-card a{
+  text-decoration:none;
+}
+
 
 .tab-card {
   background-color: white;

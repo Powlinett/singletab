@@ -34,11 +34,20 @@
               <p class="tab-name"><%= tab.name %></p>
               <p class="tab-title"><%= URI.decode(tab.title) %></p>
             </a>
-            <!-- <div class="box">
-              <%# if tab.url.exclude?('localhost') %>
-              <iframe src="<%= tab.url %>" width = "600px" height = "500px"></iframe>
-              <%# end %>
-            </div> -->
+            <div class="box">
+              <% if tab.url.exclude?('localhost') %>
+
+            <script type="text/javascript">
+              function frameload(){
+               console.log("iframe loaded")
+              }
+            </script>
+
+              <iframe onload="frameload()" src="<%= tab.url %>" width = "600px" height = "500px">
+              </iframe>
+                <script>console.log("coucou")</script>
+              <% end %>
+            </div>
           </div>
           <div class="tab-card-actions">
             <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
