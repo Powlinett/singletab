@@ -7,7 +7,7 @@ class FoldersController < ApplicationController
 
     @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
     @tabs = []
-    @folders.each do |folder|
+    @folders.reverse.each do |folder|
       @tabs << folder.tabs
     end
   end

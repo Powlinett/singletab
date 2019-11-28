@@ -35,14 +35,8 @@
 
         input#folder_name {
           background-color: white;
-          width: 100%
+          width: 100%;
         }
-      }
-
-      .user-search-counter {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 16px;
       }
 
       h4 {
@@ -54,7 +48,7 @@
       	border-radius: $base-border-radius;
       	margin: 0;
       	max-height: 2em;
-      	width: 84px;
+      	min-width: 88px;
         display: block;
       }
     }

@@ -12,7 +12,6 @@
   <body class="<%= body_class %>">
     <% if user_signed_in? %>
       <%= render 'layouts/navbar' %>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     <% end %>
 
     <div class="container">

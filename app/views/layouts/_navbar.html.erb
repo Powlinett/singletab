@@ -1,13 +1,13 @@
 <header class="header">
   <nav class="navbar">
     <div class="wrapper">
-      <span><a class="logo" href="#">Logo</a></span>
+      <span><a class="logo" href="#"><%= image_tag("singletab_black_and_white") %></a></span>
+      <h1 class="title-singletab">SINGLETAB</h1>
       <ul class="menu">
-        <li><a class="menu-link" href="#">Home</a></li>
-        <li><a class="menu-link" href="#">Profile</a></li>
-        <li><a class="menu-link" href="#">Service</a></li>
-        <li><a class="menu-link" href="#">Works</a></li>
-        <li><a class="menu-link" href="#">Contact</a></li>
+        <li><%= link_to 'RESEARCH', folders_path, class: 'menu-link' %></li>
+        <li><a class="menu-link" href="#">DOWNLOAD</a></li>
+        <li><a class="menu-link" href="#">CONTACT</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'menu-link') %></li>
       </ul>
     </div>
     <div class="toggle">
@@ -19,19 +19,16 @@
   <div class="mobile">
     <ul class="menu">
       <li class="menu-item">
-        <a class="menu-link" href="#">Home</a>
+        <%= link_to 'RESEARCH', folders_path, class: 'menu-link' %>
       </li>
       <li class="menu-item">
-        <a class="menu-link" href="#">About</a>
+        <a class="menu-link" href="#">DOWNLOAD</a>
       </li>
       <li class="menu-item">
-        <a class="menu-link" href="#">Service</a>
+        <a class="menu-link" href="#">CONTACT</a>
       </li>
       <li class="menu-item">
-        <a class="menu-link" href="#">Works</a>
-      </li>
-      <li class="menu-item">
-        <a class="menu-link" href="#">Contact</a>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'menu-link') %>
       </li>
     </ul>
   </div>
