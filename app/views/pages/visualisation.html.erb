@@ -26,12 +26,15 @@
 
 
 <body>
-  <%= render "layouts/searchbar" %>
+  <div class="container">
+      <%= render "layouts/searchbar" %>
 
-    <div class="links-buttons">
+        <div class="links-buttons">
       <div>
-      <%= link_to 'List', folders_path, class: "folders-link" %>
-      <%= link_to 'Map', visualisations_path, class: "maps-link active"  %>
+        <%= link_to 'List', folders_path, class: "folders-link active" %>
+      </div>
+      <div>
+        <%= link_to 'Map', visualisations_path, class: "maps-link"  %>
       </div>
     </div>
     <!-- container for force layout visualisation  -->
@@ -257,6 +260,6 @@ d3.json(data, function(json) {
 
 </script>
 
-
+</div>
 </body>
 </html>
