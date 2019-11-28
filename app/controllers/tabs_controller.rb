@@ -35,9 +35,14 @@ class TabsController < ApplicationController
           )
         @tab.save!
       end
-      redirect_to folders_path
+    p "===================================="
+    p @folder.tabs.count
+    if @folder.tabs.length <= 0
+      @folder.destroy
     end
+          redirect_to folders_path
   end
+end
 
   def show
     @tab = Tab.find(params[:id])
