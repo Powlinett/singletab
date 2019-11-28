@@ -14,7 +14,12 @@
 .tab-card a{
   text-decoration:none;
 }
-
+.tab-card-content a{
+  text-decoration:none;
+  &:hover {
+    font-weight: bold;
+  }
+}
 
 .tab-card {
   background-color: white;

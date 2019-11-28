@@ -1,7 +1,7 @@
 <%= link_to 'data', data_path  %>
 <%= link_to 'visualisation', visualisations_path  %>
 <%= link_to 'folders', folders_path  %>
-  
+
 <%= render "layouts/searchbar" %>
 
   <h1>Results for " <%= params[:query] %> "</h1>
@@ -9,11 +9,15 @@
     <% @query_tabs.each do |tab| %>
       <div class="results-tab-card">
         <div class="results-tab-card-header-container">
+
           <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="avatar">
           <!-- <a href="<%= tab.url %>" class="tab-link" target="_blank"> -->
+
           <div class="tab-card-header tab-card-content">
+            <a href="<%= tab.url %>" class="tab-link" target="_blank">
             <h3 class="tab-name"><%= tab.name %></h3>
             <p class="tab-title"><%= URI.decode(tab.title) %></p>
+            </a>
           </div>
         </div>
           <div class="tab-body-description">
