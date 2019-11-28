@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/visualisation/data_id/:id', to: 'pages#data'
   post '/auth', to: 'pages#auth'
   get '/checkauth', to: 'pages#check_auth'
+  post '/signout', to: 'pages#signout'
 
   get 'folders/search', to: 'folders#search', as: 'search'
 

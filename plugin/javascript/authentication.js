@@ -1,8 +1,10 @@
-//const urlee = 'https://still-lowlands-24985.herokuapp.com/auth'
+const url = 'https://still-lowlands-24985.herokuapp.com/auth'
+// const url = 'http://localhost:3000/auth'
+
+/////// LOGIN ///////////
 
 const form = document.querySelector('.form');
 const buttons = document.querySelector('.button-container');
-const logout = document.querySelector('.logout');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -10,7 +12,7 @@ form.addEventListener('submit', (event) => {
   const password = document.querySelector('#password').value;
   console.log(email);
   console.log(password);
-  fetch('http://localhost:3000/auth', {
+  fetch(url, {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',
@@ -26,3 +28,7 @@ form.addEventListener('submit', (event) => {
     };
   });
 });
+
+
+////////// LOG OUT ///////////
+
