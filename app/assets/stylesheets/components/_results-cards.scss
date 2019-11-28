@@ -1,0 +1,39 @@
+body.folders-search {
+
+	h1 {
+        font-size: 24px;
+	}
+
+	.results-cards-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 1em;
+	}
+    
+    .results-tab-card {
+    	border-radius: $base-border-radius;
+    	box-shadow: $base-box-shadow;
+    	max-width: 100%;
+    	background-color: white;
+    	margin-bottom: 1em;
+    }
+
+    .results-tab-card-header-container {
+    	display: flex;
+    	align-items: center;
+    	border-radius: $base-border-radius;
+    	box-shadow: $base-box-shadow;
+    	padding: 16px;
+
+        .tab-title, .tab-name {
+        	font-size: 0.8em;
+        }
+    }
+
+	.tab-body-description {
+		max-width: 100%;
+		max-height: 400px;
+		overflow: scroll;
+		padding: 16px;
+	}
+}

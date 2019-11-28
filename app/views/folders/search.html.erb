@@ -2,36 +2,32 @@
 <%= link_to 'visualisation', visualisations_path  %>
 <%= link_to 'folders', folders_path  %>
   
-<%= simple_form_for :search, action: search_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
+<%= render "layouts/searchbar" %>
 
   <h1>Results for " <%= params[:query] %> "</h1>
-  <div class="" id="idfolder-${folder.id}">
+  <div class="results-cards-container" id="idfolder-${folder.id}">
     <% @query_tabs.each do |tab| %>
-      <div class="card ml-3">
-        <div class="m-3">
+      <div class="results-tab-card">
+        <div class="results-tab-card-header-container">
           <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="avatar">
           <!-- <a href="<%= tab.url %>" class="tab-link" target="_blank"> -->
-            <h3 class=""><%= tab.name %></h3>
+          <div class="tab-card-header tab-card-content">
+            <h3 class="tab-name"><%= tab.name %></h3>
             <p class="tab-title"><%= URI.decode(tab.title) %></p>
-            <a href=<%= tab.url %>><%= tab.url %></a>
-            <li>texte dans body :</li>
+          </div>
+        </div>
+          <div class="tab-body-description">
             <%#= texte = tab.description.match(/.{0,150}#{params[:query]}.{0,150}/) %>
             <% arraysearch = tab.description.scan(/\w.{0,60}#{params[:query]}.{0,30}/) %>
-              <% arraysearch.each do |x| %>
-                <li>- <%= x %></li>
-              <% end %>
+              <ul>
+                <% arraysearch.each do |x| %>
+                  <li><%= x %></li>
+                <% end %>
+              </ul>
         </div>
-
-        <div class="tab-card-actions">
+        <!-- <div class="tab-card-actions">
           <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
-        </div>
+        </div> -->
       </div>
     <% end %>
   </div>

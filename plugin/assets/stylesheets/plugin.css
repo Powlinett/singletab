@@ -68,15 +68,16 @@ a.redirect {
 
 p.logout a {
 	text-decoration: none;
-	color: gray;
+	color: rgba(0, 0, 0, 0.2);
 	display: inline;
 	position: absolute;
-	top: 4px;
-	right: 6px;
+	top: 6px;
+	right: 9px;
 }
 
 p.logout a:hover {
     text-decoration: none;
+    transform: scale(1.1);
 }
 
 .sign-up a {

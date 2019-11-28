@@ -5,6 +5,7 @@ const url = 'http://localhost:3000/auth'
 
 const form = document.querySelector('.form');
 const buttons = document.querySelector('.button-container');
+const logout = document.querySelector('.logout')
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -23,6 +24,7 @@ form.addEventListener('submit', (event) => {
     if (typeof data['token'] !== "undefined") {
       form.classList.add('hidden');
       buttons.classList.toggle('hidden');
+      logout.classList.toggle('hidden');
     } else {
       console.log('hello')
     };
