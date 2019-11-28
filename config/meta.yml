@@ -1,0 +1,8 @@
+# default meta_tags for application
+meta_product_name: "SingleTab"
+meta_title: "SingleTab - Perform searches quickly in one single tab"
+meta_description: "CATCH and GATHER all your searches in one single tab view. Now, you can save your tabs in a data visualization and sort them faster with one click."
+meta_image: "singletab_circle_white_linear.png" # in `app/assets/images/`
+meta_image_fb: "meta_image-facebook.png" # in `app/assets/images/`
+# absolute URL : http://imageshack.com/a/img924/5879/AT9SZi.png
+twitter_account: "@SingleTab4"   # required for Twitter Cards

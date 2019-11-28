@@ -9,9 +9,9 @@
   </div>
 </div>
 
-<div class="user-search">
+<div class="user-search" id="pagesindex">
   <% @folders.each do |folder| %>
-    <details class="user-search-folder-content">
+    <details class="user-search-folder-content" id= "div-folder-<%= folder.id %>">
       <summary class="user-search-header">
         <div class='user-search-header-content'>
           <h3 class="user-search-title">
@@ -23,6 +23,7 @@
           <h4><%= folder.tabs.count %> tabs</h4>
         </div>
         <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
+        <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-trash-alt", method: :delete, remote: true, :"data-folderid" => folder.id %>
       </summary>
       <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
         <% folder.tabs.each do |tab| %>
@@ -31,16 +32,17 @@
           <div class="tab-card-content">
             <a href="<%= tab.url %>" class="tab-link" target="_blank">
               <p class="tab-name"><%= tab.name %></p>
-              <p class="tab-title"><%= URI.decode(tab.title) %></p>
+              <p class="tab-title"><%= URI.decode(tab.title) %><%= tab.id %></p>
             </a>
             <div class="box">
               <% if tab.url.exclude?('localhost') %>
-              <iframe src="<%= tab.url %>" width = "600px" height = "500px"></iframe>
-              <% end %>
+              <iframe  src="<%= tab.url %>" width = "600px" height = "500px">
+              </iframe>
+              <% end  %>
             </div>
           </div>
           <div class="tab-card-actions">
-            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
+            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a>
           </div>
         </div>
         <% end %>

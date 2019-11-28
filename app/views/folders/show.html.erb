@@ -1,3 +1,6 @@
+<% content_for :meta_title, "My search #{@folder.name} on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_image, image_path("singletab_white_black.png") %>
+
 <div  class="containershow">
 <h2><%= @folder.name %></h2>
 <a class="fas fa-chart-bar ml-3" href="/visualisation/<%= @folder.id %>">Show map</a>
