@@ -41,3 +41,21 @@
   background-color: #dee2e5;
   }
 }
+
+.search-form-control.form-group {
+
+  .btn.btn-flat {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 15px;
+    }
+
+    p {
+      font-family: 'Open Sans';
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+  }
+}

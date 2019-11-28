@@ -1,7 +1,10 @@
-body {
+html, body {
 	height: 100vh;
+	margin: 0;
 }
 
 .container {
 	width: 1080px;
+	min-height: 100%;
+	margin-bottom: -100px;
 }
