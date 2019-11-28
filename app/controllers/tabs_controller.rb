@@ -21,6 +21,11 @@ class TabsController < ApplicationController
     if @folder.save!
       arrayparams = JSON.parse(params[:variable])
       arrayparams.each do |tab|
+        if tab["body"].nil?
+          textebody = ""
+          else
+          textebody = no_n(tab["body"].join(' '))
+        end
 
         url = Domainatrix.parse(tab["url"])
 
