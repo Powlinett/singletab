@@ -21,6 +21,7 @@ function arraytabs() {
     tabs.forEach(function(tab) {
       chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
         let body = response;
+        console.log(tab)
         tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
         removeTabs(tabUrlFin);
       });
@@ -50,6 +51,28 @@ function removeTabs(tabs) {
     }
   });
 };
+
+function getMemoryUsage() {
+  chrome.experimental.processes.getProcessInfo([], true, function(processes) {
+    var memory = 0;
+    for (var key in processes) {
+      var process = processes[key];
+      memory += processes[key].privateMemory;
+    }
+    console.log(memory);
+  });
+};
+
+const bob = function getPId(tabs) {
+
+  tabs.forEach(function(tab) {
+    chrome.processes.getProcessIdForTab(tab.id, function(x) {
+     pId.push(x);
+   });
+    return pId;
+  })
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
 //pour attendre creation de pages

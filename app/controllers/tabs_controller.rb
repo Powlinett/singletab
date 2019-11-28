@@ -27,10 +27,8 @@ class TabsController < ApplicationController
           textebody = no_n(tab["body"].join(' '))
         end
 
-        url = Domainatrix.parse(tab["url"])
-
         @tab = Tab.new(
-          name: url.domain,
+          name: tab["name"],
           url: tab["url"],
           title: no_accent(tab["title"]),
           icon: tab["icon"],
