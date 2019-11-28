@@ -14,7 +14,6 @@ class PagesController < ApplicationController
     @folders = Folder.where("folders.user_id = #{current_user.id} #{condition}")
 
     render json: mind_map()
-
   end
 
   def auth
@@ -59,18 +58,18 @@ class PagesController < ApplicationController
     childrens
   end
 
-   def add_child(item)
-        hash = { name: item.name, id: item.id, type: "Folder"}
-        hash[:children] = alltabs(item)
-        if item.folders
-          item.folders.each do |item|
-            hash[:children] << add_child(item)
-          end
-        end
-        hash
+  def add_child(item)
+    hash = { name: item.name, id: item.id, type: "Folder"}
+    hash[:children] = alltabs(item)
+    if item.folders
+      item.folders.each do |item|
+        hash[:children] << add_child(item)
+      end
     end
+    hash
+  end
 
-def alltabs(folder)
+  def alltabs(folder)
     childrens = []
     folder.tabs.all.each do |t|
       t.icon = t.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : t.icon
@@ -87,13 +86,13 @@ def alltabs(folder)
     childrens
   end
 
-    def mind_map()
-      arrayfolder = []
-      arrayfolder = Folder.search_folder_by_id(current_user.id)
-      map = {
-        name: "My map",
-        favicon: "http://imageshack.com/a/img924/7323/nbroSO.png",
-        children: superparent()
+  def mind_map()
+    arrayfolder = []
+    arrayfolder = Folder.search_folder_by_id(current_user.id)
+    map = {
+      name: "My map",
+      favicon: "http://imageshack.com/a/img924/7323/nbroSO.png",
+      children: superparent()
     }
     map.to_json
   end
