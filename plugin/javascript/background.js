@@ -1,10 +1,10 @@
-//const urlsite =  'https://still-lowlands-24985.herokuapp.com/checkauth'
-//const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/checkauth'
+const urlsite =  'https://still-lowlands-24985.herokuapp.com/checkauth'
+const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/tabs'
 
-const urlsite = 'http://localhost:3000/checkauth'
-const urlsitetabs = 'http://localhost:3000/tabs'
+// const urlsite = 'http://localhost:3000/checkauth'
+// const urlsitetabs = 'http://localhost:3000/tabs'
 
-etch(urlsite)
+fetch(urlsite)
 .then((response) => { return (response.json()) })
 .then(data => {
   console.log(data['statut']);
