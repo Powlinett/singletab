@@ -1,5 +1,5 @@
-# setup helpers that will encapsulate 3 keys :meta_title, :meta_description and :meta_image:
-# In any view, content_for(:meta_key) override DEFAULT_META's value
+# # setup helpers that will encapsulate 3 keys :meta_title, :meta_description and :meta_image:
+# # In any view, content_for(:meta_key) override DEFAULT_META's value
 
 module MetaTagsHelper
   def meta_title
@@ -16,5 +16,3 @@ module MetaTagsHelper
     meta_image.starts_with?("http") ? meta_image : image_url(meta_image)
   end
 end
-
-
