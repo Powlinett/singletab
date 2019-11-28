@@ -11,6 +11,16 @@
   padding-bottom: 3em;
 }
 
+.tab-body-description strong {
+    background: #afb4ed;
+    border-radius: $base-border-radius;
+    font-weight: bolder;
+    padding: 0 3px;
+}
+.tab-body-description li {
+  margin-bottom: 10px;
+}
+
 .tab-card a{
   text-decoration:none;
 }

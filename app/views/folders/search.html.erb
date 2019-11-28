@@ -1,6 +1,3 @@
-<%= link_to 'data', data_path  %>
-<%= link_to 'visualisation', visualisations_path  %>
-<%= link_to 'folders', folders_path  %>
 
 <%= render "layouts/searchbar" %>
 
@@ -21,11 +18,14 @@
           </div>
         </div>
           <div class="tab-body-description">
-            <%#= texte = tab.description.match(/.{0,150}#{params[:query]}.{0,150}/) %>
-            <% arraysearch = tab.description.scan(/\w.{0,60}#{params[:query]}.{0,30}/) %>
+
+            <% arraysearch = tab.description.scan(/\w.{0,100}#{params[:query]}.{0,100}/) %>
               <ul>
+
                 <% arraysearch.each do |x| %>
-                  <li><%= x %></li>
+                  <%# x = x.gsub(params[:query],`<strong>#{params[:query]}</strong>`) %>
+                  <% x = x.gsub(params[:query],"<strong>#{params[:query]}</strong>") %>
+                  <li>"<%= x.html_safe %>"</li>
                 <% end %>
               </ul>
         </div>
