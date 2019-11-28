@@ -4,7 +4,7 @@
 const urlsite = 'http://localhost:3000/checkauth'
 const urlsitetabs = 'http://localhost:3000/tabs'
 
-etch(urlsite)
+fetch(urlsite)
 .then((response) => { return (response.json()) })
 .then(data => {
   console.log(data['statut']);
