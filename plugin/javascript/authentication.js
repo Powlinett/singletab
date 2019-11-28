@@ -1,6 +1,4 @@
-//const url = 'https://still-lowlands-24985.herokuapp.com/auth'
-const url = 'http://localhost:3000/auth'
-
+//const urlee = 'https://still-lowlands-24985.herokuapp.com/auth'
 
 const form = document.querySelector('.form');
 const buttons = document.querySelector('.button-container');
@@ -12,7 +10,7 @@ form.addEventListener('submit', (event) => {
   const password = document.querySelector('#password').value;
   console.log(email);
   console.log(password);
-  fetch(url, {
+  fetch('http://localhost:3000/auth', {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',
