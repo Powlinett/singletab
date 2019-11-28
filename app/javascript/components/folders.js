@@ -57,10 +57,6 @@ if (pagesindex) {
   // })
 
 
-
-
-
-
   //methode pour faire apparaitre bouton Update
   // document.querySelectorAll('input.string').forEach((link) => {
   //   link.addEventListener('click', (event) => {

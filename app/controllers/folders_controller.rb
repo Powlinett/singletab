@@ -6,9 +6,10 @@ class FoldersController < ApplicationController
     #@folders = Folder.where("folders.user_id = #{current_user.id}")
 
     @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
+    @folders = @folders.sort_by { |folder| folder.created_at}.reverse
     @tabs = []
     @folders.reverse.each do |folder|
-      @tabs << folder.tabs
+    @tabs << folder.tabs
     end
   end
 
@@ -26,9 +27,6 @@ class FoldersController < ApplicationController
     #@folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
     @tabs = Tab.all
     word = params[:query]
-    puts '------------------'
-    puts params[:query]
-    puts '--------------------'
     @query_tabs = []
     @tabs.each do |x|
       if !x.description.nil? && x.description.match?(/#{word}/i)
