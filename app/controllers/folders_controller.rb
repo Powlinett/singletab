@@ -53,6 +53,7 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
     @folder.tabs.each(&:destroy)
     @folder.destroy
+    redirect_to folders_path
   end
 
   private

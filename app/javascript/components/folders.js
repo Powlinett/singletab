@@ -34,12 +34,12 @@ if (pagesindex) {
 
 
   // click sur card
-  document.querySelectorAll('.tab-card').forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const tab = JSON.parse(link.dataset.taburl);
-      console.log(tab.url)
-     window.open(tab.url);
-      })
+  document.querySelectorAll('.tab-card-content').forEach((link) => {
+  // link.addEventListener('click', (event) => {
+  //   const tab = JSON.parse(link.dataset.taburl);
+  //     console.log(tab.url)
+  //    window.open(tab.url);
+  //     })
    link.addEventListener('mouseover', (event) => {
       console.log(1)
       const tab = JSON.parse(link.dataset.taburl);
