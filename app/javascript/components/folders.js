@@ -34,9 +34,18 @@ if (pagesindex) {
   document.querySelectorAll('input.string').forEach((link) => {
     link.addEventListener('click', (event) => {
       const folder = link.dataset.folder;
-      console.log(folder)
       bouton = document.querySelector(`#idFolder-${folder}`)
       bouton.type = "submit";
+    })
+  })
+
+  document.querySelectorAll('a.btnremove').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const folder = link.dataset.folderid;
+      console.log(folder)
+      const divfolder = document.querySelector(`#div-folder-${folder}`);
+      console.log(divfolder)
+      divfolder.remove();
     })
   })
 };
