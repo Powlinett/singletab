@@ -1,22 +1,35 @@
-<%= link_to 'singletab', folders_path %>
-
-<header style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.unsplash.com/photos/hBuwVLcYTnA);">
-	<%= image_tag("singletab_black_and_white.png", class: 'logo-landing-page') %>
-	<h1>SINGLETAB</h1>
-	<h3 class='tagline'>Simple and quick way to manage your tabs.</h3>
-
-	<div class="call-to-action">
-		<a href="" class="signup-now">Sign up</a>
-	</div>
+<header style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1499914485622-a88fac536970?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+	<div class="header-content">
+	    <div class="title-container">
+		  <%= image_tag("singletab_black_and_white", class: 'logo-landing-page') %>
+		  <h1><%= link_to 'SINGLETAB', folders_path, class: 'main-title' %></h1>
+		</div>
+    
+		<div class="action-container">
+    <h3 class='tagline'>Simple and quick way to manage your tabs.</h3>
+		  <div class="call-to-action">
+			<a href="" class="signup-now">Sign up</a>
+		  </div>
+	    </div>
+    </div>
 </header>
 
+
 <div class="landing-page-content">
-	<h2>Save time while browsing on the web</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non</p>
+  <div class="landing-page-content-section">
+  	<div class="landing-page-article">
+		<h2 class="article-title">Save time while browsing on the web</h2>
+		<p class='article-content'>Catch and gather all your searches in one single tab view. Now, you can save your tabs in a data visualization and sort them faster with one click.</p>
+	</div>
 
-	<h2>Organize your tabs and catch the revelant information</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non</p>
+    <div class="landing-page-article">
+		<h2 class="article-title">Organize your tabs and catch the revelant information</h2>
+		<p class='article-content'>Never click again on your tabs to find what you're looking for. You can now search through them directly from the homepage.</p>
+	</div>
 
-	<h2>Speed up your computer</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non</p>
+    <div class="landing-page-article">
+		<h2 class="article-title">Speed up your computer</h2>
+		<p class='article-content'>Your browser is too slow ?  Try a faster way with SingleTab. You only need to install our extension to your browser. From now,  SingleTab will work for you to speed up your computer !</p>
+	</div>
+  </div>
 </div>

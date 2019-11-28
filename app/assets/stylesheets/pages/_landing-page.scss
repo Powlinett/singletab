@@ -1,18 +1,97 @@
 body.pages-landing {
 
-	* {
-		border: 1px solid red;
-	}
-
 	.container {
 		max-width: 100%;
 		width: 100%;
 		margin-right: 0;
 		margin-left: 0;
+		padding: 0;
+		font-family: 'Barlow Condensed';
+
+		header {
+			background-size: cover;
+			background-position: center;
+			height: 40vh;
+			padding: 50px 180px;
+			display: flex;
+			box-shadow: $base-box-shadow;
+			margin-bottom: 48px;
+
+			.header-content {
+                margin: 0 auto;
+			}
+		}
+
+
+		.title-container {
+			display: flex;
+			align-items: center;
+			margin-bottom: 24px;
+
+			a.main-title {
+				font-size: 2em;
+				color: white;
+				font-family: 'Barlow Condensed';
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		.tagline {
+			color: rgba(255, 255, 255, 0.7);
+			font-family: 'Barlow Condensed';
+			font-size: 2em;
+			margin-bottom: 36px;
+		}
+
 
 		.logo-landing-page {
-           width: 100px;
-           height: 100px;
+           width: 90px;
+           height: 90px;
+           margin-right: 24px;
 		}
+        .call-to-action {
+        	text-align: center;
+        	transition: all ease 0.3sec;
+
+        	&:hover {
+        		transform: scale(1.1);
+        	}
+
+            .signup-now {
+				background-color: white;
+				color: black;
+				padding: 18px 36px;
+				font-size: 1.5em;
+				font-weight: bold;
+				border-radius: $base-border-radius;
+			    box-shadow: $base-box-shadow;
+			    text-decoration: none;
+		    }
+        }
+
+        .landing-page-content {
+        	max-width: 1080px;
+        	margin: 0 auto;
+
+        	.landing-page-content-section {
+        		.landing-page-article {
+        			margin-bottom: 48px;
+        			box-shadow: $base-box-shadow;
+        			padding: 36px;
+
+        			p.article-content {
+        				font-size: 18px;
+        			}
+                    
+                    h2.article-title {
+                    	font-family: 'Roboto';
+                    }
+
+        		}
+        	}
+        }
 	}
 }

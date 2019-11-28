@@ -40,6 +40,7 @@
   display: flex;
   box-shadow: $base-box-shadow;
   transition: transform ease 0.3s;
+  position: relative;
   &:hover {
     transform: scale(1.05);
   }
@@ -75,14 +76,10 @@
   color: $grey-dark;
 }
 
-.tab-card-actions {
-  position: relative;
-}
-
 .delete-icon {
   width: 11px;
   color: rgba(0, 0, 0, 0.1) !important;
   position: absolute;
-  right: -4px;
-  top: -6px;
+  right: 6px;
+  top: 4px;
 }
