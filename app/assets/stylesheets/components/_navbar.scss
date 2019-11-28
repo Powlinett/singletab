@@ -8,23 +8,14 @@
   list-style: none;
 }
 
-html {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  color: $color-dark;
-  background: $color-white;
-}
-
 .header {
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   background: $color-black;
   box-shadow: $base-box-shadow;
+  margin-bottom: 35px;
 
   .navbar {
-    max-width: 68rem;
-    width: 100%;
+    width: 1050px;
     padding: 0 2rem;
     margin: 0 auto;
     z-index: 1;
@@ -43,6 +34,17 @@ html {
         font-weight: 700;
         color: $color-white;
         text-transform: uppercase;
+
+        img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      
+      h1.title-singletab {
+        color:white;
+        margin-bottom: 0;
+        font-family: 'Barlow Condensed';
       }
 
       .menu {
@@ -52,6 +54,7 @@ html {
         flex-basis: auto;
         justify-content: flex-end;
         align-items: center;
+        margin-bottom: 0;
 
         &-link {
           padding: 1rem;
@@ -59,7 +62,6 @@ html {
           color: $color-white;
           font-size: 1rem;
           font-weight: 500;
-          text-transform: uppercase;
           transition: all 0.3s ease-out;
 
           &:hover {
@@ -172,6 +174,7 @@ html {
       .toggle {
         visibility: visible;
         opacity: 1;
+        color: white;
       }
     }
   }
