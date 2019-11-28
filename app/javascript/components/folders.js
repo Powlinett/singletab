@@ -31,6 +31,33 @@ if (pagesindex) {
         })
     })
   });
+
+
+  // click sur card
+  document.querySelectorAll('.tab-card').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const tab = JSON.parse(link.dataset.taburl);
+      console.log(tab.url)
+     window.open(tab.url);
+      })
+   link.addEventListener('mouseover', (event) => {
+      console.log(1)
+      const tab = JSON.parse(link.dataset.taburl);
+     // selectiona = document.querySelector(`#a-${tab.id}`);
+      selectiona = document.querySelector(`.frame`)
+      selectiona.insertAdjacentHTML("afterbegin",
+       `<iframe  src="<%#= tab.url %>" width = "600px" height = "500px">
+        </iframe>`
+       );
+     })
+
+  })
+
+
+
+
+
+
   //methode pour faire apparaitre bouton Update
   // document.querySelectorAll('input.string').forEach((link) => {
   //   link.addEventListener('click', (event) => {
