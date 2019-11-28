@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def auth
-  	user = User.where("email = ?", params["email"]).first
+    user = User.where("email = ?", params["email"]).first
 
     if user.valid_password?(params["password"])
       sign_in(user)
@@ -34,6 +34,11 @@ class PagesController < ApplicationController
     else
       render json: { statut: 'Need to login'}
     end
+  end
+
+  def signout
+    user = User.where('email = ?', params["email"]).first
+    sign_out(user)
   end
 
   # /test code enzo by jojo
