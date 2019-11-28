@@ -1,9 +1,7 @@
 //const urlsite =  'https://still-lowlands-24985.herokuapp.com/checkauth'
-//const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/checkauth'
-
+//const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/tabs'
 const urlsite = 'http://localhost:3000/checkauth'
 const urlsitetabs = 'http://localhost:3000/tabs'
-
 fetch(urlsite)
 .then((response) => { return (response.json()) })
 .then(data => {
@@ -15,7 +13,6 @@ fetch(urlsite)
     buttons.classList.add('hidden');
   };
 });
-
 function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
@@ -29,13 +26,11 @@ function arraytabs() {
   });
   return tabUrlFin;
 };
-
 function closeTabs(tabs) {
   tabs.forEach(function(tabId) {
     chrome.tabs.remove(tabId.id);
   });
 };
-
 function removeTabs(tabs) {
   tabs.forEach(function(tab, index) {
     if (tab.url.includes("google")) {
@@ -46,11 +41,8 @@ function removeTabs(tabs) {
     }
   });
 };
-
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
-
-
 //pour attendre creation de pages
 var button = document.getElementById('checkPage');
 button.addEventListener('click', (e) => {
@@ -67,13 +59,10 @@ button.addEventListener('click', (e) => {
       mapInput.type = "text";
       mapInput.name = "variable";
       mapInput.value = JSON.stringify(tabs);
-
       // Add the input to the form
       mapForm.appendChild(mapInput);
-
       // Add the form to dom
       document.body.appendChild(mapForm);
-
       // Just submit
       mapForm.submit();
       closeTabs(tabs);
