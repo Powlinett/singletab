@@ -21,7 +21,11 @@
           <% end %>
         </h3>
         <%= link_to '', visualisation_path(folder.id), class: "fas btn fa-globe-africa"  %>
+        <% if folder.tabs.count > 1 %>
         <h4><%= folder.tabs.count %> tabs</h4>
+        <% else %>
+        <h4><%= folder.tabs.count %> tab</h4>
+        <% end %>
       </div>
       <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
       <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-times", method: :delete, remote: true, :"data-folderid" => folder.id %>
