@@ -181,7 +181,7 @@ d3.json(data, function(json) {
   .attr("x", x_browser)
   .attr("y", y_browser +15)
   .attr("fill", tcBlack)
-  .text(function(d) { return decodeURI(d.name); });
+  .text(function(d) { return d.name; });
 
 
   // Exit any old nodes.
