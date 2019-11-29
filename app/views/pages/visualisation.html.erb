@@ -133,7 +133,7 @@ d3.json(data, function(json) {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-            d3.select("h2").html(d.title);
+            d3.select("h2").html(d.name);
             console.log(d.url)
             if (d.url != undefined){
               window.open(d.url);
@@ -167,7 +167,7 @@ d3.json(data, function(json) {
   .attr("x", x_browser)
   .attr("y", y_browser +15)
   .attr("fill", tcBlack)
-  .text(function(d) { return decodeURI(d.title); });
+  .text(function(d) { return decodeURI(d.name); });
 
 
   // Exit any old nodes.
