@@ -1,7 +1,7 @@
 // const fold = document.querySelector('#fold');
 const pagesindex = document.querySelector('#pagesindex');
 
-document.querySelector("[data-tabs='<%= @folder %>']").remove()
+
 
 
 if (pagesindex) {
@@ -16,6 +16,8 @@ if (pagesindex) {
         })
     })
   });
+
+
 
   // supprimer div des folders
   // document.querySelectorAll('a.btnremove').forEach((link) => {
