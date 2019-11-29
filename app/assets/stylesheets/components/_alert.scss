@@ -1,6 +1,36 @@
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 90px;
   right: 16px;
   z-index: 1000;
+  background-color: white;
+  box-shadow: $base-box-shadow;
+  border-radius: $base-border-radius;
+  padding: 6px 12px;
+}
+
+.notice {
+  position: fixed;
+  top: 90px;
+  right: 16px;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: $base-box-shadow;
+  border-radius: $base-border-radius;
+  padding: 6px 12px;
+}
+
+@-webkit-keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+@keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+.fadeOut {
+  opacity:0;
+  -moz-animation   : fadeout 2s linear;
+  -webkit-animation: fadeout 2s linear;
+  animation        : fadeout 2s linear;
 }
