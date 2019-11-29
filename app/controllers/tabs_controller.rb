@@ -53,8 +53,7 @@ end
 
   def destroy
    @tab = Tab.find(params[:id])
-   @tab.delete
-   redirect_to folders_path
+   @tab.destroy
  end
 
  private

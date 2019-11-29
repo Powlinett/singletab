@@ -78,7 +78,7 @@ class PagesController < ApplicationController
     folder.tabs.all.each do |t|
       t.icon = t.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : t.icon
       childrens << {
-        name: t.name,
+        name: t.title,
         id: t.id,
         size: 1,
         type: "Tab",
