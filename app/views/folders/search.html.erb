@@ -19,13 +19,13 @@
         </div>
           <div class="tab-body-description">
 
-            <% arraysearch = tab.description.scan(/\w.{0,100}#{params[:query]}.{0,100}/) %>
+            <% arraysearch = tab.description.scan(/\w.{0,80}#{params[:query]}.{0,100}/) %>
               <ul>
 
                 <% arraysearch.each do |x| %>
                   <%# x = x.gsub(params[:query],`<strong>#{params[:query]}</strong>`) %>
                   <% x = x.gsub(params[:query],"<strong>#{params[:query]}</strong>") %>
-                  <li>"<%= x.html_safe %>"</li>
+                  <li>« ... <%= x.html_safe %> ... »</li>
                 <% end %>
               </ul>
         </div>
