@@ -25,7 +25,7 @@ class FoldersController < ApplicationController
 
   def search
     #@folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
-    @tabs = Tab.all
+    @tabs = current_user.tabs
     word = params[:query]
     @query_tabs = []
     @tabs.each do |x|
