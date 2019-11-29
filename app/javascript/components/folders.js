@@ -26,6 +26,7 @@ if (pagesindex) {
   document.querySelectorAll('a.open-tabs').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
+      console.log(1)
       const foldertabs = JSON.parse(link.dataset.tabs);
         foldertabs.forEach(function(tabs){
           window.open(tabs.url);
@@ -34,12 +35,24 @@ if (pagesindex) {
   });
 
 
-  // // click sur card
+  // click sur card
   // document.querySelectorAll('.tab-card-content').forEach((link) => {
   //   link.addEventListener('click', (event) => {
   //     const tab = JSON.parse(link.dataset.taburl);
   //     window.open(tab.url);
   //   })
+
+  // click sur croix card
+  // document.querySelectorAll('.tab-card-content').forEach((link) => {
+  //   link.addEventListener('click', (event) => {
+  //     const tab = JSON.parse(link.dataset.taburl);
+  //     window.open(tab.url);
+  //   })
+
+
+
+
+
 
   //   link.addEventListener('mouseover', (event) => {
   //    let taburl = JSON.parse(link.dataset.taburl);
