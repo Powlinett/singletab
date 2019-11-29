@@ -27,7 +27,7 @@
       </summary>
       <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
         <% folder.tabs.each do |tab| %>
-          <div class="tab-card">
+          <div class="tab-card" data-tab-id="<%= tab.id %>">
             <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
             <div class="tab-card-content" data-taburl="<%= tab.to_json %>">
                 <a href="<%= tab.url %>" class="tab-url" target="_blank">
@@ -35,7 +35,9 @@
                   <p class="tab-title"><%= URI.decode(tab.title) %></p>
                 </a>
               <div class="tab-card-actions">
-                <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a>
+                <%= link_to "", tab_path(tab), class: "delete-icon fas fa-times", method: :delete, remote: true, :"data-tabsid" => tab.id %>
+                <!-- <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a> -->
+
               </div>
             </div>
           </div>
