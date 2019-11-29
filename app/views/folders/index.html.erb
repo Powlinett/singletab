@@ -11,41 +11,42 @@
 
 <div class="user-search" id="pagesindex">
   <% @folders.each do |folder| %>
-    <details class="user-search-folder-content" id= "div-folder-<%= folder.id %>">
-      <summary class="user-search-header">
-        <div class='user-search-header-content'>
-          <h3 class="user-search-title">
-            <%= simple_form_for([ folder ], remote: true) do |form| %>
-            <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
-            <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
-            <% end %>
-          </h3>
-          <h4><%= folder.tabs.count %> tabs</h4>
-        </div>
-        <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
-        <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-times", method: :delete, remote: true, :"data-folderid" => folder.id %>
-      </summary>
-      <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
-        <% folder.tabs.each do |tab| %>
-          <div class="tab-card">
-            <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
-            <div class="tab-card-content" data-taburl="<%= tab.to_json %>">
-                <a href="<%= tab.url %>" class="tab-url" target="_blank">
-                  <p class="tab-name"><%= tab.name %></p>
-                  <p class="tab-title"><%= URI.decode(tab.title) %></p>
-                </a>
-              <div class="tab-card-actions">
-                <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a>
-              </div>
-            </div>
+  <details class="user-search-folder-content" id= "div-folder-<%= folder.id %>">
+    <summary class="user-search-header">
+      <div class='user-search-header-content'>
+        <h3 class="user-search-title">
+          <%= simple_form_for([ folder ], remote: true) do |form| %>
+          <%= form.input :name , label: false, input_html: { "data-folder" => folder.id } %>
+          <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
+          <% end %>
+        </h3>
+        <%= link_to '', visualisation_path(folder.id), class: "fas btn fa-globe-africa"  %>
+        <h4><%= folder.tabs.count %> tabs</h4>
+      </div>
+      <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
+      <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-times", method: :delete, remote: true, :"data-folderid" => folder.id %>
+    </summary>
+    <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
+      <% folder.tabs.each do |tab| %>
+      <div class="tab-card">
+        <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+        <div class="tab-card-content" data-taburl="<%= tab.to_json %>">
+          <a href="<%= tab.url %>" class="tab-url" target="_blank">
+            <p class="tab-name"><%= tab.name %></p>
+            <p class="tab-title"><%= URI.decode(tab.title) %></p>
+          </a>
+          <div class="tab-card-actions">
+            <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a>
           </div>
-        <% end %>
+        </div>
+      </div>
+      <% end %>
 
     </details>
-  <% end %>
-</div>
-<div class="frame" id="frame">
+    <% end %>
+  </div>
+  <div class="frame" id="frame">
 
 
 
-</div>
+  </div>

@@ -19,7 +19,7 @@
         </div>
           <div class="tab-body-description">
 
-            <% arraysearch = tab.description.scan(/\w.{0,100}#{params[:query]}.{0,100}/) %>
+            <% arraysearch = tab.description.scan(/\w.{0,90}#{params[:query]}.{0,90}/) %>
               <ul>
 
                 <% arraysearch.each do |x| %>
