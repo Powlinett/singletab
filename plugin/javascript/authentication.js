@@ -41,8 +41,8 @@ logout.addEventListener('click', (event) => {
   fetch(logoutUrl)
   .then((response) => { return (response.json()) })
   .then(data => {
-    console.log(data['message']);
-    if (data['message'] === "User logout") {
+    console.log(data["message"]);
+    if (data["message"] === "User logged out") {
       form.classList.remove('hidden');
       buttons.classList.add('hidden');
       logout.classList.add('hidden');
