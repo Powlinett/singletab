@@ -1,19 +1,20 @@
-//const url = 'https://still-lowlands-24985.herokuapp.com/auth'
-//const url = 'https://still-lowlands-24985.herokuapp.com/auth'
- const url = 'http://localhost:3000/auth'
+// const url = 'https://still-lowlands-24985.herokuapp.com/auth'
+// const logoutUrl = 'https://still-lowlands-24985.herokuapp.com/users/sign_out'
+
+const url = 'http://localhost:3000/auth'
+const logoutUrl = 'http://localhost:3000/signout'
 
 /////// LOGIN ///////////
 
 const form = document.querySelector('.form');
 const buttons = document.querySelector('.button-container');
-const logout = document.querySelector('.logout')
+const logout = document.querySelector('.logout');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   console.log(email);
-  console.log(password);
   fetch(url, {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
@@ -24,10 +25,10 @@ form.addEventListener('submit', (event) => {
 	.then(data => {
     if (typeof data['token'] !== "undefined") {
       form.classList.add('hidden');
-      buttons.classList.toggle('hidden');
-      logout.classList.toggle('hidden');
+      buttons.classList.remove('hidden');
+      logout.classList.remove('hidden');
     } else {
-      console.log('hello')
+      console.log('error')
     };
   });
 });
@@ -35,3 +36,18 @@ form.addEventListener('submit', (event) => {
 
 ////////// LOG OUT ///////////
 
+logout.addEventListener('click', (event) => {
+  event.preventDefault();
+  fetch(logoutUrl)
+  .then((response) => { return (response.json()) })
+  .then(data => {
+    console.log(data['message']);
+    if (data['message'] === "User logout") {
+      form.classList.remove('hidden');
+      buttons.classList.add('hidden');
+      logout.classList.add('hidden');
+    } else { 
+      console.log('nooooo');
+    };
+  });
+});

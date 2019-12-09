@@ -1,8 +1,9 @@
-const urlsite =  'https://still-lowlands-24985.herokuapp.com/checkauth'
-const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/tabs'
+// const urlsite =  'https://still-lowlands-24985.herokuapp.com/checkauth'
+// const urlsitetabs =  'https://still-lowlands-24985.herokuapp.com/tabs'
 
-// const urlsite = 'http://localhost:3000/checkauth'
-// const urlsitetabs = 'http://localhost:3000/tabs'
+const urlsite = 'http://localhost:3000/checkauth'
+const urlsitetabs = 'http://localhost:3000/tabs'
+
 
 fetch(urlsite)
 .then((response) => { return (response.json()) })
@@ -15,6 +16,7 @@ fetch(urlsite)
     buttons.classList.add('hidden');
   };
 });
+
 function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
@@ -61,7 +63,6 @@ button.addEventListener('click', (e) => {
   let mapForm = document.createElement("form");
   mapForm.target = "_blank";
   mapForm.method = "POST";
-      // mapForm.action = "https://still-lowlands-24985.herokuapp.com/tabs"; //pour utiliser le plugin avec heroku
       mapForm.action = urlsitetabs;  //pour utiliser le plugin en local
       // Create an input
       let mapInput = document.createElement("input");

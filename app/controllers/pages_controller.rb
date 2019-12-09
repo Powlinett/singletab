@@ -35,13 +35,17 @@ class PagesController < ApplicationController
     if current_user.present?
       render json: { statut: 'Already logged' }
     else
-      render json: { statut: 'Need to login'}
+      render json: { statut: 'Need to login' }
     end
   end
 
   def signout
-    user = User.where('email = ?', params["email"]).first
-    sign_out(user)
+    if current_user.present?
+      sign_out(current_user)
+      render json: { message: 'User logout' }
+    else
+      render json: { message: 'no current_user' }
+    end
   end
 
   # /test code enzo by jojo
