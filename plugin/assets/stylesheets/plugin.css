@@ -63,19 +63,20 @@ a.redirect {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
-p.logout a {
+p.logout {
 	text-decoration: none;
 	color: rgba(0, 0, 0, 0.2);
 	display: inline;
 	position: absolute;
 	top: 6px;
 	right: 9px;
+	margin: 0;
 }
 
-p.logout a:hover {
+p.logout:hover {
     text-decoration: none;
     transform: scale(1.1);
 }
