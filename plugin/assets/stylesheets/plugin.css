@@ -58,8 +58,9 @@ a.redirect {
     padding-left: 3px;
 }
 
-.sign-up:hover, .logout:hover {
-	text-decoration: underline;
+p.sign-up:hover, p.logout:hover {
+	text-decoration: underline !important;
+	cursor: pointer;
 }
 
 .hidden {

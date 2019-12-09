@@ -42,9 +42,9 @@ class PagesController < ApplicationController
   def signout
     if current_user.present?
       sign_out(current_user)
-      render json: { message: 'User logout' }
+      render json: { message: 'User logged out' }
     else
-      render json: { message: 'no current_user' }
+      render json: { message: 'No current user' }
     end
   end
 
