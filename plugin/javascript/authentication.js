@@ -1,8 +1,8 @@
-// const url = 'https://still-lowlands-24985.herokuapp.com/auth'
-// const logoutUrl = 'https://still-lowlands-24985.herokuapp.com/users/sign_out'
+const url = 'https://www.singletab.site/auth'
+const logoutUrl = 'https://www.singletab.site/signout'
 
-const url = 'http://localhost:3000/auth'
-const logoutUrl = 'http://localhost:3000/signout'
+// const url = 'http://localhost:3000/auth'
+// const logoutUrl = 'http://localhost:3000/signout'
 
 /////// LOGIN ///////////
 
