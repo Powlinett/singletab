@@ -29,7 +29,8 @@
         <% end %>
       </div>
       <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
-      <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-times", method: :delete, remote: true, :"data-folderid" => folder.id %>
+      <div class="btnremove btn fas fa-times" data-folderid=<%= folder.id %> ></div>
+    <!--   <%= link_to "", folder_path(folder), class: "btnremove btn fas fa-times", method: :delete, remote: true, :"data-folderid" => folder.id %> -->
     </summary>
     <div class="cards-container-display display-cards" id="idfolder-${folder.id}">
       <% folder.tabs.each do |tab| %>
@@ -42,7 +43,8 @@
           </a>
           <div class="tab-card-actions">
             <!-- <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/<%= tab.id %>"></a> -->
-            <%= link_to "", tab_path(tab), class: "delete-icon fas fa-times", method: :delete, remote: true %>
+          <!--   <%= link_to "", tab_path(tab), class: "delete-icon fas fa-times", method: :delete, remote: true, :"data-tabid" => tab.id %> -->
+          <div class="delete-icon fas fa-times" data-tabid=<%= tab.id %>></div>
           </div>
         </div>
       </div>
@@ -51,8 +53,9 @@
     </details>
     <% end %>
   </div>
-  <div class="frame" id="frame">
+<!--   <div class="frame" id="frame">
 
 
 
-  </div>
+  </div> -->
+<%= render "modal" %>
