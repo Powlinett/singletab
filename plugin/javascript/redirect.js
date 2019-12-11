@@ -1,9 +1,9 @@
-const urlsite5 =  'https://www.singletab.site'
-const urlsitetabs2 =  'https://www.singletab.site/folders'
+// const urlsite5 =  'https://www.singletab.site'
+// const urlsitetabs2 =  'https://www.singletab.site/folders'
 
 
-// const urlsite5 = 'http://localhost:3000/'
-// const urlsitetabs2 = 'http://localhost:3000/folders'
+const urlsite5 = 'http://localhost:3000/'
+const urlsitetabs2 = 'http://localhost:3000/folders'
 
 
 
