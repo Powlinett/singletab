@@ -8,17 +8,18 @@
     "default_popup": "popup.html"
   },
 
-   "background": { // On rajoute le paramètre "background"
+  "background": { // On rajoute le paramètre "background"
      "scripts": ["javascript/background.js"]
      },
 
-       "content_scripts": [
+  "content_scripts": [
    {
      "matches": ["<all_urls>"],
      "js": ["javascript/contentscript.js"]
    }
   ],
-       "permissions": [
+
+  "permissions": [
    "tabs",
    "*://*/*",
    "http://localhost:3000/",

@@ -3,10 +3,8 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@folders = Folder.where("folders.user_id = #{current_user.id}")
-
     @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
-    @folders = @folders.sort_by { |folder| folder.created_at}.reverse
+    @folders = @folders.sort_by { |folder| folder.created_at }.reverse
     @tabs = []
     @folders.reverse.each do |folder|
     @tabs << folder.tabs
@@ -20,7 +18,6 @@ class FoldersController < ApplicationController
   def create
     @folders = Folder.new(params[:query])
     redirect_to folders_url
-
   end
 
   def search
@@ -33,7 +30,7 @@ class FoldersController < ApplicationController
         @query_tabs << x
       end
     end
-    return @query_tabs
+    @query_tabs
   end
 
   def edit
@@ -41,13 +38,12 @@ class FoldersController < ApplicationController
   end
 
   def update
-    if @folder.update(folder_params())
+    if @folder.update(folder_params)
 
       redirect_to folders_path
     else
       render :edit
     end
-
   end
 
   def destroy
@@ -57,14 +53,25 @@ class FoldersController < ApplicationController
     redirect_to folders_path
   end
 
+  def send_folders_name
+    @folders = Folder.search_folder_by_id(current_user.id)
+    @folders_json = []
+    @folders.each do |folder|
+      @folders_json << {
+        name: folder.name.to_s,
+        id: folder.id.to_s
+      }
+    end
+    render json: @folders_json
+  end
+
   private
 
   def set_folder
     @folder = Folder.find(params[:id])
   end
+
   def folder_params
     params.require(:folder).permit(:name, :weight, :parent_id)
   end
-
-
 end
