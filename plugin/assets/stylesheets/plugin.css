@@ -131,3 +131,7 @@ input[type='submit'] {
 	padding: 6px;
 	text-align: center;
 }
+
+#tabs-form {
+    display: hidden;
+}

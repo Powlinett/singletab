@@ -1,14 +1,18 @@
 // const urlsite =  'https://www.singletab.site/checkauth'
 // const urlsitetabs =  'https://www.singletab.site/tabs'
-// const urlsitefolders = 'https://www.singletab.site/tabs'
-// const urlsiteresearch = 'https://www.singletab.site/tabs/assign_folder'
+// const urlsitefolders = 'https://www.singletab.site/folders/folders_name'
 // const urlsiteindex = 'https://www.singletab.site/folders'
 
 
-const urlsite = 'http://localhost:3000/checkauth'
-const urlsitetabs = 'http://localhost:3000/tabs'
-const urlsitefolders = 'http://localhost:3000/folders/folders_name'
-const urlsiteindex = 'http://localhost:3000/folders'
+// const urlsite = 'http://localhost:3000/checkauth'
+// const urlsitetabs = 'http://localhost:3000/tabs'
+// const urlsitefolders = 'http://localhost:3000/folders/folders_name'
+// const urlsiteindex = 'http://localhost:3000/folders'
+
+const urlsite = 'https://singletab-staging.herokuapp.com/checkauth'
+const urlsitetabs =  'https://singletab-staging.herokuapp.com/tabs'
+const urlsitefolders = 'https://singletab-staging.herokuapp.com/folders/folders_name'
+const urlsiteindex = 'https://singletab-staging.herokuapp.com/folders'
 
 
 fetch(urlsite)
