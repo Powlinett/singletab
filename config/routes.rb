@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/auth', to: 'pages#auth'
   get '/checkauth', to: 'pages#check_auth'
   get '/signout', to: 'pages#signout'
+  get '/folders/folders_name', to: 'folders#send_folders_name'
+  post 'tabs/assign_folder', to: 'tabs#assign_folder_to_tabs'
 
   get 'folders/search', to: 'folders#search', as: 'search'
 
@@ -18,4 +20,3 @@ Rails.application.routes.draw do
 
   root to: "pages#landing"
 end
-
