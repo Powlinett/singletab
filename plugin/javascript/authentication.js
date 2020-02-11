@@ -1,8 +1,11 @@
 // const url = 'https://www.singletab.site/auth'
 // const logoutUrl = 'https://www.singletab.site/signout'
 
-const url = 'http://localhost:3000/auth'
-const logoutUrl = 'http://localhost:3000/signout'
+const url = 'https://singletab-staging.herokuapp.com/auth'
+const logoutUrl = 'https://singletab-staging.herokuapp.com/signout'
+
+// const url = 'http://localhost:3000/auth'
+// const logoutUrl = 'http://localhost:3000/signout'
 
 /////// LOGIN ///////////
 

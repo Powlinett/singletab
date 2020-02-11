@@ -3,15 +3,16 @@
   <head>
     <title>SingleTab</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/stylesheets/plugin.css">
+    <link rel="stylesheet" href="assets/stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
   </head>
   <body>
 
     <div class="plugin-container">
       <p class="logout hidden">Log out</p>
       <img src="assets/images/singletab_white_black.png" alt="SingleTab - logo" class="logo-singletab">
-	    <h1><a href="https://singletab.site" class="redirect">SINGLETAB</a></h1>
+	    <h1><a href="https://singletab.site" class="singletab-title">SINGLETAB</a></h1>
 
       <div class="form">
         <form action="" method="get" class="form-example">
@@ -32,16 +33,17 @@
       <div class="research-choice">
         <form id="select-folder">
           <select form="select-folder" name="folder" id="folders-selection">
-            <option value="">Please select a research</option>
+            <option value="" style="display: none">Select a research</option>
             <option value="new-research">Create a new research</option>
           </select>
           <p id="tabs-form"></p>
-          <input type="submit" id="submit-folders-selection">
+          <input type="submit" id="submit-folder-selection">
         </form>
       </div>
     </div>
 
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <script type="text/javascript" src="javascript/background.js"></script>
   <script type="text/javascript" src="javascript/authentication.js"></script>
   <script type="text/javascript" src="javascript/redirect.js"></script>

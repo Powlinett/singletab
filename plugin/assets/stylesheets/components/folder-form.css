@@ -1,0 +1,29 @@
+#tabs-form {
+    display: none;
+}
+
+#select-folder {
+/*	position: absolute;
+	bottom: 16px;
+	left: 255px;*/
+}
+
+#submit-folder-selection, #folders-selection, option {
+	height: 52px;
+	background-color: black;
+	color: white;
+	width: 200px;
+	font-weight: bold;
+	border: none;
+	border: 0.5px solid rgba(0, 0, 0, 0.9);
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+/*	appearance: none;
+	-webkit-appearance: none;*/
+	overflow: hidden;
+	text-align-last: center;
+}
+
+#submit-folder-selection, #folders-selection, option:hover {
+	outline: none;
+}

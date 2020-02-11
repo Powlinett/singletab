@@ -99,13 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add the input to the form
   let tabsForm = document.querySelector('#tabs-form');
   tabsForm.appendChild(tabsInput);
+
+  // fadeOutEffect(buttons);
   
-  const submit = document.querySelector('#submit-folders-selection');
+  const submit = document.querySelector('#submit-folder-selection');
   submit.addEventListener('click', (e) => {
     event.preventDefault();
     folderSelection.submit();
     closeTabs(tabs);
-    setTimeout(openWindow, 50);
+// TimeOut nécessaire pour attendre que les tabs soient bien associés à la recherche sélectionnée
+// Ne pas descendre sa valeur en dessous de 100, sinon ça ne fonctionne plus :(
+    setTimeout(openWindow, 100); 
     });
   });
 });
@@ -113,3 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function openWindow() {
   window.open(urlsiteindex);
 };
+
+// function fadeOutEffect() {
+//     const fadeEffect = setInterval(function () {
+//         if (!buttons.style.opacity) {
+//             buttons.style.opacity = 1;
+//         }
+//         if (buttons.style.opacity > 0) {
+//             buttons.style.opacity -= 0.1;
+//         } else {
+//             clearInterval(fadeEffect);
+//         }
+//     }, 40);
+// }

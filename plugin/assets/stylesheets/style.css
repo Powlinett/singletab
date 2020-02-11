@@ -1,0 +1,32 @@
+@import url("components/action-button.css");
+@import url("components/folder-form.css");
+@import url("components/layout.css");
+@import url("components/signup-form.css");
+
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed|Bebas+Neue|Comfortaa|Gupter|Sulphur+Point&display=swap');
+
+body {
+	background-color: white;
+	border-radius: 4px !important;
+	margin: 0px !important;
+    font-family:"Open Sans", "Helvetica", "sans-serif";
+    color: black;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.singletab-title:clicked {
+  color: #0099CC;
+}
+
+a.singletab-title {
+	text-decoration: none;
+	color: black;
+    font-weight: normal;
+    font-family: 'Barlow Condensed';
+    padding-left: 3px;
+}
+
+.hidden {
+    display: none !important;
+}

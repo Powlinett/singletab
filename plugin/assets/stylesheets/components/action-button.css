@@ -1,0 +1,16 @@
+.button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	width: 107px;
+	height: 52px;
+    background-color: black;
+	margin: 0 10px;
+	color: white;
+	font-weight : bold;
+    border: 0.5px solid rgba(0, 0, 0, 0.9);
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
