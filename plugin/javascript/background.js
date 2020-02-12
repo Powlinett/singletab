@@ -69,8 +69,7 @@ function removeTabs(tabs) {
 const folderSelection = document.querySelector('#select-folder');
 
 function createResearchForm() {
-  const folderOption = document.querySelector('#folders-selection');
-  // folderSelection.target = "_blank";
+  const folderOption = document.querySelector('#choices-single-default');
   folderSelection.method = "POST";
   folderSelection.action = urlsitetabs;
   fetch(urlsitefolders)
@@ -83,6 +82,7 @@ function createResearchForm() {
         folderOption.appendChild(option)
       });
     });
+    const choices = new Choices(folderOption);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   tabsForm.appendChild(tabsInput);
 
   // fadeOutEffect(buttons);
-  
+
   const submit = document.querySelector('#submit-folder-selection');
   submit.addEventListener('click', (e) => {
     event.preventDefault();
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeTabs(tabs);
 // TimeOut nécessaire pour attendre que les tabs soient bien associés à la recherche sélectionnée
 // Ne pas descendre sa valeur en dessous de 100, sinon ça ne fonctionne plus :(
-    setTimeout(openWindow, 100); 
+    setTimeout(openWindow, 100);
     });
   });
 });
@@ -130,3 +130,4 @@ function openWindow() {
 //         }
 //     }, 40);
 // }
+
