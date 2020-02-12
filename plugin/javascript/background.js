@@ -1,14 +1,18 @@
 // const urlsite =  'https://www.singletab.site/checkauth'
 // const urlsitetabs =  'https://www.singletab.site/tabs'
-// const urlsitefolders = 'https://www.singletab.site/tabs'
-// const urlsiteresearch = 'https://www.singletab.site/tabs/assign_folder'
+// const urlsitefolders = 'https://www.singletab.site/folders/folders_name'
 // const urlsiteindex = 'https://www.singletab.site/folders'
 
 
-const urlsite = 'http://localhost:3000/checkauth'
-const urlsitetabs = 'http://localhost:3000/tabs'
-const urlsitefolders = 'http://localhost:3000/folders/folders_name'
-const urlsiteindex = 'http://localhost:3000/folders'
+// const urlsite = 'http://localhost:3000/checkauth'
+// const urlsitetabs = 'http://localhost:3000/tabs'
+// const urlsitefolders = 'http://localhost:3000/folders/folders_name'
+// const urlsiteindex = 'http://localhost:3000/folders'
+
+const urlsite = 'https://singletab-staging.herokuapp.com/checkauth'
+const urlsitetabs =  'https://singletab-staging.herokuapp.com/tabs'
+const urlsitefolders = 'https://singletab-staging.herokuapp.com/folders/folders_name'
+const urlsiteindex = 'https://singletab-staging.herokuapp.com/folders'
 
 
 fetch(urlsite)
@@ -65,8 +69,7 @@ function removeTabs(tabs) {
 const folderSelection = document.querySelector('#select-folder');
 
 function createResearchForm() {
-  const folderOption = document.querySelector('#folders-selection');
-  // folderSelection.target = "_blank";
+  const folderOption = document.querySelector('#choices-single-default');
   folderSelection.method = "POST";
   folderSelection.action = urlsitetabs;
   fetch(urlsitefolders)
@@ -79,6 +82,7 @@ function createResearchForm() {
         folderOption.appendChild(option)
       });
     });
+    const choices = new Choices(folderOption);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,13 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add the input to the form
   let tabsForm = document.querySelector('#tabs-form');
   tabsForm.appendChild(tabsInput);
-  
-  const submit = document.querySelector('#submit-folders-selection');
+
+  // fadeOutEffect(buttons);
+
+  const submit = document.querySelector('#submit-folder-selection');
   submit.addEventListener('click', (e) => {
     event.preventDefault();
     folderSelection.submit();
     closeTabs(tabs);
-    setTimeout(openWindow, 50);
+// TimeOut nécessaire pour attendre que les tabs soient bien associés à la recherche sélectionnée
+// Ne pas descendre sa valeur en dessous de 100, sinon ça ne fonctionne plus :(
+    setTimeout(openWindow, 100);
     });
   });
 });
@@ -109,3 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
 function openWindow() {
   window.open(urlsiteindex);
 };
+
+// function fadeOutEffect() {
+//     const fadeEffect = setInterval(function () {
+//         if (!buttons.style.opacity) {
+//             buttons.style.opacity = 1;
+//         }
+//         if (buttons.style.opacity > 0) {
+//             buttons.style.opacity -= 0.1;
+//         } else {
+//             clearInterval(fadeEffect);
+//         }
+//     }, 40);
+// }
+

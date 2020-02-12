@@ -1,0 +1,69 @@
+.form {
+	margin: 8px;
+}
+
+.submit {
+    padding: 4px 0;
+    width: 181px;
+}
+
+.sign-up a {
+	text-decoration: none;
+	color: grey;
+}
+
+.sign-up a:clicked {
+	text-decoration: none;
+	color: grey;
+}
+
+p.logout {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.2);
+	display: inline;
+	position: absolute;
+	top: 6px;
+	right: 9px;
+	margin: 0;
+}
+
+p.logout:hover {
+    text-decoration: none !important;
+    transform: scale(1.1);
+}
+
+p.sign-up:hover, p.logout:hover {
+	text-decoration: underline !important;
+	cursor: pointer;
+}
+
+.form .form-example {
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+.form .form-example label {
+	padding: 4px 0;
+}
+
+input[type='submit'] {
+	margin-top: 4px;
+	width: 100%;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	border: 1px solid black;
+	padding: 6px;
+}
+
+.form .form-example input:focus {
+    outline: 0;
+}
+
+.form .form-example input {
+	border-radius: 2px;
+	border: 0;
+	border-bottom: 1px solid lightgrey;
+	padding: 6px;
+	text-align: center;
+}
