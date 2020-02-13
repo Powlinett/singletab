@@ -82,7 +82,7 @@ function createResearchForm() {
         folderOption.appendChild(option)
       });
     });
-    const choices = new Choices(folderOption);
+   // const choices = new Choices(folderOption);
 };
 
 document.addEventListener('DOMContentLoaded', () => {

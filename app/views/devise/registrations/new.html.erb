@@ -5,9 +5,10 @@
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
+      <%= f.input :username, placeholder: 'Username', label: false %>
       <%= f.input :email, placeholder: 'Email', label: false %>
       <%= f.input :password, placeholder: 'Password', label: false %>
-      <%= f.input :password_confirmation, placeholder: 'Password', label: false %>
+      <%= f.input :password_confirmation, placeholder: 'Confirm password', label: false %>
 
       <div class="actions">
         <%= f.submit "Create your account", class: 'primary-button block btn' %>
