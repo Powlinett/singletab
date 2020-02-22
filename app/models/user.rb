@@ -4,7 +4,7 @@ class User < ApplicationRecord
   acts_as_token_authenticatable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :folders
   has_many :tabs, through: :folders
 end
