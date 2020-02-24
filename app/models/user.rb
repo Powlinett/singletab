@@ -7,4 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :folders
   has_many :tabs, through: :folders
+
+  protected
+
+  # def confirmation_required?
+  #   false
+  # end
 end
