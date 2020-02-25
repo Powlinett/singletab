@@ -4,14 +4,17 @@
 @import url("components/signup-form.css");
 
 @import url('https://fonts.googleapis.com/css?family=Barlow+Condensed|Bebas+Neue|Comfortaa|Gupter|Sulphur+Point&display=swap');
+html {
+  max-height: 335px;
+}
 
 body {
 	background-color: white;
 	border-radius: 4px !important;
 	margin: 0px !important;
-    font-family:"Open Sans", "Helvetica", "sans-serif";
-    color: black;
-	font-size: 12px;
+  font-family:"Open Sans", "Helvetica", "sans-serif";
+  color: black;
+	font-size: 14px;
 	font-weight: bold;
 }
 

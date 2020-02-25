@@ -4,15 +4,15 @@
 // const urlsiteindex = 'https://www.singletab.site/folders'
 
 
-// const urlsite = 'http://localhost:3000/checkauth'
-// const urlsitetabs = 'http://localhost:3000/tabs'
-// const urlsitefolders = 'http://localhost:3000/folders/folders_name'
-// const urlsiteindex = 'http://localhost:3000/folders'
+const urlsite = 'http://localhost:3000/checkauth'
+const urlsitetabs = 'http://localhost:3000/tabs'
+const urlsitefolders = 'http://localhost:3000/folders/folders_name'
+const urlsiteindex = 'http://localhost:3000/folders'
 
-const urlsite = 'https://singletab-staging.herokuapp.com/checkauth'
-const urlsitetabs =  'https://singletab-staging.herokuapp.com/tabs'
-const urlsitefolders = 'https://singletab-staging.herokuapp.com/folders/folders_name'
-const urlsiteindex = 'https://singletab-staging.herokuapp.com/folders'
+// const urlsite = 'https://singletab-staging.herokuapp.com/checkauth'
+// const urlsitetabs =  'https://singletab-staging.herokuapp.com/tabs'
+// const urlsitefolders = 'https://singletab-staging.herokuapp.com/folders/folders_name'
+// const urlsiteindex = 'https://singletab-staging.herokuapp.com/folders'
 
 
 fetch(urlsite)
@@ -66,31 +66,12 @@ function removeTabs(tabs) {
   });
 };
 
-const folderSelection = document.querySelector('#select-folder');
-
-function createResearchForm() {
-  const folderOption = document.querySelector('#choices-single-default');
-  folderSelection.method = "POST";
-  folderSelection.action = urlsitetabs;
-  fetch(urlsitefolders)
-    .then((response) => { return response.json() })
-    .then(data => {
-      data.forEach(folder => {
-        const option = document.createElement("option");
-        option.value = folder['id'];
-        option.innerText = folder['name'];
-        folderOption.appendChild(option)
-      });
-    });
-   // const choices = new Choices(folderOption);
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
 //pour attendre creation de pages
   const button = document.getElementById('checkPage');
   button.addEventListener('click', (e) => {
-  createResearchForm();
+  // createResearchForm();
 // Create an input pour les tabs
   let tabsInput = document.createElement("input");
   tabsInput.type = "text";
@@ -104,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const submit = document.querySelector('#submit-folder-selection');
   submit.addEventListener('click', (e) => {
+    console.log('OLA');
     event.preventDefault();
     folderSelection.submit();
     closeTabs(tabs);
