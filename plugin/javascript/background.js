@@ -15,6 +15,7 @@ const urlsiteindex = 'http://localhost:3000/folders'
 // const urlsiteindex = 'https://singletab-staging.herokuapp.com/folders'
 
 
+// Check if the user is authenticated
 fetch(urlsite)
 .then((response) => { return (response.json()) })
 .then(data => {
@@ -23,10 +24,12 @@ fetch(urlsite)
     form.classList.add('hidden');
     logout.classList.remove('hidden');
   } else {
-    buttons.classList.add('hidden');
+    actions.classList.add('hidden');
   };
 });
 
+
+// Create a array with all the tabs
 function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
@@ -66,31 +69,30 @@ function removeTabs(tabs) {
   });
 };
 
+
+//Create the hidden form to send the array of tabs
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
-//pour attendre creation de pages
-  const button = document.getElementById('checkPage');
+  const button = document.querySelector('#checkPage');
+
   button.addEventListener('click', (e) => {
-  // createResearchForm();
-// Create an input pour les tabs
   let tabsInput = document.createElement("input");
   tabsInput.type = "text";
   tabsInput.name = "variable";
   tabsInput.value = JSON.stringify(tabs);
-// Add the input to the form
   let tabsForm = document.querySelector('#tabs-form');
   tabsForm.appendChild(tabsInput);
 
-  // fadeOutEffect(buttons);
+  const folderForm = document.querySelector('.research-choice');
+  const buttons = document.querySelector('.button-container');
+  folderForm.classList.remove('hidden');
+  buttons.classList.add('hidden');
 
   const submit = document.querySelector('#submit-folder-selection');
   submit.addEventListener('click', (e) => {
-    console.log('OLA');
     event.preventDefault();
     folderSelection.submit();
     closeTabs(tabs);
-// TimeOut nécessaire pour attendre que les tabs soient bien associés à la recherche sélectionnée
-// Ne pas descendre sa valeur en dessous de 100, sinon ça ne fonctionne plus :(
     setTimeout(openWindow, 100);
     });
   });
@@ -99,17 +101,3 @@ document.addEventListener('DOMContentLoaded', () => {
 function openWindow() {
   window.open(urlsiteindex);
 };
-
-// function fadeOutEffect() {
-//     const fadeEffect = setInterval(function () {
-//         if (!buttons.style.opacity) {
-//             buttons.style.opacity = 1;
-//         }
-//         if (buttons.style.opacity > 0) {
-//             buttons.style.opacity -= 0.1;
-//         } else {
-//             clearInterval(fadeEffect);
-//         }
-//     }, 40);
-// }
-

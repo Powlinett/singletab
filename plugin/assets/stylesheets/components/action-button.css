@@ -1,6 +1,11 @@
+.action-container {
+  display: flex;
+}
+
 .button-container {
 	display: flex;
 	justify-content: space-between;
+  width: 100%;
 }
 
 button {
