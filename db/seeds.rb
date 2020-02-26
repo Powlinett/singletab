@@ -1,3 +1,3 @@
-Tab.destroy_all
-Folder.destroy_all
-User.destroy_all
+# Tab.destroy_all
+# Folder.destroy_all
+# User.destroy_all
