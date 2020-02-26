@@ -9,8 +9,8 @@ const logoutUrl = 'http://localhost:3000/signout'
 
 /////// LOGIN ///////////
 
-const form = document.querySelector('.form');
-const buttons = document.querySelector('.button-container');
+const form = document.querySelector('.authentication-form');
+const actions = document.querySelector('.action-container');
 const logout = document.querySelector('.logout');
 
 form.addEventListener('submit', (event) => {
@@ -28,7 +28,7 @@ form.addEventListener('submit', (event) => {
 	.then(data => {
     if (typeof data['token'] !== "undefined") {
       form.classList.add('hidden');
-      buttons.classList.remove('hidden');
+      actions.classList.remove('hidden');
       logout.classList.remove('hidden');
     } else {
       console.log('error')
@@ -47,7 +47,7 @@ logout.addEventListener('click', (event) => {
     console.log(data["message"]);
     if (data["message"] === "User logged out") {
       form.classList.remove('hidden');
-      buttons.classList.add('hidden');
+      actions.classList.add('hidden');
       logout.classList.add('hidden');
     } else {
       console.log('nooooo');

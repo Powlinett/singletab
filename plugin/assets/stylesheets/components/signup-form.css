@@ -1,4 +1,4 @@
-.form {
+.authentication-form {
 	margin: 8px;
 }
 
@@ -37,12 +37,12 @@ p.sign-up:hover, p.logout:hover {
 	cursor: pointer;
 }
 
-.form .form-example {
+.authentication-form .form-example {
    display: grid;
    grid-template-columns: 1fr;
 }
 
-.form .form-example label {
+.authentication-form .form-example label {
 	padding: 4px 0;
 }
 
@@ -57,11 +57,11 @@ input[type='submit'] {
 	padding: 6px;
 }
 
-.form .form-example input:focus {
+.-authentication-form .form-example input:focus {
     outline: 0;
 }
 
-.form .form-example input {
+.authentication-form .form-example input {
 	border-radius: 2px;
 	border: 0;
 	border-bottom: 1px solid lightgrey;

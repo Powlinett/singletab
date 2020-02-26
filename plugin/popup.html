@@ -14,7 +14,7 @@
       <img src="assets/images/singletab_white_black.png" alt="SingleTab - logo" class="logo-singletab">
 	    <h1><a href="https://singletab.site" class="singletab-title">SINGLETAB</a></h1>
 
-      <div class="form">
+      <div class="authentication-form">
         <form action="" method="get" class="form-example">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" placeholder="E-mail"required>
@@ -25,21 +25,24 @@
         <p class="sign-up"><a href="https://singletab.site">No account yet? Get one here!</a></p>
       </div>
 
-      <div class="button-container">
-	      <button id="checkPage">Bye Tabs</button>
-	      <button id="show-maps">Show Maps</button>
+      <div class="action-container">
+        <div class="button-container">
+  	      <button id="checkPage">Bye Tabs</button>
+  	      <button id="show-maps">Show Maps</button>
+        </div>
+
+        <div class="research-choice hidden">
+          <form id="select-folder">
+            <select form="select-folder" name="folder" id="choices-single-default" class="form-control" data-trigger>
+              <option value="" style="display: none">Select a research</option>
+              <option value="new-research">Create a new research</option>
+            </select>
+            <p id="tabs-form"></p>
+            <input form="select-folder" type="submit" id="submit-folder-selection" value="Validate">
+          </form>
+        </div>
       </div>
 
-      <div class="research-choice">
-        <form id="select-folder">
-          <select form="select-folder" name="folder" id="choices-single-default" class="form-control" data-trigger>
-            <option value="" style="display: none">Select a research</option>
-            <option value="new-research">Create a new research</option>
-          </select>
-          <p id="tabs-form"></p>
-          <input type="submit" id="submit-folder-selection" value="Validate">
-        </form>
-      </div>
     </div>
 
   </body>
