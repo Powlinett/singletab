@@ -1,19 +1,26 @@
 #tabs-form {
   height: 0;
+  margin: 0;
 }
 
 .choices {
   margin-bottom: 0 !important;
   color: white;
 }
+/*
+.choices__inner {
+  border: none;
+}*/
 
 .choices[data-type*=select-one] .choices__inner {
   padding-bottom: 0;
   background-color: black;
   font-size: 16px;
-  width: 204px;
+  width: 205px;
   height: 35px;
   min-height: 0;
+  border: none;
+  border-radius: 2px;
 }
 
 .choices__input.choices__input--cloned:hover {
@@ -54,4 +61,6 @@
 
 #submit-folder-selection {
   height: 52px;
+  margin-top: 0;
+  border-radius: 2px;
 }
