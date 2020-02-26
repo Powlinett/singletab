@@ -11,15 +11,6 @@ class FoldersController < ApplicationController
     end
   end
 
-  def new
-    @folders = Folder.new
-  end
-
-  def create
-    @folders = Folder.new(params[:query])
-    redirect_to folders_url
-  end
-
   def search
     #@folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
     @tabs = current_user.tabs
