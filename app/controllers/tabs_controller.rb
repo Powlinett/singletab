@@ -23,7 +23,7 @@ class TabsController < ApplicationController
         icon: tab['icon'],
         description: textebody,
         comment: '',
-        folder_id: assigned_folder
+        folder_id: assigned_folder.id
       )
       @tab.save!
     end
@@ -61,10 +61,7 @@ class TabsController < ApplicationController
     else
       @folder = Folder.find(folder)
     end
-    @folder.id
+    @folder
   end
 
-  def tab_unique?(tab)
-    if tab.url
-  end
 end
