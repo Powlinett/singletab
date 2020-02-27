@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-  { host: ENV["www.singletab.site"] || "localhost:3000" }
-end
+    { host: ENV["www.singletab.site"] || "localhost:3000" }
+  end
 
+  protected
+  def after_sign_in_path_for(resource)
+    folders_path
+  end
 end
