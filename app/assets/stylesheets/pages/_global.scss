@@ -5,8 +5,12 @@ html, body {
 	margin: 0;
 }
 
+h3, h4 {
+  font-size: 24px;
+  font-family: 'Open sans';
+}
+
 .container {
 	flex-grow: 1;
 	width: 1080px;
-	margin-bottom: 50px;
 }

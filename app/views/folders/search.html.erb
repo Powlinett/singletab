@@ -8,8 +8,6 @@
         <div class="results-tab-card-header-container">
 
           <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="avatar">
-          <!-- <a href="<%= tab.url %>" class="tab-link" target="_blank"> -->
-
           <div class="tab-card-header tab-card-content">
             <a href="<%= tab.url %>" class="tab-link" target="_blank">
             <h3 class="tab-name"><%= tab.name %></h3>
@@ -17,20 +15,16 @@
             </a>
           </div>
         </div>
-          <div class="tab-body-description">
-            <% arraysearch = tab.description.scan(/\w.{0,80}#{params[:query]}.{0,100}/) %>
-              <ul>
-
-                <% arraysearch.each do |x| %>
-                  <%# x = x.gsub(params[:query],`<strong>#{params[:query]}</strong>`) %>
-                  <% x = x.gsub(params[:query],"<strong>#{params[:query]}</strong>") %>
-                  <li>« ... <%= x.html_safe %> ... »</li>
-                <% end %>
-              </ul>
+        <div class="tab-body-description">
+          <% results_sentences = tab.description.scan(/\w.{0,80}#{params[:query]}.{0,100}/) %>
+            <ul>
+              <% results_sentences.each do |sentence| %>
+                <%# x = x.gsub(params[:query],`<strong>#{params[:query]}</strong>`) %>
+                <% sentence = sentence.gsub(params[:query],"<strong>#{params[:query]}</strong>") %>
+                <li>« ... <%= sentence.html_safe %> ... »</li>
+              <% end %>
+            </ul>
         </div>
-        <!-- <div class="tab-card-actions">
-          <a data-confirm="Are you sure?" class="delete-icon fas fa-times" rel="nofollow" data-method="delete" href="/tabs/24"></a>
-        </div> -->
       </div>
     <% end %>
   </div>

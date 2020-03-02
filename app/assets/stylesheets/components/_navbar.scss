@@ -41,7 +41,7 @@
           height: 60px;
         }
       }
-      
+
       h1.title-singletab {
         color:white;
         margin-bottom: 0;
@@ -73,6 +73,7 @@
           &:hover {
             background: $color-light;
             color: $color-dark;
+            border-radius: 2px;
           }
         }
       }

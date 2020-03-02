@@ -1,31 +1,20 @@
 class FoldersController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :set_folder, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :authenticate_user!
+  before_action :set_folder, only: [:show, :destroy, :update]
+  before_action :folders_to_display, only: [:index, :send_folders_name]
 
   def index
-    @folders = Folder.search_folder_by_id(current_user.id) # ActiveRecord
-    @folders = @folders.sort_by { |folder| folder.created_at }.reverse
+    @folders = @folders.sort_by { |folder| folder.tabs.last.created_at }.reverse
     @tabs = []
     @folders.reverse.each do |folder|
-    @tabs << folder.tabs
+      @tabs << folder.tabs
     end
   end
 
   def search
-    #@folders = Folder.joins("INNER JOIN tabs ON folders.id = tabs.folder_id AND tabs.description LIKE '%#{params[:query]}%'")
     @tabs = current_user.tabs
-    word = params[:query]
-    @query_tabs = []
-    @tabs.each do |x|
-      if !x.description.nil? && x.description.match?(/#{word}/i)
-        @query_tabs << x
-      end
-    end
-    @query_tabs
-  end
-
-  def edit
-    @parantfolder = Folder.search_folder_by_id(current_user.id)
+    @query_tabs = @tabs.search_in_description(params[:query])
+    # @query_tabs.uniq! { |tab| tab.url }
   end
 
   def update
@@ -38,22 +27,20 @@ class FoldersController < ApplicationController
   end
 
   def destroy
-    @folder = Folder.find(params[:id])
     @folder.tabs.each(&:destroy)
     @folder.destroy
     redirect_to folders_path
   end
 
   def send_folders_name
-    @folders = Folder.search_folder_by_id(current_user.id)
-    @folders_json = []
+    folders_json = []
     @folders.each do |folder|
-      @folders_json << {
+      folders_json << {
         name: folder.name.to_s,
         id: folder.id.to_s
       }
     end
-    render json: @folders_json
+    render json: folders_json
   end
 
   private
@@ -64,5 +51,9 @@ class FoldersController < ApplicationController
 
   def folder_params
     params.require(:folder).permit(:name, :weight, :parent_id)
+  end
+
+  def folders_to_display
+    @folders = current_user.folders.where.not(name: 'My researches')
   end
 end

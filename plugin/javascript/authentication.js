@@ -1,11 +1,17 @@
-// const url = 'https://www.singletab.site/auth'
-// const logoutUrl = 'https://www.singletab.site/signout'
+/////// CHECK-AUTH ///////////
 
-// const url = 'https://singletab-staging.herokuapp.com/auth'
-// const logoutUrl = 'https://singletab-staging.herokuapp.com/signout'
+fetch(ROOT_URL + "/checkauth")
+.then((response) => { return (response.json()) })
+.then(data => {
+  console.log(data['statut']);
+  if ( data['statut'] == 'Already logged' ) {
+    form.classList.add('hidden');
+    logout.classList.remove('hidden');
+  } else {
+    actions.classList.add('hidden');
+  };
+});
 
-const url = 'http://localhost:3000/auth'
-const logoutUrl = 'http://localhost:3000/signout'
 
 /////// LOGIN ///////////
 
@@ -18,7 +24,7 @@ form.addEventListener('submit', (event) => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   console.log(email);
-  fetch(url, {
+  fetch(ROOT_URL + "/auth", {
 	method: 'POST',
 	body: JSON.stringify({ "email": email, "password": password }),
 	headers: { 'Content-Type': 'application/json',
@@ -41,7 +47,7 @@ form.addEventListener('submit', (event) => {
 
 logout.addEventListener('click', (event) => {
   event.preventDefault();
-  fetch(logoutUrl)
+  fetch(ROOT_URL + "/signout")
   .then((response) => { return (response.json()) })
   .then(data => {
     console.log(data["message"]);

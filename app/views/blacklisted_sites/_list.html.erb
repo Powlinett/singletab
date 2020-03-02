@@ -1,0 +1,10 @@
+<ul class="blacklist-list">
+  <% current_user.blacklisted_sites.each do |blacklisted_site| %>
+    <li class="blacklist-btn">
+      <h6 class="blacklist-domain"><%= blacklisted_site.domain_name %></h6>
+      <a href="/blacklisted_sites/<%= blacklisted_site.id %>" class="delete-icon" data-method="delete" data-remote="true">
+      <i class="fas fa-times"></i>
+      </a>
+    </li>
+  <% end %>
+</ul>

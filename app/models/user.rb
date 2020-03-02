@@ -7,10 +7,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :folders
   has_many :tabs, through: :folders
+  has_many :blacklisted_sites
 
-  protected
+  after_create :create_root_folder
 
-  # def confirmation_required?
-  #   false
-  # end
+  private
+
+  def create_root_folder
+    root_folder = Folder.new(
+      name: 'My researches',
+      user: self
+    )
+    root_folder.save!
+  end
 end
