@@ -1,0 +1,90 @@
+body.blacklisted_sites {
+
+  h3 {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .blacklist-container {
+    margin: 32px auto;
+    box-shadow: $base-box-shadow;
+    border-radius: $base-border-radius;
+    background-color: white;
+    height: 70vh;
+    width: 500px;
+    padding: 48px;
+    display:flex;
+    flex-direction: column;
+  }
+
+  .blacklist-form {
+    height: fit-content;
+
+    .simple_form.new_blacklisted_site {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      margin-top: 36px;
+      width: fit-content;
+
+      .input, h4 {
+        margin: 0;
+        font-family: 'Open sans';
+        font-size: 18px;
+        padding-right: 8px;
+
+        input {
+          margin: 0;
+          width: 312px;
+          border-radius: $base-border-radius;
+          border: none;
+
+          &:focus {
+            border: 1px solid $grey-light;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .blacklist-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    box-shadow: inset 1px 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(220, 220, 220, 0.2);
+    border: 1px solid rgba(240, 240, 240, 0.8);
+    border-radius: 4px;
+    padding: 24px 18px;
+    overflow-y: scroll;
+    margin-top: 36px;
+  }
+
+  .blacklist-btn {
+    display: flex;
+    background-color: black;
+    box-shadow: $base-box-shadow;
+    border-radius: $base-border-radius;
+    margin: 8px;
+    padding: 14px 28px;
+
+    .delete-icon {
+      position: relative;
+      top: -11px;
+      left: 24px;
+      color: rgba(255, 255, 255, 0.5) !important;
+      font-size: 12px;
+    }
+  }
+
+  .blacklist-domain {
+    color: white;
+    font-family: 'Arial';
+    font-weight: bold;
+    margin: 0;
+  }
+}

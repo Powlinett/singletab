@@ -1,25 +1,17 @@
 class TabsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  def index
-    @tabs = Tab.all
-  end
-
-  def new
-    @project = Tab.new
-  end
-
   def create
     assigned_folder = assign_folder_to_tabs(params[:folder])
 
     arrayparams = JSON.parse(params[:variable])
     arrayparams.each do |tab|
-      tab['body'].nil? ? textebody = '' : textebody = no_n(tab['body'].join(' '))
+      textebody = tab['body'].nil? ? '' : no_n(tab['body'].join(' '))
 
       @tab = Tab.new(
-        name: tab['name'],
+        name: Domainatrix.parse(tab['url']).domain,
         url: tab['url'],
-        title: no_accent(tab['title']),
+        title: tab['title'],
         icon: tab['icon'],
         description: textebody,
         comment: '',
@@ -29,10 +21,6 @@ class TabsController < ApplicationController
     end
   end
 
-  def show
-    @tab = Tab.find(params[:id])
-  end
-
   def destroy
     @tab = Tab.find(params[:id])
     @tab.destroy
@@ -40,9 +28,9 @@ class TabsController < ApplicationController
 
   private
 
-  def no_accent(texte)
-    CGI.escape(texte).gsub('+',' ').gsub("\\n",' ').gsub('%E9','e').gsub('%27',' ').gsub('%FB','u').gsub('%2B','+').gsub('%28','(').gsub('%3B',';').gsub('%0D%0A','').gsub('%2C',',').gsub('%85','...').gsub('%29',')').gsub('%EA','e').gsub('%26','et').gsub('%3A',':').gsub('%E2','a').gsub('%E0','a').gsub('%22','').gsub('%8C','OE').gsub('%B0','um ').gsub('%E8','e')
-  end
+  # def no_accent(texte)
+  #   CGI.escape(texte).gsub('+',' ').gsub("\\n",' ').gsub('%E9','e').gsub('%27',' ').gsub('%FB','u').gsub('%2B','+').gsub('%28','(').gsub('%3B',';').gsub('%0D%0A','').gsub('%2C',',').gsub('%85','...').gsub('%29',')').gsub('%EA','e').gsub('%26','et').gsub('%3A',':').gsub('%E2','a').gsub('%E0','a').gsub('%22','').gsub('%8C','OE').gsub('%B0','um ').gsub('%E8','e')
+  # end
 
   def no_n(texte)
     texte.gsub("\n",' ')
@@ -53,9 +41,10 @@ class TabsController < ApplicationController
       time = Time.now
       time = time.strftime('%d/%m/%Y %k:%M')
       @folder = Folder.new(
-        user_id: current_user.id,
+        user: current_user,
         name: "New search #{time}",
-        weight: 1
+        weight: 1,
+        parent: current_user.folders.first
       )
       @folder.save!
     else
@@ -63,5 +52,4 @@ class TabsController < ApplicationController
     end
     @folder
   end
-
 end

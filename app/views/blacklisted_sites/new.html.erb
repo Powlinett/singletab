@@ -1,0 +1,12 @@
+<div class="blacklist-container">
+  <div class="blacklist-form">
+    <h3 class="blacklist-request">Tell us which websites you want to ignore:</h3>
+    <%= simple_form_for(@blacklisted_site, remote: true) do |form| %>
+      <h4>www.</h4>
+      <%= form.input :domain_name, as: :string, label: false, autofocus: true, placeholder: 'google.com' %>
+      <%= form.button :submit, type: 'hidden' %>
+    <% end %>
+  </div>
+
+    <%= render 'list' %>
+</div>

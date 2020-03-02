@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/visualisation', to: 'pages#visualisation', as: 'visualisations'
-  get '/visualisation/:id', to: 'pages#visualisation', as: 'visualisation'
-  get '/data', to: 'pages#data', as: 'data'
-  get '/visualisation/data_id/:id', to: 'pages#data'
+  get '/visualisation', to: 'map#visualisation', as: 'visualisations'
+  get '/visualisation/:folder_id', to: 'map#visualisation', as: 'visualisation'
+
+  get 'visualisation/data_folder/:folder_id', to: 'map#data'
+  get '/data', to: 'map#data', as: 'data'
+
   post '/auth', to: 'pages#auth'
   get '/checkauth', to: 'pages#check_auth'
   get '/signout', to: 'pages#signout'
+
   get '/folders/folders_name', to: 'folders#send_folders_name'
   post 'tabs/assign_folder', to: 'tabs#assign_folder_to_tabs'
 
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :folders, only: [:update, :index, :show, :destroy, :edit]
   resources :tabs, only: [:edit, :create, :destroy]
+  resources :blacklisted_sites, only: [:index, :new, :create, :destroy]
 
   root to: "pages#landing"
 end

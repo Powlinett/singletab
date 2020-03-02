@@ -1,10 +1,10 @@
 const folderSelection = document.querySelector('#select-folder');
 
 function createResearchForm() {
-  const folderOption = document.querySelector('#choices-single-default');
+  let folderOption = document.querySelector('#choices-single-default');
   folderSelection.method = "POST";
-  folderSelection.action = urlsitetabs;
-  fetch(urlsitefolders)
+  folderSelection.action = ROOT_URL + "/tabs";
+  fetch(ROOT_URL + "/folders/folders_name")
     .then((response) => { return response.json() })
     .then(data => {
       data.forEach(folder => {
@@ -14,7 +14,4 @@ function createResearchForm() {
         folderOption.appendChild(option)
       });
     });
-   setTimeout(() => { choices = new Choices(folderOption) }, 100);
 };
-
-createResearchForm();

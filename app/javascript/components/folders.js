@@ -12,7 +12,6 @@ if (pagesindex) {
   document.querySelectorAll('a.open-tabs').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
-      console.log(1)
       const foldertabs = JSON.parse(link.dataset.tabs);
         foldertabs.forEach(function(tabs){
           window.open(tabs.url);
@@ -30,8 +29,6 @@ if (pagesindex) {
       console.log(folder)
       folderModal.style.display = "flex";
       buttonYesFolder.innerHTML = `<a class="btn-yes confirm-delete" data-folderid="${folder}" data-remote="true" rel="nofollow" data-method="delete" href="/folders/${folder}">Yes</a>`;
-      // const divfolder = document.querySelector(`#div-folder-${folder}`);
-      // console.log(divfolder)
       buttonYesFolder.addEventListener('click', (event) => {
         event.preventDefault();
         folderModal.style.display = "none";
@@ -51,7 +48,6 @@ if (pagesindex) {
     icon.addEventListener('click', (event) => {
       event.preventDefault();
       const tab = icon.dataset.tabid;
-      console.log(tab);
       tabModal.style.display = "flex";
       buttonYesTab.innerHTML = `<a class="btn-yes confirm-delete" data-tabid="${tab}" data-remote="true" rel="nofollow" data-method="delete" href="/tabs/${tab}">Yes</a>`;
       buttonYesTab.addEventListener('click', (event) => {
@@ -68,3 +64,11 @@ if (pagesindex) {
   });
 };
 
+// if (document.querySelector('.blacklisted_sites')) {
+//   document.querySelectorAll('.delete-icon').forEach((icon) => {
+//     icon.addEventListener('click', (event) => {
+//       const blacklistedSite = icon.dataset.blacklistid;
+//       console.log(blacklistedSite);
+//     });
+//   });
+// };
