@@ -1,5 +1,5 @@
-const ROOT_URL = "http://localhost:3000"
-// const ROOT_URL = "https://singletab-staging.herokuapp.com"
+// const ROOT_URL = "http://localhost:3000"
+const ROOT_URL = "https://singletab-staging.herokuapp.com"
 // const ROOT_URL = "https://www.singletab.site"
 
 
@@ -9,11 +9,10 @@ function arraytabs() {
   let tabUrlFin = [];
   chrome.tabs.query({currentWindow: true}, function(tabs) {
     tabs.forEach(function(tab) {
-      console.log(tab);
       chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
         let body = response;
         tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
-        removeTabs(tabUrlFin, blacklistedSitesArray);
+        removeTabs(tabUrlFin);
       });
     });
   });
@@ -21,14 +20,16 @@ function arraytabs() {
 };
 
 function closeTabs(tabs) {
-  tabs.forEach(function(tabId) {
-    chrome.tabs.remove(tabId.id);
-  });
+  for (var i = 0, len = tabs.length; i < len; i++) {
+    console.log(tabs[i].id);
+    chrome.tabs.remove(tabs[i].id);
+    };
 };
 
 //Create the hidden form to send the array of tabs
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
+  console.log(tabs);
   const button = document.querySelector('#checkPage');
   createResearchForm();
 
@@ -52,12 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
   submit.addEventListener('click', (e) => {
     event.preventDefault();
     folderSelection.submit();
-    setTimeout(openWindow, 800);
-    setTimeout(closeTabs(tabs), 1000);
+    setTimeout(openWindow, 1000, tabs);
     });
   });
 });
 
-function openWindow() {
-  window.open(ROOT_URL + "/folders");
+function openWindow(tabs) {
+  let newWindow = window.open(ROOT_URL + "/folders");
+    if(!newWindow) {
+      alert("Please allow pop-ups for Singletab :)");
+    };
+  closeTabs(tabs);
 };
+
