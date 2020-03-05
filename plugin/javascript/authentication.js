@@ -5,10 +5,11 @@ fetch(ROOT_URL + "/checkauth")
 .then(data => {
   console.log(data['statut']);
   if ( data['statut'] == 'Already logged' ) {
-    form.classList.add('hidden');
+    // form.classList.add('hidden');
     logout.classList.remove('hidden');
   } else {
     actions.classList.add('hidden');
+    form.classList.remove('hidden');
   };
 });
 
