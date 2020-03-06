@@ -5,5 +5,5 @@ class Tab < ApplicationRecord
 
   belongs_to :folder
 
-  validates :url, uniqueness: { scope: :folder_id }
+  validates :url, presence: true, uniqueness: { scope: :folder }
 end
