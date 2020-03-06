@@ -17,8 +17,9 @@ class TabsController < ApplicationController
         comment: '',
         folder_id: assigned_folder.id
       )
-      @tab.save!
+      @tab.save
     end
+    redirect_to folders_path
   end
 
   def destroy
@@ -46,7 +47,7 @@ class TabsController < ApplicationController
         weight: 1,
         parent: current_user.folders.first
       )
-      @folder.save!
+      @folder.save
     else
       @folder = Folder.find(folder)
     end

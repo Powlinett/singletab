@@ -4,5 +4,5 @@ class Folder < ApplicationRecord
   has_many :folders, foreign_key: :parent_id
   has_many :tabs
 
-  validates :name, uniqueness: { scope: :user_id }, presence: true
+  validates :name, uniqueness: { scope: :user }, presence: true
 end

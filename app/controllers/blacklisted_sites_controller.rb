@@ -13,11 +13,9 @@ class BlacklistedSitesController < ApplicationController
   end
 
   def create
-    @blacklisted_site = BlacklistedSite.new(
-      domain_name: params[:blacklisted_site][:domain_name],
-      user_id: current_user.id
-    )
-    @blacklisted_site.save!
+    @blacklisted_site = BlacklistedSite.new(blacklisted_sites_params)
+    @blacklisted_site.user = current_user
+    @blacklisted_site.save
 
     redirect_to new_blacklisted_site_path
   end
@@ -26,5 +24,11 @@ class BlacklistedSitesController < ApplicationController
     @blacklisted_site = BlacklistedSite.find(params[:id])
     @blacklisted_site.destroy
     redirect_to new_blacklisted_site_path
+  end
+
+  private
+
+  def blacklisted_sites_params
+    params.require(:blacklisted_site).permit(:domain_name)
   end
 end

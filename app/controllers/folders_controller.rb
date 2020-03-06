@@ -4,7 +4,7 @@ class FoldersController < ApplicationController
   before_action :folders_to_display, only: [:index, :send_folders_name]
 
   def index
-    @folders = @folders.sort_by { |folder| folder.tabs.last.created_at }.reverse
+    @folders = @folders.sort_by { |folder| folder.tabs.last.id }.reverse
     @tabs = []
     @folders.reverse.each do |folder|
       @tabs << folder.tabs
