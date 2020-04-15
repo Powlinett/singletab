@@ -7,9 +7,9 @@ const ROOT_URL = "https://singletab-staging.herokuapp.com"
 function arraytabs() {
   let tabUrl = new Object();
   let tabUrlFin = [];
-  chrome.tabs.query({currentWindow: true}, function(tabs) {
+  browser.tabs.query({currentWindow: true}, function(tabs) {
     tabs.forEach(function(tab) {
-      chrome.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
+      browser.tabs.executeScript(tab.id, { code: "document.body.innerText" }, function(response) {
         let body = response;
         tabUrlFin.push({ "title": tab.title, "icon": tab.favIconUrl, "url": tab.url, "body": body, "id": tab.id });
         removeTabs(tabUrlFin);
@@ -22,7 +22,7 @@ function arraytabs() {
 function closeTabs(tabs) {
   for (var i = 0, len = tabs.length; i < len; i++) {
     console.log(tabs[i].id);
-    chrome.tabs.remove(tabs[i].id);
+    browser.tabs.remove(tabs[i].id);
     };
 };
 
