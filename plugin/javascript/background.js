@@ -21,7 +21,6 @@ function arraytabs() {
 
 function closeTabs(tabs) {
   for (var i = 0, len = tabs.length; i < len; i++) {
-    console.log(tabs[i].id);
     chrome.tabs.remove(tabs[i].id);
     };
 };
@@ -29,7 +28,6 @@ function closeTabs(tabs) {
 //Create the hidden form to send the array of tabs
 document.addEventListener('DOMContentLoaded', () => {
   let tabs = arraytabs();
-  console.log(tabs);
   const button = document.querySelector('#checkPage');
   createResearchForm();
 

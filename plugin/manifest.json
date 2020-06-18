@@ -9,7 +9,11 @@
   },
 
   "background": { // On rajoute le paramètre "background"
-     "scripts": ["javascript/background.js"]
+     "scripts": ["javascript/background.js",
+                "javascript/authentication.js",
+                "javascript/blacklist.js",
+                "javascript/form-creation.js",
+                "javascript/redirect.js"]
      },
 
   "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'",
