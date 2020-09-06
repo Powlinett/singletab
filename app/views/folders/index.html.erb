@@ -2,10 +2,10 @@
 
 <div class="links-buttons">
   <div>
-    <%= link_to 'List', folders_path, class: "folders-link active" %>
+    <%= link_to 'Folders', folders_path, class: "folders-link active" %>
   </div>
   <div>
-    <%= link_to 'Map', visualisations_path, class: "maps-link"  %>
+    <%= link_to 'By Dates', filtered_by_date_path, class: "by-dates-link" %>
   </div>
 </div>
 
@@ -22,8 +22,7 @@
               <%= form.button :submit,  id: "idFolder-#{folder.id}" , value: "Update", type: "hidden", class: 'bnt btnTitreFolder' %>
             <% end %>
           </h3>
-  <!--         <%= link_to '', visualisation_path(folder.id), class: "fas btn fa-globe-africa"  %>
-   -->    <h4 class="tabs-number"><%= pluralize(folder.tabs.count, "tab") %></h4>
+          <h4 class="tabs-number"><%= pluralize(folder.tabs.count, "tab") %></h4>
         </div>
         <%= link_to 'Open All', '', class: 'primary-button open-tabs' , :"data-tabs" => folder.tabs.to_json %>
         <div class="btnremove btn fas fa-times" data-folderid=<%= folder.id %> ></div>

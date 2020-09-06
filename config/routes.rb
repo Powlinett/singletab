@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
-  get '/visualisation', to: 'map#visualisation', as: 'visualisations'
-  get '/visualisation/:folder_id', to: 'map#visualisation', as: 'visualisation'
+  # get '/visualisation', to: 'map#visualisation', as: 'visualisations'
+  # get '/visualisation/:folder_id', to: 'map#visualisation', as: 'visualisation'
 
-  get 'visualisation/data_folder/:folder_id', to: 'map#data'
-  get '/data', to: 'map#data', as: 'data'
+  # get 'visualisation/data_folder/:folder_id', to: 'map#data'
+  # get '/data', to: 'map#data', as: 'data'
 
   post '/auth', to: 'pages#auth'
   get '/checkauth', to: 'pages#check_auth'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/folders/folders_name', to: 'folders#send_folders_name'
   post 'tabs/assign_folder', to: 'tabs#assign_folder_to_tabs'
+  get 'tabs/order-by-dates', to: 'tabs#index_by_date', as: 'filtered_by_date'
 
   get 'folders/search', to: 'folders#search', as: 'search'
 
