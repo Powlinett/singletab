@@ -8,8 +8,8 @@
     "default_popup": "popup.html"
   },
 
-  "background": { // On rajoute le paramètre "background"
-     "scripts": ["javascript/background.js"]
+  "background": {
+     "scripts": ["javascript/form-creation.js", "javascript/blacklist.js", "javascript/background.js"]
      },
 
   "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'",
@@ -23,8 +23,8 @@
 
   "permissions": [
    "tabs",
+   "activeTab",
    "*://*/*",
-   "http://localhost:3000/",
-   "processes"
+   "http://localhost:3000/"
  ]
 }
