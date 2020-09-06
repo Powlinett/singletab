@@ -10,7 +10,7 @@
 	bottom: 20px;
 }
 
-.links-buttons .folders-link, .maps-link {
+.links-buttons .folders-link, .by-dates-link {
 	font-size: 14px;
 	width: 50%;
 	padding: 6px 12px;
@@ -22,7 +22,7 @@
 	box-shadow: $base-box-shadow;
 }
 
-.links-buttons .folders-link:hover, .maps-link:hover {
+.links-buttons .folders-link:hover, .by-dates-link:hover {
 	text-decoration: none;
 }
 
@@ -32,7 +32,7 @@
     color: $grey-medium;
 }
 
-.links-buttons .maps-link {
+.links-buttons .by-dates-link {
 	border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     color: $grey-medium;

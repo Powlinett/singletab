@@ -14,7 +14,13 @@ class FoldersController < ApplicationController
   def search
     @tabs = current_user.tabs
     @query_tabs = @tabs.search_in_description(params[:query])
-    # @query_tabs.uniq! { |tab| tab.url }
+    @query_tabs.to_a.uniq! { |tab| tab.url }
+    query_array = params[:query].downcase.split(' ')
+    if query_array.length > 1
+      @key_word = query_array[0]
+    else
+      @key_word = params[:query]
+    end
   end
 
   def update

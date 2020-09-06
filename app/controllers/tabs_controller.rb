@@ -1,6 +1,11 @@
 class TabsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index_by_date
+    @tabs = current_user.tabs.order(created_at: :desc)
+    render :index_by_date
+  end
+
   def create
     assigned_folder = assign_folder_to_tabs(params[:folder])
 
@@ -28,10 +33,6 @@ class TabsController < ApplicationController
   end
 
   private
-
-  # def no_accent(texte)
-  #   CGI.escape(texte).gsub('+',' ').gsub("\\n",' ').gsub('%E9','e').gsub('%27',' ').gsub('%FB','u').gsub('%2B','+').gsub('%28','(').gsub('%3B',';').gsub('%0D%0A','').gsub('%2C',',').gsub('%85','...').gsub('%29',')').gsub('%EA','e').gsub('%26','et').gsub('%3A',':').gsub('%E2','a').gsub('%E0','a').gsub('%22','').gsub('%8C','OE').gsub('%B0','um ').gsub('%E8','e')
-  # end
 
   def no_n(texte)
     texte.gsub("\n",' ')

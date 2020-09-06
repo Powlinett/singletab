@@ -1,0 +1,27 @@
+<%= render "layouts/searchbar" %>
+
+<div class="links-buttons">
+  <div>
+    <%= link_to 'Folders', folders_path, class: "folders-link" %>
+  </div>
+  <div>
+    <%= link_to 'By Dates', filtered_by_date_path, class: "by-dates-link active" %>
+  </div>
+</div>
+
+<div class="user-search" id="pagesindex">
+  <% @tabs.each do |tab| %>
+    <div class="tab-card" data-tabid="<%= tab.id %>">
+      <img src="<%= tab.icon.nil? ? "http://imageshack.com/a/img924/7323/nbroSO.png" : tab.icon %>" class="icon-tab">
+      <div class="tab-card-content" data-taburl="<%= tab.url.to_json %>">
+        <a href="<%= tab.url %>" class="tab-url" target="_blank">
+          <p class="tab-name"><%= tab.name %></p>
+          <p class="tab-title"><%= URI.decode(tab.title) %></p>
+        </a>
+        <div class="delete-icon fas fa-times" data-tabid=<%= tab.id %>></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render partial: "folders/modal" %>
